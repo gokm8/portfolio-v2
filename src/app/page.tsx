@@ -1,10 +1,19 @@
+'use client'
+
 import React from 'react'
+import Introduction from './components/Introduction'
+import Education from './components/Education'
 
 function Home() {
   return (
-    <section className='py-24'>
+    <section className='py-16'>
       <div className='container'>
-        <div className='text-3x1 font-bold'>Next JS Starter</div>
+        <div className='mb-4'>
+          <Introduction />
+        </div>
+        <div className='mb-4'>
+          <Education />
+        </div>
       </div>
     </section>
   )

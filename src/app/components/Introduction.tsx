@@ -1,10 +1,11 @@
 import React from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+
+// icons found at: https://react-icons.github.io/react-icons/
 import { FaLinkedin } from 'react-icons/fa'
 import { FaGithub } from 'react-icons/fa'
 import { IoMail } from 'react-icons/io5'
 import { MdEmail } from 'react-icons/md'
-import portrait from '../../assets/about/about__me.jpg'
 
 function Introduction() {
   return (
@@ -12,7 +13,7 @@ function Introduction() {
       <div className='flex flex-row items-center'>
         {/* AVATAR IMG */}
         <Avatar className='h-12 w-12'>
-          <AvatarImage src='https://github.com/shadcn.png' />
+          <AvatarImage src='https://avatars.githubusercontent.com/u/107099606?v=4' />
           <AvatarFallback>GØ</AvatarFallback>
         </Avatar>
 

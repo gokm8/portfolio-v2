@@ -22,8 +22,24 @@ function Introduction() {
         toast({
           title: 'Email has been copied to clipboard',
           description: 'You can email me regarding any inquiries.',
-          variant: 'default'
+          variant: 'success'
         })
+
+        // keep toast visible until closed // not recommended (only testing)
+        // toast({
+        //   title: 'Persistent Toast',
+        //   description: 'This toast will stay visible until you close it.',
+        //   variant: 'success',
+        //   duration: Infinity,
+        //   action: (
+        //     <Button
+        //       onClick={() => {
+        //       }}
+        //     >
+        //       Close
+        //     </Button>
+        //   )
+        // })
       })
       .catch((err) => {
         console.error('Failed to copy email: ', err)
@@ -62,7 +78,7 @@ function Introduction() {
 
         {/* name + passion */}
         <div className='ml-4 flex flex-col space-y-1'>
-          <h2 className='text-xl font-black text-neutral-100'>
+          <h2 className='text-xl font-semibold text-neutral-100'>
             Gøkmen Øzbayir
           </h2>
           <p className='text-sm text-neutral-300'>

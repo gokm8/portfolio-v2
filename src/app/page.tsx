@@ -1,11 +1,11 @@
 'use client'
 
 import React from 'react'
-import Introduction from './components/Introduction'
-import Education from './components/Education'
-import Technologies from './components/Technologies'
-import CurrentProjects from './components/CurrentProjects'
-import CompletedProjects from './components/CompletedProjects'
+import Introduction from './component/Introduction'
+import Education from './component/Education'
+import Technologies from './component/Technologies'
+import CurrentProjects from './component/CurrentProjects'
+import CompletedProjects from './component/CompletedProjects'
 
 function Home() {
   return (

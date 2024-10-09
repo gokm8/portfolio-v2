@@ -21,7 +21,7 @@ function CurrentProjects() {
       {currentProjectsData.map((data, index) => (
         <div key={index} className='mb-8'>
           <div className='flex flex-col'>
-            <h3 className='text-sm text-neutral-300'>{data.title}</h3>
+            <h3 className='mb-1.5 text-sm text-neutral-300'>{data.title}</h3>
             <p className='text-sm text-neutral-500'>{data.description}</p>
           </div>
         </div>

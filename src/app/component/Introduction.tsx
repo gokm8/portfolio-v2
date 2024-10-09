@@ -1,12 +1,12 @@
 import React from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import RippleLoader from '@/components/ui/RippleLoader'
 
 // icons found at: https://react-icons.github.io/react-icons/
 import { FaLinkedin } from 'react-icons/fa'
 import { FaGithub } from 'react-icons/fa'
 import { IoMail } from 'react-icons/io5'
 import { MdEmail } from 'react-icons/md'
-import RippleLoader from '@/components/ui/RippleLoader'
 
 function Introduction() {
   return (

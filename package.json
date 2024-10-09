@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -16,9 +16,9 @@
     "@radix-ui/react-avatar": "^1.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "framer-motion": "^11.11.4",
+    "framer-motion": "^11.11.5",
     "lucide-react": "^0.451.0",
-    "next": "14.2.14",
+    "next": "^14.2.15",
     "next-ts": "file:",
     "react": "^18",
     "react-dom": "^18",

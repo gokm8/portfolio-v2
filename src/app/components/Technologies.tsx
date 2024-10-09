@@ -71,7 +71,7 @@ function Technologies() {
   ]
 
   return (
-    <div>
+    <section aria-labelledby='technologies-section'>
       <h2 className='text-lg text-neutral-100'>technologies 💡</h2>
       <hr className='my-2.5 h-px border-0 bg-neutral-800' />
 
@@ -93,7 +93,7 @@ function Technologies() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   )
 }
 

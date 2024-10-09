@@ -20,7 +20,7 @@ function Education() {
   ]
 
   return (
-    <div>
+    <section aria-labelledby='education-section'>
       <h2 className='text-lg text-neutral-100'>education 🏛️</h2>
       <hr className='my-2.5 h-px border-0 bg-neutral-800' />
 
@@ -36,7 +36,7 @@ function Education() {
           <p className='text-sm text-neutral-500'>{data.education}</p>
         </div>
       ))}
-    </div>
+    </section>
   )
 }
 

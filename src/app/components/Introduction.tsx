@@ -10,7 +10,10 @@ import RippleLoader from '@/components/ui/RippleLoader'
 
 function Introduction() {
   return (
-    <div className='flex flex-col rounded border border-solid border-neutral-800 p-4'>
+    <section
+      aria-labelledby='introduction-section'
+      className='flex flex-col rounded border border-solid border-neutral-800 p-4'
+    >
       <div className='flex flex-row items-center'>
         <div className='relative'>
           {/* rippleLoader placed behind avatar */}
@@ -69,7 +72,7 @@ function Introduction() {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

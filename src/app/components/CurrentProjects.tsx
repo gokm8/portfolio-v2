@@ -13,7 +13,7 @@ function CurrentProjects() {
   ]
 
   return (
-    <div>
+    <section aria-labelledby='current-projects-section'>
       <h2 className='text-lg text-neutral-100'>current projects 🛠️</h2>
       <hr className='my-2.5 h-px border-0 bg-neutral-800' />
 
@@ -26,7 +26,7 @@ function CurrentProjects() {
           </div>
         </div>
       ))}
-    </div>
+    </section>
   )
 }
 

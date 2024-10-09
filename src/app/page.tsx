@@ -8,22 +8,12 @@ import CurrentProjects from './components/CurrentProjects'
 
 function Home() {
   return (
-    <section className='py-16'>
-      <div className='container'>
-        <div className='mb-10'>
-          <Introduction />
-        </div>
-        <div className='mb-10'>
-          <Education />
-        </div>
-        <div className='mb-10'>
-          <Technologies />
-        </div>
-        <div className='mb-10'>
-          <CurrentProjects />
-        </div>
-      </div>
-    </section>
+    <div className='container space-y-10 py-16'>
+      <Introduction />
+      <Education />
+      <Technologies />
+      <CurrentProjects />
+    </div>
   )
 }
 

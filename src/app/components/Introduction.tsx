@@ -6,16 +6,22 @@ import { FaLinkedin } from 'react-icons/fa'
 import { FaGithub } from 'react-icons/fa'
 import { IoMail } from 'react-icons/io5'
 import { MdEmail } from 'react-icons/md'
+import RippleLoader from '@/components/ui/RippleLoader'
 
 function Introduction() {
   return (
     <div className='flex flex-col rounded border border-solid border-neutral-800 p-4'>
       <div className='flex flex-row items-center'>
-        {/* avatar img */}
-        <Avatar className='h-12 w-12'>
-          <AvatarImage src='https://avatars.githubusercontent.com/u/107099606?v=4' />
-          <AvatarFallback>GØ</AvatarFallback>
-        </Avatar>
+        <div className='relative'>
+          {/* rippleLoader placed behind avatar */}
+          <RippleLoader className='absolute inset-0 z-0' />
+
+          {/* avatar placed in front */}
+          <Avatar className='relative z-10 h-12 w-12'>
+            <AvatarImage src='https://avatars.githubusercontent.com/u/107099606?v=4' />
+            <AvatarFallback>GØ</AvatarFallback>
+          </Avatar>
+        </div>
 
         {/* name + passion */}
         <div className='ml-4 flex flex-col space-y-1'>

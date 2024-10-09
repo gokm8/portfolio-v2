@@ -11,13 +11,13 @@ function Introduction() {
   return (
     <div className='flex flex-col rounded border border-solid border-neutral-800 p-4'>
       <div className='flex flex-row items-center'>
-        {/* AVATAR IMG */}
+        {/* avatar img */}
         <Avatar className='h-12 w-12'>
           <AvatarImage src='https://avatars.githubusercontent.com/u/107099606?v=4' />
           <AvatarFallback>GØ</AvatarFallback>
         </Avatar>
 
-        {/* NAME + PASSION */}
+        {/* name + passion */}
         <div className='ml-4 flex flex-col space-y-1'>
           <h2 className='text-xl font-black text-neutral-100'>
             Gøkmen Øzbayir
@@ -28,9 +28,9 @@ function Introduction() {
         </div>
       </div>
 
-      {/* DESCRIPTION + ICONS */}
+      {/* description + icons */}
       <div className='mt-4 flex items-center justify-between'>
-        {/* DECRIPTION */}
+        {/* description */}
         <p className='text-xs leading-none text-neutral-500'>
           Any inquiries? Email me @ gozbayir@hotmail.com
         </p>

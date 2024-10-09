@@ -8,10 +8,10 @@ function Home() {
   return (
     <section className='py-16'>
       <div className='container'>
-        <div className='mb-4'>
+        <div className='mb-10'>
           <Introduction />
         </div>
-        <div className='mb-4'>
+        <div className='mb-10'>
           <Education />
         </div>
       </div>

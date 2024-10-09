@@ -7,8 +7,8 @@ function CurrentProjects() {
       description: "a simple tool to generate qr codes from text or url's."
     },
     {
-      title: 'project: pending',
-      description: 'pending'
+      title: 'project: favicon generator',
+      description: 'a tool to generate favicons for websites.'
     }
   ]
 

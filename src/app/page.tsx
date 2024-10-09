@@ -4,6 +4,7 @@ import React from 'react'
 import Introduction from './components/Introduction'
 import Education from './components/Education'
 import Technologies from './components/Technologies'
+import CurrentProjects from './components/CurrentProjects'
 
 function Home() {
   return (
@@ -17,6 +18,9 @@ function Home() {
         </div>
         <div className='mb-10'>
           <Technologies />
+        </div>
+        <div className='mb-10'>
+          <CurrentProjects />
         </div>
       </div>
     </section>

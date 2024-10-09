@@ -12,7 +12,7 @@ export default function RippleLoader({ className = '' }: RippleLoaderProps) {
     },
     end: {
       opacity: 0,
-      scale: 3
+      scale: 3.3
     }
   }
 
@@ -25,23 +25,23 @@ export default function RippleLoader({ className = '' }: RippleLoaderProps) {
 
   return (
     <div className={`flex items-center justify-center ${className}`}>
-      <div className='relative h-[22px] w-[22px]'>
+      <div className='relative h-6 w-6'>
         <motion.div
-          className='absolute h-full w-full rounded-full bg-blue-500 opacity-0'
+          className='absolute h-full w-full rounded-full bg-blue-700 opacity-0'
           variants={rippleVariants}
           initial='start'
           animate='end'
           transition={rippleTransition}
         ></motion.div>
         <motion.div
-          className='absolute h-full w-full rounded-full bg-blue-500 opacity-0'
+          className='absolute h-full w-full rounded-full bg-blue-700 opacity-0'
           variants={rippleVariants}
           initial='start'
           animate='end'
           transition={{ ...rippleTransition, delay: 0.5 }}
         ></motion.div>
         <motion.div
-          className='absolute h-full w-full rounded-full bg-blue-500 opacity-0'
+          className='absolute h-full w-full rounded-full bg-blue-700 opacity-0'
           variants={rippleVariants}
           initial='start'
           animate='end'

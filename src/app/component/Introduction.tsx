@@ -1,14 +1,48 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import RippleLoader from '@/components/ui/RippleLoader'
+import { useToast } from '@/hooks/use-toast'
 
 // icons found at: https://react-icons.github.io/react-icons/
 import { FaLinkedin } from 'react-icons/fa'
 import { FaGithub } from 'react-icons/fa'
 import { IoMail } from 'react-icons/io5'
 import { MdEmail } from 'react-icons/md'
+import { Button } from '@/components/ui/button'
 
 function Introduction() {
+  const { toast } = useToast()
+  const [isClicked, setIsClicked] = useState(false)
+
+  // function to copy email to clipboard
+  const copyEmailToClipboard = () => {
+    navigator.clipboard
+      .writeText('gozbayir@hotmail.com')
+      .then(() => {
+        toast({
+          title: 'Email has been copied to clipboard',
+          description: 'You can email me regarding any inquiries.',
+          variant: 'default'
+        })
+      })
+      .catch((err) => {
+        console.error('Failed to copy email: ', err)
+        toast({
+          title: 'Failed to copy email',
+          description: 'Something went wrong. Please try again.',
+          variant: 'destructive'
+        })
+      })
+  }
+
+  // useEffect to copy email to clipboard
+  useEffect(() => {
+    if (isClicked) {
+      copyEmailToClipboard()
+      setIsClicked(false)
+    }
+  }, [isClicked])
+
   return (
     <section
       aria-labelledby='introduction-section'
@@ -16,7 +50,7 @@ function Introduction() {
     >
       <div className='flex flex-row items-center'>
         <div className='relative'>
-          {/* rippleLoader placed behind avatar */}
+          {/* RippleLoader placed behind avatar */}
           <RippleLoader className='absolute inset-0 z-0' />
 
           {/* avatar placed in front */}
@@ -44,7 +78,7 @@ function Introduction() {
           Any inquiries? Email me @ gozbayir@hotmail.com
         </p>
 
-        {/* ICONS */}
+        {/* icons */}
         <div className='flex items-center space-x-4'>
           <a
             href='https://www.linkedin.com/in/gokmenozbayir/'
@@ -63,10 +97,8 @@ function Introduction() {
             <FaGithub size={20} />
           </a>
           <a
-            href='https://www.linkedin.com/in/your-profile'
-            target='_blank'
-            rel='noopener noreferrer'
             className='text-neutral-100 hover:text-neutral-300'
+            onClick={() => setIsClicked(true)}
           >
             <MdEmail size={24} />
           </a>

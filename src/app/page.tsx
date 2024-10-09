@@ -9,7 +9,7 @@ import CompletedProjects from './component/CompletedProjects'
 
 function Home() {
   return (
-    <div className='container space-y-10 py-16'>
+    <div className='container mb-36 space-y-10 py-16'>
       <Introduction />
       <Education />
       <Technologies />

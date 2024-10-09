@@ -5,6 +5,7 @@ import Introduction from './components/Introduction'
 import Education from './components/Education'
 import Technologies from './components/Technologies'
 import CurrentProjects from './components/CurrentProjects'
+import CompletedProjects from './components/CompletedProjects'
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
       <Education />
       <Technologies />
       <CurrentProjects />
+      <CompletedProjects />
     </div>
   )
 }

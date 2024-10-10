@@ -98,7 +98,7 @@ function Introduction() {
             href='https://www.linkedin.com/in/gokmenozbayir/'
             target='_blank'
             rel='noopener noreferrer'
-            className='text-neutral-100 hover:text-neutral-300'
+            className='cursor-pointer text-neutral-100 hover:text-neutral-300'
           >
             <FaLinkedin size={20} />
           </a>
@@ -106,12 +106,12 @@ function Introduction() {
             href='https://github.com/gokm8'
             target='_blank'
             rel='noopener noreferrer'
-            className='text-neutral-100 hover:text-neutral-300'
+            className='cursor-pointer text-neutral-100 hover:text-neutral-300'
           >
             <FaGithub size={20} />
           </a>
           <a
-            className='text-neutral-100 hover:text-neutral-300'
+            className='cursor-pointer text-neutral-100 hover:text-neutral-300'
             onClick={() => setIsClicked(true)}
           >
             <MdEmail size={24} />

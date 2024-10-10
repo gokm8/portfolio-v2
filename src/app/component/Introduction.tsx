@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import RippleLoader from '@/components/ui/RippleLoader'
 import { useToast } from '@/hooks/use-toast'
@@ -13,7 +13,7 @@ function Introduction() {
   const [isClicked, setIsClicked] = useState(false)
 
   // function to copy email to clipboard
-  const copyEmailToClipboard = () => {
+  const copyEmailToClipboard = useCallback(() => {
     navigator.clipboard
       .writeText('gozbayir@hotmail.com')
       .then(() => {
@@ -22,22 +22,6 @@ function Introduction() {
           description: 'You can email me regarding any inquiries.',
           variant: 'success'
         })
-
-        // keep toast visible until closed // not recommended (only testing)
-        // toast({
-        //   title: 'Persistent Toast',
-        //   description: 'This toast will stay visible until you close it.',
-        //   variant: 'success',
-        //   duration: Infinity,
-        //   action: (
-        //     <Button
-        //       onClick={() => {
-        //       }}
-        //     >
-        //       Close
-        //     </Button>
-        //   )
-        // })
       })
       .catch((err) => {
         console.error('Failed to copy email: ', err)
@@ -47,7 +31,7 @@ function Introduction() {
           variant: 'destructive'
         })
       })
-  }
+  }, [toast])
 
   // useEffect to copy email to clipboard
   useEffect(() => {
@@ -80,7 +64,7 @@ function Introduction() {
             Gøkmen Øzbayir
           </h2>
           <p className='text-sm text-neutral-300'>
-            I'm a software engineer who loves to build things.
+            I&rsquo;m a software engineer who loves to build things.
           </p>
         </div>
       </div>

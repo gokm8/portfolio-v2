@@ -6,9 +6,7 @@ import { useToast } from '@/hooks/use-toast'
 // icons found at: https://react-icons.github.io/react-icons/
 import { FaLinkedin } from 'react-icons/fa'
 import { FaGithub } from 'react-icons/fa'
-import { IoMail } from 'react-icons/io5'
 import { MdEmail } from 'react-icons/md'
-import { Button } from '@/components/ui/button'
 
 function Introduction() {
   const { toast } = useToast()

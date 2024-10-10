@@ -55,7 +55,7 @@ function Introduction() {
       copyEmailToClipboard()
       setIsClicked(false)
     }
-  }, [isClicked])
+  }, [isClicked, copyEmailToClipboard])
 
   return (
     <section

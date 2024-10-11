@@ -6,13 +6,13 @@ function CompletedProjects() {
       title: 'project: todo list',
       description:
         'A task management app that allows users to add, edit, and delete tasks.',
-      link: 'https://example.com/todo'
+      link: 'https://github.com/gokm8/todo'
     },
     {
       title: 'project: tic-tac-toe',
       description:
         "A classic two-player game where users take turns placing X's and O's on a grid.",
-      link: 'https://example.com/tictactoe'
+      link: 'https://github.com/gokm8/tictactoe'
     }
   ]
 
@@ -27,6 +27,8 @@ function CompletedProjects() {
             <li key={index}>
               <a
                 href={project.link}
+                target='_blank'
+                rel='noopener noreferrer'
                 className='block h-full rounded-sm border border-neutral-700 p-4 hover:border-neutral-600'
               >
                 <strong className='mb-1.5 text-sm text-neutral-300'>

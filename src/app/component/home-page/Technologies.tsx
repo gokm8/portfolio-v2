@@ -87,6 +87,8 @@ function Technologies() {
               alt={data.technology}
               width={75}
               height={75}
+              // keep the image quality high
+              priority={false}
               className=''
             />
             <p className='mt-2 text-sm text-neutral-500'>{data.technology}</p>

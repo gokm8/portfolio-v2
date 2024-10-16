@@ -1,5 +1,5 @@
 import React from 'react'
-import { Section, Container } from 'components/craft'
+import { Container } from 'components/craft'
 
 function CompletedProjects() {
   const completedProjectsData = [
@@ -18,35 +18,33 @@ function CompletedProjects() {
   ]
 
   return (
-      <Container>
-        <h2 className='mb-3.5 text-lg text-neutral-100'>
-          completed projects 🏗️
-        </h2>
+    <Container>
+      <h2 className='mb-3.5 text-lg text-neutral-100'>completed projects 🏗️</h2>
 
-        {/* cards */}
-        <article>
-          <ul className='grid grid-cols-1 gap-4 sm:grid-cols-2'>
-            {completedProjectsData.map((project, index) => (
-              <li key={index}>
-                <a
-                  href={project.link}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='block h-full rounded-sm border border-neutral-700 p-4 hover:border-neutral-600'
-                >
-                  <strong className='mb-1.5 text-sm text-neutral-300'>
-                    {project.title}
-                  </strong>
+      {/* cards */}
+      <article>
+        <ul className='grid grid-cols-1 gap-4 sm:grid-cols-2'>
+          {completedProjectsData.map((project, index) => (
+            <li key={index}>
+              <a
+                href={project.link}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='block h-full rounded-sm border border-neutral-700 p-4 hover:border-neutral-600'
+              >
+                <strong className='mb-1.5 text-sm text-neutral-300'>
+                  {project.title}
+                </strong>
 
-                  <p className='mt-1.5 text-sm text-neutral-500'>
-                    {project.description}
-                  </p>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </article>
-      </Container>
+                <p className='mt-1.5 text-sm text-neutral-500'>
+                  {project.description}
+                </p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </Container>
   )
 }
 

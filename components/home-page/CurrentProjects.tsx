@@ -1,5 +1,5 @@
 import React from 'react'
-import { Section, Container } from 'components/craft'
+import { Container } from 'components/craft'
 
 function CurrentProjects() {
   const currentProjectsData = [

@@ -5,7 +5,7 @@ import { useToast } from 'hooks/use-toast'
 import { FaLinkedin } from 'react-icons/fa'
 import { FaGithub } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
-import { Container, Section } from 'components/craft'
+import { Container } from 'components/craft'
 import RippleLoader from 'components/ui/RippleLoader'
 import { Avatar, AvatarFallback, AvatarImage } from 'components/ui/avatar'
 

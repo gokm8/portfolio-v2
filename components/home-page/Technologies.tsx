@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { Container } from 'components/craft'
+import { Box, Container } from 'components/craft'
 
 function Technologies() {
   const technologiesData = [
@@ -77,25 +77,25 @@ function Technologies() {
       <hr className='my-2.5 h-px border-0 bg-neutral-800' />
 
       {/* technologies data */}
-      <div className='grid grid-cols-3 md:grid-cols-4'>
+      <Box cols={{ sm: 3, md: 4 }} rows={{ sm: 3, md: 4 }} gap={12}>
         {technologiesData.map((data, index) => (
-          <div
+          <Box
             key={index}
-            className='mb-8 flex flex-col items-center justify-center opacity-65 hover:opacity-100'
+            direction='col'
+            className='items-center justify-center opacity-65 hover:opacity-100'
           >
             <Image
               src={data.img}
               alt={data.technology}
-              width={75}
-              height={75}
-              // keep the image quality high
+              width={80}
+              height={80}
               priority={false}
               className=''
             />
             <p className='mt-2 text-sm text-neutral-500'>{data.technology}</p>
-          </div>
+          </Box>
         ))}
-      </div>
+      </Box>
     </Container>
   )
 }

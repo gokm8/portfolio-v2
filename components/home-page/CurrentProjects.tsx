@@ -1,4 +1,5 @@
 import React from 'react'
+import { Section, Container } from 'components/craft'
 
 function CurrentProjects() {
   const currentProjectsData = [
@@ -13,7 +14,7 @@ function CurrentProjects() {
   ]
 
   return (
-    <section aria-labelledby='current-projects-section'>
+    <Container>
       <h2 className='text-lg text-neutral-100'>current projects 🛠️</h2>
       <hr className='my-2.5 h-px border-0 bg-neutral-800' />
 
@@ -26,7 +27,7 @@ function CurrentProjects() {
           </div>
         </div>
       ))}
-    </section>
+    </Container>
   )
 }
 

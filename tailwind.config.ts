@@ -3,25 +3,12 @@ import type { Config } from 'tailwindcss'
 const config: Config = {
   darkMode: ['class'],
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-
-    // for using `src` directory:
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
-    container: {
-      center: true,
-      padding: {
-        DEFAULT: '1rem',
-        sm: '3rem',
-        md: '4rem',
-        lg: '5rem',
-        xl: '6rem',
-        '2xl': '28rem'
-      }
-    },
     extend: {
       fontFamily: {
         poppins: ['Poppins', 'sans-serif']
@@ -75,6 +62,10 @@ const config: Config = {
       }
     }
   },
-  plugins: [require('tailwindcss-animate')]
+  plugins: [
+    require('tailwindcss-animate'),
+    require('tailwindcss-animate'),
+    require('@tailwindcss/typography')
+  ]
 }
 export default config

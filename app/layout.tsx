@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import './globals.css'
-import { Toaster } from '@/components/ui/toaster'
+import { Layout } from 'components/craft'
+import { Toaster } from 'components/ui/toaster'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Gøkmen Øzbayir | Software Engineer',
@@ -13,11 +17,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en' className='font-poppins'>
-      <body className='bg-neutral-950'>
-        <main>{children}</main>
-        <Toaster />
-      </body>
-    </html>
+    <Layout>
+      <body className={`${inter.className} bg-[#0a0a0a]`}>{children}</body>
+    </Layout>
   )
 }

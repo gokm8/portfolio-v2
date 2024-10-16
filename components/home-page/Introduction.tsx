@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import RippleLoader from '@/components/ui/RippleLoader'
-import { useToast } from '@/hooks/use-toast'
+import { useToast } from 'hooks/use-toast'
 
 // icons found at: https://react-icons.github.io/react-icons/
 import { FaLinkedin } from 'react-icons/fa'
 import { FaGithub } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
+import { Container, Section } from 'components/craft'
+import RippleLoader from 'components/ui/RippleLoader'
+import { Avatar, AvatarFallback, AvatarImage } from 'components/ui/avatar'
 
 function Introduction() {
   const { toast } = useToast()
@@ -42,10 +43,7 @@ function Introduction() {
   }, [isClicked, copyEmailToClipboard])
 
   return (
-    <section
-      aria-labelledby='introduction-section'
-      className='flex flex-col rounded border border-solid border-neutral-800 p-4'
-    >
+    <Container>
       <div className='flex flex-row items-center'>
         <div className='relative'>
           {/* RippleLoader placed behind avatar */}
@@ -102,7 +100,7 @@ function Introduction() {
           </a>
         </div>
       </div>
-    </section>
+    </Container>
   )
 }
 

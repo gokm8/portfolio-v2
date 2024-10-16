@@ -27,15 +27,15 @@ function Education() {
 
       {/* educational data */}
       {educationalData.map((data, index) => (
-        <Box key={index} className='mb-8 last:mb-0' direction='col' gap={1}>
-          <Box direction={{ sm: 'col', md: 'row' }} className='justify-between'>
+        <div key={index} className='mb-8 last:mb-0'>
+          <div className='flex flex-col justify-between sm:flex-row'>
             <h3 className='text-sm text-neutral-300'>{data.school}</h3>
             <p className='mb-1.5 text-xs text-neutral-600 sm:text-left'>
               {data.date}
             </p>
-          </Box>
+          </div>
           <p className='text-sm text-neutral-500'>{data.education}</p>
-        </Box>
+        </div>
       ))}
     </Container>
   )

@@ -1,10 +1,17 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import { Layout } from 'components/craft'
 import { Toaster } from 'components/ui/toaster'
+// find the font at https://fonts.google.com/specimen/Anonymous+Pro
+import { Anonymous_Pro } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+// variable of the font
+const anonymousPro = Anonymous_Pro({
+  subsets: ['latin'],
+  variable: '--font-anonymousPro',
+  weight: ['400', '700'],
+  style: ['normal', 'italic']
+})
 
 export const metadata: Metadata = {
   title: 'Gøkmen Øzbayir | Software Engineer',
@@ -18,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <Layout>
-      <body className={`${inter.className} bg-[#0a0a0a]`}>
+      <body className={`${anonymousPro.variable} bg-[#0a0a0a]`}>
         {children}
         <Toaster />
       </body>

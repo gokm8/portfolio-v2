@@ -2,15 +2,20 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Layout } from 'components/craft'
 import { Toaster } from 'components/ui/toaster'
-// find the font at https://fonts.google.com/specimen/Anonymous+Pro
-import { Anonymous_Pro } from 'next/font/google'
+// find the font at https://fonts.google.com/specimen/Poppins
+import { Poppins, Roboto } from 'next/font/google'
 
 // variable of the font
-const anonymousPro = Anonymous_Pro({
+const roboto = Roboto({
   subsets: ['latin'],
-  variable: '--font-anonymousPro',
-  weight: ['400', '700'],
-  style: ['normal', 'italic']
+  variable: '--font-roboto',
+  weight: ['400', '700']
+})
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  variable: '--font-poppins',
+  weight: ['400', '700']
 })
 
 export const metadata: Metadata = {
@@ -25,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <Layout>
-      <body className={`${anonymousPro.variable} bg-[#0a0a0a]`}>
+      <body className={`${poppins.variable} bg-[#0a0a0a]`}>
         {children}
         <Toaster />
       </body>

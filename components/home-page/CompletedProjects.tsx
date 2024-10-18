@@ -19,7 +19,7 @@ function CompletedProjects() {
 
   return (
     <Container>
-      <h2 className='mb-3.5 text-lg text-neutral-100'>completed projects 🏗️</h2>
+      <h2 className='mb-3.5'>completed projects 🏗️</h2>
 
       {/* cards */}
       <article>
@@ -30,15 +30,12 @@ function CompletedProjects() {
                 href={project.link}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='block h-full rounded-sm border border-neutral-700 p-4 hover:border-neutral-600'
+                className='project-card'
               >
-                <strong className='mb-1.5 text-sm text-neutral-300'>
+                <h3 className='text-decoration-line: underline underline-offset-2'>
                   {project.title}
-                </strong>
-
-                <p className='mt-1.5 text-sm text-neutral-500'>
-                  {project.description}
-                </p>
+                </h3>
+                <p>{project.description}</p>
               </a>
             </li>
           ))}

@@ -15,14 +15,14 @@ function CurrentProjects() {
 
   return (
     <Container>
-      <h2 className='text-lg text-neutral-100'>current projects 🛠️</h2>
-      <hr className='my-2.5 h-px border-0 bg-neutral-800' />
+      <h2>current projects 🛠️</h2>
+      <hr />
 
       <Box direction='col' gap={8}>
         {currentProjectsData.map((data, index) => (
           <Box key={index} direction='col' gap={1}>
-            <h3 className='text-sm text-neutral-300'>{data.title}</h3>
-            <p className='text-sm text-neutral-500'>{data.description}</p>
+            <h3>{data.title}</h3>
+            <p>{data.description}</p>
           </Box>
         ))}
       </Box>

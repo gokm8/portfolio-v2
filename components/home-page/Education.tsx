@@ -22,19 +22,17 @@ function Education() {
 
   return (
     <Container>
-      <h2 className='text-lg text-neutral-100'>education 🏛️</h2>
-      <hr className='my-2.5 h-px border-0 bg-neutral-800' />
+      <h2>education 🏛️</h2>
+      <hr />
 
       {/* educational data */}
       {educationalData.map((data, index) => (
         <div key={index} className='mb-8 last:mb-0'>
           <div className='flex flex-col justify-between sm:flex-row'>
-            <h3 className='text-sm text-neutral-300'>{data.school}</h3>
-            <p className='mb-1.5 text-xs text-neutral-600 sm:text-left'>
-              {data.date}
-            </p>
+            <h3>{data.school}</h3>
+            <p className='mb-1.5 text-neutral-600 sm:text-left'>{data.date}</p>
           </div>
-          <p className='text-sm text-neutral-500'>{data.education}</p>
+          <p>{data.education}</p>
         </div>
       ))}
     </Container>

@@ -12,8 +12,10 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)'],
-        poppins: ['var(--font-poppins)'],
-        anonymousPro: ['var(--font-anonymousPro)']
+        notoSansJapanese: ['var(--font-notoSansJapanese)'],
+        oswald: ['var(--font-oswald)'],
+        roboto: ['var(--font-roboto)'],
+        poppins: ['var(--font-poppins)']
       }
     }
   },

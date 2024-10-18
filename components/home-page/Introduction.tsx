@@ -59,9 +59,7 @@ function Introduction() {
 
           {/* name + passion */}
           <div className='ml-4 flex flex-col space-y-1'>
-            <h2 className='text-xl font-semibold text-neutral-100'>
-              Gøkmen Øzbayir
-            </h2>
+            <h1>Gøkmen Øzbayir</h1>
             <p className='text-sm text-neutral-300'>
               I&rsquo;m a software engineer who loves to build things.
             </p>
@@ -71,9 +69,7 @@ function Introduction() {
         {/* description + icons */}
         <div className='mt-4 flex items-center justify-between'>
           {/* description */}
-          <p className='text-xs leading-none text-neutral-500'>
-            Any inquiries? Email me @ gozbayir@hotmail.com
-          </p>
+          <p>Any inquiries? Email me @ gozbayir@hotmail.com</p>
 
           {/* icons */}
           <div className='flex items-center space-x-4'>
@@ -81,7 +77,7 @@ function Introduction() {
               href='https://www.linkedin.com/in/gokmenozbayir/'
               target='_blank'
               rel='noopener noreferrer'
-              className='cursor-pointer text-neutral-100 hover:text-neutral-300'
+              className='link'
             >
               <FaLinkedin size={20} />
             </a>
@@ -89,14 +85,11 @@ function Introduction() {
               href='https://github.com/gokm8'
               target='_blank'
               rel='noopener noreferrer'
-              className='cursor-pointer text-neutral-100 hover:text-neutral-300'
+              className='link'
             >
               <FaGithub size={20} />
             </a>
-            <a
-              className='cursor-pointer text-neutral-100 hover:text-neutral-300'
-              onClick={() => setIsClicked(true)}
-            >
+            <a className='link' onClick={() => setIsClicked(true)}>
               <MdEmail size={24} />
             </a>
           </div>

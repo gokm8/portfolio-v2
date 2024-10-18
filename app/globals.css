@@ -1,3 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  p {
+    @apply font-poppins;
+  }
+
+  h1 {
+    @apply text-xl font-semibold leading-relaxed text-neutral-100;
+  }
+
+  h2 {
+    @apply text-lg leading-relaxed text-neutral-100;
+  }
+
+  h3 {
+    @apply text-sm leading-relaxed text-neutral-300;
+  }
+
+  p {
+    @apply text-xs leading-relaxed text-neutral-500;
+  }
+
+  hr {
+    @apply my-2.5 h-px border-0 bg-neutral-800;
+  }
+}
+
+@layer components {
+  .link {
+    @apply cursor-pointer text-neutral-100 hover:text-neutral-300;
+  }
+
+  .project-card {
+    @apply block h-full rounded-sm border border-neutral-700 p-4 hover:border-neutral-600;
+  }
+
+  .project-title {
+    @apply font-poppins text-sm leading-relaxed text-neutral-300;
+  }
+}

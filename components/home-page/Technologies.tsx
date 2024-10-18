@@ -68,13 +68,21 @@ function Technologies() {
     {
       technology: 'git',
       img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg'
+    },
+    {
+      technology: 'docker',
+      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg'
+    },
+    {
+      technology: 'kubernetes ',
+      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg'
     }
   ]
 
   return (
     <Container>
-      <h2 className='text-lg text-neutral-100'>technologies 💡</h2>
-      <hr className='my-2.5 h-px border-0 bg-neutral-800' />
+      <h2>technologies 💡</h2>
+      <hr />
 
       {/* technologies data */}
       <Box cols={{ sm: 3, md: 4 }} rows={{ sm: 3, md: 4 }} gap={12}>
@@ -90,9 +98,8 @@ function Technologies() {
               width={80}
               height={80}
               priority={false}
-              className=''
             />
-            <p className='mt-2 text-sm text-neutral-500'>{data.technology}</p>
+            <p className='mt-2'>{data.technology}</p>
           </Box>
         ))}
       </Box>

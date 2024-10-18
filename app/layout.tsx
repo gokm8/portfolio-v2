@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <Layout>
-      <body className={`${poppins.variable} bg-[#0a0a0a]`}>
+      <body className={`${poppins.variable}`}>
         {children}
         <Toaster />
       </body>

@@ -3,11 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  h1,
-  h2,
-  h3,
-  p {
-    @apply font-poppins;
+  body {
+    @apply bg-neutral-950 font-poppins;
   }
 
   h1 {

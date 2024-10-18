@@ -3,15 +3,9 @@ import './globals.css'
 import { Layout } from 'components/craft'
 import { Toaster } from 'components/ui/toaster'
 // find the font at https://fonts.google.com/specimen/Poppins
-import { Poppins, Roboto } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 
 // variable of the font
-const roboto = Roboto({
-  subsets: ['latin'],
-  variable: '--font-roboto',
-  weight: ['400', '700']
-})
-
 const poppins = Poppins({
   subsets: ['latin'],
   variable: '--font-poppins',

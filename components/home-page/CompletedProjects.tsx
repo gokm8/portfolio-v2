@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from 'components/craft'
+import { Container, Box } from 'components/craft'
 
 function CompletedProjects() {
   const completedProjectsData = [
@@ -17,8 +17,9 @@ function CompletedProjects() {
     },
     {
       title: 'project: quiz-app',
-      description: "a quiz app with various topics and multiple-choice questions.",
-      link: "https://github.com/gokm8/quiz-app"
+      description:
+        'a quiz app with various topics and multiple-choice questions.',
+      link: 'https://github.com/gokm8/quiz-app'
     }
   ]
 
@@ -28,23 +29,22 @@ function CompletedProjects() {
 
       {/* cards */}
       <article>
-        <ul className='grid grid-cols-1 gap-4 sm:grid-cols-2'>
+        <Box cols={1} className='sm:grid-cols-2' gap={4}>
           {completedProjectsData.map((project, index) => (
-            <li key={index}>
-              <a
-                href={project.link}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='project-card'
-              >
-                <h3 className='text-decoration-line: underline underline-offset-2'>
-                  {project.title}
-                </h3>
-                <p>{project.description}</p>
-              </a>
-            </li>
+            <a
+              key={index}
+              href={project.link}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='project-card'
+            >
+              <h3 className='text-decoration-line: underline underline-offset-2'>
+                {project.title}
+              </h3>
+              <p>{project.description}</p>
+            </a>
           ))}
-        </ul>
+        </Box>
       </article>
     </Container>
   )

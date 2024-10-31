@@ -6,14 +6,19 @@ function CompletedProjects() {
     {
       title: 'project: todo list',
       description:
-        'A task management app that allows users to add, edit, and delete tasks.',
+        'a task management app that allows users to add, edit, and delete tasks.',
       link: 'https://github.com/gokm8/todo'
     },
     {
       title: 'project: tic-tac-toe',
       description:
-        "A classic two-player game where users take turns placing X's and O's on a grid.",
+        "a classic two-player game where users take turns placing X's and O's on a grid.",
       link: 'https://github.com/gokm8/tictactoe'
+    },
+    {
+      title: 'project: quiz-app',
+      description: "a quiz app with various topics and multiple-choice questions.",
+      link: "https://github.com/gokm8/quiz-app"
     }
   ]
 

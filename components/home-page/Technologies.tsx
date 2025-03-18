@@ -1,110 +1,47 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Image from 'next/image'
 import { Box, Container } from 'components/craft'
+import { technologiesData } from 'data/technologies'
+
+const TechnologyCard = memo(({ technology, img, className }: { technology: string; img: string; className?: string }) => (
+  <Box
+    direction='col'
+    className='items-center justify-center transition-all duration-300 hover:scale-110 hover:opacity-100'
+    role="listitem"
+  >
+    <Image
+      src={img}
+      alt={`${technology} icon`}
+      width={80}
+      height={80}
+      loading="lazy"
+      className={className}
+    />
+    <p className='mt-2 text-center'>{technology}</p>
+  </Box>
+))
+
+TechnologyCard.displayName = 'TechnologyCard'
 
 function Technologies() {
-  const technologiesData = [
-    {
-      technology: 'html5',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg'
-    },
-    {
-      technology: 'css3',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg'
-    },
-    {
-      technology: 'tailwindcss',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original-wordmark.svg'
-    },
-    {
-      technology: 'bootstrap',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg'
-    },
-    {
-      technology: 'javascript',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg'
-    },
-    {
-      technology: 'react',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg'
-    },
-    {
-      technology: 'mui',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg'
-    },
-    {
-      technology: 'node.js',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg'
-    },
-    {
-      technology: 'express',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg',
-      className: 'invert-logo'
-    },
-    {
-      technology: 'postgresql',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg'
-    },
-    {
-      technology: 'mongodb',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg'
-    },
-    {
-      technology: 'c#',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg'
-    },
-    {
-      technology: 'java',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg'
-    },
-    {
-      technology: '.net core',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg'
-    },
-    {
-      technology: 'asp.net',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg'
-    },
-    {
-      technology: 'git',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg'
-    },
-    {
-      technology: 'docker',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg'
-    },
-    {
-      technology: 'kubernetes ',
-      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg'
-    }
-  ]
-
   return (
     <Container>
       <h2>technologies 💡</h2>
       <hr />
 
-      {/* technologies data */}
-      <Box cols={{ sm: 3, md: 4 }} rows={{ sm: 3, md: 4 }} gap={12}>
-        {technologiesData.map((data, index) => (
-          <Box
-            key={index}
-            direction='col'
-            className='items-center justify-center opacity-65 hover:opacity-100'
-          >
-            <Image
-              src={data.img}
-              alt={data.technology}
-              width={80}
-              height={80}
-              priority={false}
-            />
-            <p className='mt-2'>{data.technology}</p>
-          </Box>
+      <Box 
+        cols={{ sm: 3, md: 4 }} 
+        rows={{ sm: 3, md: 4 }} 
+        gap={12}
+        role="list"
+        aria-label="Technologies grid"
+      >
+        {technologiesData.map((data) => (
+          <TechnologyCard key={data.technology} {...data} />
         ))}
       </Box>
     </Container>
   )
 }
 
-export default Technologies
+export default memo(Technologies)

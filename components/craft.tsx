@@ -74,7 +74,7 @@ type BoxProps = {
   rows?:
     | number
     | { sm?: number; md?: number; lg?: number; xl?: number; '2xl'?: number }
-}
+} & React.HTMLAttributes<HTMLDivElement>
 
 // Layout Component
 // This component sets up the basic HTML structure and applies global styles

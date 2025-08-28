@@ -139,7 +139,7 @@ FeaturedProjectCard.displayName = 'FeaturedProjectCard'
 function FeaturedProjects() {
   return (
     <Container>
-      <h2>featured projects ✨</h2>
+      <h2>completed projects ✨</h2>
       <hr />
 
       <Box cols={1} className='lg:grid-cols-2' gap={6}>

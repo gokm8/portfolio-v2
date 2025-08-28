@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { Main, Section, Container, Box } from 'components/craft'
 import { allProjects, type Project } from 'data/projects'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface ProjectPageProps {
   params: {
@@ -113,9 +114,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           {/* Project Image */}
           {project.image && (
             <div className='mb-8 overflow-hidden rounded-lg border border-gray-200'>
-              <img
+              <Image
                 src={project.image}
                 alt={`${project.title} preview`}
+                width={project.width || 800}
+                height={project.height || 450}
                 className='h-auto w-full'
               />
             </div>

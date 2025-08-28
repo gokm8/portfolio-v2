@@ -1,7 +1,6 @@
 import React, { memo } from 'react'
 import { Container, Box } from 'components/craft'
 import { featuredProjectsData, type Project } from 'data/projects'
-import Link from 'next/link'
 import Image from 'next/image'
 
 const StatusBadge = memo(({ status }: { status: Project['status'] }) => {

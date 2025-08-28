@@ -5,7 +5,7 @@ import { currentProjectsData } from 'data/projects'
 const ProjectCard = memo(({ title, description }: { title: string; description: string }) => (
   <Box direction='col' gap={1}>
     <h3>{title}</h3>
-    <p>{description}</p>
+    <p className='text-justify hyphens-auto'>{description}</p>
   </Box>
 ))
 
@@ -17,7 +17,7 @@ function CurrentProjects() {
       <h2>current projects 🛠️</h2>
       <hr />
 
-      <Box direction='col' gap={8}>
+      <Box direction='col' gap={6}>
         {currentProjectsData.map((project) => (
           <ProjectCard key={project.title} {...project} />
         ))}

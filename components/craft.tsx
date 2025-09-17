@@ -13,16 +13,9 @@ export function cn(...inputs: ClassValue[]) {
 
 // Types for component props
 
-type LayoutProps = {
-  children: React.ReactNode
-  className?: string
-}
+type LayoutProps = { children: React.ReactNode; className?: string }
 
-type MainProps = {
-  children: React.ReactNode
-  className?: string
-  id?: string
-}
+type MainProps = { children: React.ReactNode; className?: string; id?: string }
 
 type SectionProps = {
   children: React.ReactNode
@@ -99,7 +92,7 @@ const Main = ({ children, className, id }: MainProps) => {
     <main
       className={cn(
         // `Main` Specific Styles
-        'max-w-none prose-p:m-0',
+        'prose-p:m-0 max-w-none',
         // General Prose
         'prose:font-sans prose prose-neutral dark:prose-invert xl:prose-lg',
         // Prose Headings
@@ -192,10 +185,7 @@ const Box = ({
   cols,
   rows
 }: BoxProps) => {
-  const directionClasses = {
-    row: 'flex-row',
-    col: 'flex-col'
-  }
+  const directionClasses = { row: 'flex-row', col: 'flex-col' }
 
   const wrapClasses = wrap ? 'flex-wrap' : 'flex-nowrap'
 

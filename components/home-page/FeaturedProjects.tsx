@@ -27,7 +27,7 @@ const StatusBadge = memo(({ status }: { status: Project['status'] }) => {
 
   return (
     <span
-      className={`inline-flex items-center rounded-sm border px-2.5 py-0.5 text-xs font-medium ${config.className}`}
+      className={`inline-flex items-center rounded-xs border px-2.5 py-0.5 text-xs font-medium ${config.className}`}
     >
       {config.label}
     </span>
@@ -41,7 +41,7 @@ const TechStackBadges = memo(({ techStack }: { techStack: string[] }) => (
     {techStack.map((tech) => (
       <span
         key={tech}
-        className='inline-flex items-center rounded-sm border border-neutral-700 bg-neutral-800 px-2 py-1 text-xs font-medium text-neutral-300'
+        className='inline-flex items-center rounded-xs border border-neutral-700 bg-neutral-800 px-2 py-1 text-xs font-medium text-neutral-300'
       >
         {tech}
       </span>
@@ -54,7 +54,7 @@ TechStackBadges.displayName = 'TechStackBadges'
 const FeaturedProjectCard = memo(({ project }: { project: Project }) => (
   <div className='project-card'>
     {project.image ? (
-      <div className='mb-4 aspect-video overflow-hidden rounded-sm bg-neutral-900'>
+      <div className='mb-4 aspect-video overflow-hidden rounded-xs bg-neutral-900'>
         <Image
           src={project.image}
           alt={`${project.title} preview`}
@@ -65,11 +65,11 @@ const FeaturedProjectCard = memo(({ project }: { project: Project }) => (
         />
       </div>
     ) : project.title === 'ayserenas.dk' ? (
-      <div className='mb-4 flex aspect-video items-center justify-center rounded-sm bg-neutral-900'>
+      <div className='mb-4 flex aspect-video items-center justify-center rounded-xs bg-neutral-900'>
         <div className='text-6xl text-red-400'>❤️</div>
       </div>
     ) : project.title === 'teorionline.dk' ? (
-      <div className='mb-4 flex aspect-video items-center justify-center rounded-sm bg-neutral-900'>
+      <div className='mb-4 flex aspect-video items-center justify-center rounded-xs bg-neutral-900'>
         <div className='text-6xl text-blue-400'>📚</div>
       </div>
     ) : null}

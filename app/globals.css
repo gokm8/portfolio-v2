@@ -1,6 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-noto-sans-japanese: var(--font-notoSansJapanese);
+  --font-oswald: var(--font-oswald);
+  --font-roboto: var(--font-roboto);
+  --font-poppins: var(--font-poppins);
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility link {
+  @apply cursor-pointer text-neutral-100 hover:text-neutral-300;
+}
+
+@utility project-card {
+  @apply block h-full rounded-xs border border-neutral-700 p-4 hover:border-neutral-600;
+}
+
+@utility project-title {
+  @apply font-poppins text-sm leading-relaxed text-neutral-300;
+}
 
 @layer base {
   body {
@@ -25,19 +63,5 @@
 
   hr {
     @apply my-2.5 h-px border-0 bg-neutral-800;
-  }
-}
-
-@layer components {
-  .link {
-    @apply cursor-pointer text-neutral-100 hover:text-neutral-300;
-  }
-
-  .project-card {
-    @apply block h-full rounded-sm border border-neutral-700 p-4 hover:border-neutral-600;
-  }
-
-  .project-title {
-    @apply font-poppins text-sm leading-relaxed text-neutral-300;
   }
 }

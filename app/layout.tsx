@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Layout } from 'components/craft'
+import { Layout } from 'components/ds'
 import { Toaster } from 'components/ui/toaster'
 // find the font at https://fonts.google.com/specimen/Poppins
 import { Poppins } from 'next/font/google'
@@ -20,11 +20,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <Layout>
+    <Layout className='dark'>
       <body className={`${poppins.variable}`}>
         {children}
         <Toaster />

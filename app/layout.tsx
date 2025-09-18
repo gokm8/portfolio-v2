@@ -3,13 +3,13 @@ import './globals.css'
 import { Layout } from 'components/ds'
 import { Toaster } from 'components/ui/toaster'
 // find the font at https://fonts.google.com/specimen/Poppins
-import { Poppins } from 'next/font/google'
+import { Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 
 // variable of the font
-const poppins = Poppins({
+const geistMono = Geist_Mono({
   subsets: ['latin'],
-  variable: '--font-poppins',
+  variable: '--font-geist-mono',
   weight: ['400', '700']
 })
 
@@ -23,7 +23,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <Layout className='dark'>
-      <body className={`${poppins.variable}`}>
+      <body className={`${geistMono.variable}`}>
         {children}
         <Toaster />
         <Analytics />

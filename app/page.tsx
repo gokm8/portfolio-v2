@@ -16,9 +16,9 @@ function Home() {
   return (
     <Main>
       <IntroductionNew />
-      {/* <Introduction /> */}
       <CompletedProjectsNew />
-      <FeaturedProjects />
+      {/* <Introduction /> */}
+      {/* <FeaturedProjects /> */}
       <Education />
       <Technologies />
       <CurrentProjects />

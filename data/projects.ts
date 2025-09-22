@@ -67,7 +67,7 @@ export const currentProjectsData: Project[] = [
   },
   {
     title: 'qr generator',
-    description: 'a simple tool to generate QR codes from text or URL\'s.',
+    description: "a simple tool to generate QR codes from text or URL's.",
     category: 'current',
     status: 'in-development',
     techStack: ['React', 'JavaScript', 'CSS']

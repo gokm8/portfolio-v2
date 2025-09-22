@@ -4,20 +4,22 @@ import Technologies from 'components/home-page/Technologies'
 import FeaturedProjects from 'components/home-page/FeaturedProjects'
 import CurrentProjects from 'components/home-page/CurrentProjects'
 import CompletedProjects from 'components/home-page/CompletedProjects'
-import { Section } from 'components/craft'
+import { Main } from 'components/ds'
+import IntroductionNew from '@/components/new-home-page/Introduction'
 
 import React from 'react'
 
 function Home() {
   return (
-    <Section>
+    <Main>
+      <IntroductionNew />
       <Introduction />
       <FeaturedProjects />
       <Education />
       <Technologies />
       <CurrentProjects />
       <CompletedProjects />
-    </Section>
+    </Main>
   )
 }
 

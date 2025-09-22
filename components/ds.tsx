@@ -58,7 +58,7 @@ export const Section = ({ children, className, id, style }: DSProps) => (
  */
 export const Container = ({ children, className, id, style }: DSProps) => (
   <div
-    className={cn('mx-auto max-w-5xl p-4 sm:p-6', className)}
+    className={cn('mx-auto max-w-3xl p-4 sm:p-6', className)}
     id={id}
     style={style}
   >

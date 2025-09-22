@@ -41,11 +41,8 @@ function IntroductionNew() {
             {/* Avatar + Name */}
             <div className='flex flex-row items-center'>
               <Avatar className='mr-2 rounded-lg'>
-                <AvatarImage
-                  src='https://github.com/evilrabbit.png'
-                  alt='@evilrabbit'
-                />
-                <AvatarFallback>ER</AvatarFallback>
+                <AvatarImage src='/favicon.ico' alt='@gokmenozbayir' />
+                <AvatarFallback>GØ</AvatarFallback>
               </Avatar>
               <CardTitle>
                 <h1 className='text-heading-lg'>

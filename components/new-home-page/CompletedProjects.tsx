@@ -30,7 +30,7 @@ const projectData = {
     '...'
   ],
   link: 'https://ayserenas.dk',
-  githubLink: 'https://github.com/gokmenozbayir/ayserenas.dk'
+  githubLink: 'https://github.com/gokm8/qr-wedding-snap'
 }
 
 function CompletedProjectsNew() {
@@ -66,7 +66,7 @@ function CompletedProjectsNew() {
               {projectData.techStack.map((tech, index) => (
                 <span
                   key={index}
-                  className='bg-secondary text-secondary-foreground rounded px-2 py-1'
+                  className='bg-secondary text-secondary-foreground hover:bg-secondary/90 px-2 py-1'
                 >
                   {tech}
                 </span>

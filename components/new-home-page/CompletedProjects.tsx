@@ -19,7 +19,7 @@ const projectData = {
   title: 'qr-wedding-snap',
   description: 'ayserenas.dk',
   alt: 'QR Wedding Snap website preview image',
-  image: '/te.jpg',
+  image: '/completed_projects_section/project-ayserenas.dk.jpg',
   techStack: [
     'Next.js',
     'TypeScript',

@@ -1,5 +1,6 @@
 import IntroductionNew from '@/components/new-home-page/Introduction'
 import CompletedProjectsNew from '@/components/new-home-page/CompletedProjects'
+import EducationNew from '@/components/new-home-page/Education'
 
 import Introduction from '@/components/home-page/Introduction'
 
@@ -19,6 +20,7 @@ function Home() {
       <CompletedProjectsNew />
       {/* <Introduction /> */}
       {/* <FeaturedProjects /> */}
+      <EducationNew />
       <Education />
       <Technologies />
       <CurrentProjects />

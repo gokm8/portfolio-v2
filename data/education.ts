@@ -20,4 +20,4 @@ export const educationalData: Education[] = [
     date: 'okt. 2019 - okt. 2019',
     education: 'exchange program in midwest, usa'
   }
-] 
+]

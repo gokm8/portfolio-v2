@@ -22,7 +22,7 @@ export default function RootLayout({
   children
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <Layout className=''>
+    <Layout className='dark'>
       <body className={`${geistMono.variable}`}>
         {children}
         <Toaster />

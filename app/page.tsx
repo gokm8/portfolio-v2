@@ -20,8 +20,8 @@ function Home() {
       <CompletedProjectsNew />
       {/* <Introduction /> */}
       {/* <FeaturedProjects /> */}
+      {/* <Education /> */}
       <EducationNew />
-      <Education />
       <Technologies />
       <CurrentProjects />
       <CompletedProjects />

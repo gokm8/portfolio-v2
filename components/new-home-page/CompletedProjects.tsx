@@ -20,15 +20,7 @@ const projectData = {
   description: 'ayserenas.dk',
   alt: 'QR Wedding Snap website preview image',
   image: '/completed_projects_section/project-ayserenas.dk.jpg',
-  techStack: [
-    'Next.js',
-    'TypeScript',
-    'Tailwind CSS',
-    'Vercel',
-    'PostgreSQL',
-    'Prisma',
-    '...'
-  ],
+  techStack: ['Next.js', 'TypeScript', 'Vercel', 'PostgreSQL', 'Prisma', '...'],
   link: 'https://ayserenas.dk',
   githubLink: 'https://github.com/gokm8/qr-wedding-snap'
 }
@@ -37,16 +29,18 @@ function CompletedProjectsNew() {
   return (
     <Section className='bg-background'>
       <Container>
-        <h2 className='text-heading-md'>completed projects 🎓</h2>
+        <h2 className='text-h2'>completed projects 🎓</h2>
         <Separator orientation='horizontal' />
 
         <Card className='relative overflow-hidden'>
           {/* Project title and website link */}
           <CardHeader>
             <CardTitle>
-              <h3 className='text-heading-sm'>{projectData.title}</h3>
+              <h3 className='text-h3'>{projectData.title}</h3>
             </CardTitle>
-            <CardDescription>{projectData.description}</CardDescription>
+            <CardDescription className='text-caption'>
+              {projectData.description}
+            </CardDescription>
           </CardHeader>
 
           {/* Project image */}
@@ -62,32 +56,27 @@ function CompletedProjectsNew() {
 
           {/* Project tech stack and description */}
           <CardContent>
-            <div className='text-tech-stack mb-3 flex flex-wrap gap-2'>
+            <div className='mb-3 flex flex-wrap gap-2'>
               {projectData.techStack.map((tech, index) => (
                 <span
                   key={index}
-                  className='bg-secondary text-secondary-foreground hover:bg-secondary/90 px-2 py-1'
+                  className='bg-secondary text-secondary-foreground hover:bg-secondary/90 text-caption px-2 py-1'
                 >
                   {tech}
                 </span>
               ))}
             </div>
-            <p className='text-body-sm'>
-              When my good friend Renas Demir needed an easy way for wedding
-              guests to share their photos, he asked if I could help.
-            </p>
-            <br />
-            <p className='text-body-sm'>
+            <p className='text-body'>
               I built a custom site (ayserenas.dk) with QR codes on the tables -
               making it ...
             </p>
           </CardContent>
 
           {/* Button and Links */}
-          <CardFooter className='text-caption flex flex-col gap-1'>
+          <CardFooter className='flex flex-col gap-1'>
             <Button className='w-full'>Read more →</Button>
             <Separator orientation='horizontal' />
-            <div className='flex h-5 w-full flex-row items-center gap-2'>
+            <div className='text-caption flex h-5 w-full flex-row items-center gap-2'>
               <Link
                 href='https://ayserenas.dk'
                 target='_blank'

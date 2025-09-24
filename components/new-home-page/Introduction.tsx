@@ -40,19 +40,19 @@ function IntroductionNew() {
           <CardHeader>
             {/* Avatar + Name */}
             <div className='flex flex-row items-center'>
-              <Avatar className='mr-2 rounded-lg'>
+              <Avatar className='mr-2'>
                 <AvatarImage src='/favicon.ico' alt='@gokmenozbayir' />
                 <AvatarFallback>GØ</AvatarFallback>
               </Avatar>
               <CardTitle>
-                <h1 className='text-heading-lg'>
+                <h1 className='text-h1'>
                   <HyperText>Gøkmen Øzbayir</HyperText>
                 </h1>
               </CardTitle>
             </div>
 
             <CardDescription>
-              <p className='text-body-sm'>
+              <p className='text-body'>
                 I'm a software engineer who loves to build things and make a
                 real world impact.
               </p>

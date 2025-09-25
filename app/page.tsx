@@ -12,17 +12,19 @@ import CompletedProjects from 'components/home-page/CompletedProjects'
 import { Main } from 'components/ds'
 
 import React from 'react'
+import TechnologiesNew from '@/components/new-home-page/Technologies'
 
 function Home() {
   return (
     <Main>
       <IntroductionNew />
       <CompletedProjectsNew />
+      <EducationNew />
+      <TechnologiesNew />
       {/* <Introduction /> */}
       {/* <FeaturedProjects /> */}
       {/* <Education /> */}
-      <EducationNew />
-      <Technologies />
+      {/* <Technologies /> */}
       <CurrentProjects />
       <CompletedProjects />
     </Main>

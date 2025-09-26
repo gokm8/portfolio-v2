@@ -1,4 +1,5 @@
 export interface Education {
+  id: number
   school: string
   date: string
   education: string
@@ -6,18 +7,21 @@ export interface Education {
 
 export const educationalData: Education[] = [
   {
-    school: 'university of southern denmark, sdu',
-    date: 'sep. 2022 - feb. 2026',
-    education: 'bachelor of engineering, software technology'
+    id: 1,
+    school: 'University of Southern Denmark',
+    date: '2022 - 2026',
+    education: 'B.Eng in Software Technology'
   },
   {
-    school: 'zealand academy of technologies and business',
-    date: 'sep. 2018 - sep. 2020',
-    education: 'ap graduate in marketing management'
+    id: 2,
+    school: 'Zealand Academy',
+    date: '2018 - 2020',
+    education: 'AP Graduate in Marketing Management'
   },
   {
-    school: 'zealand academy of technologies and business',
-    date: 'okt. 2019 - okt. 2019',
-    education: 'exchange program in midwest, usa'
+    id: 3,
+    school: 'Zealand Academy',
+    date: '2019 - 2019',
+    education: 'Exchange Program in Midwest, USA'
   }
 ]

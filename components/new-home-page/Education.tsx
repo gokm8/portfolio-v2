@@ -1,27 +1,7 @@
 import { Section } from '../ds'
 import { Container } from '../ds'
 import { Separator } from '../ui/separator'
-
-const educationData = [
-  {
-    id: 1,
-    school: 'University of Southern Denmark',
-    date: '2022 - 2026',
-    education: 'B.Eng in Software Technology'
-  },
-  {
-    id: 2,
-    school: 'Zealand Academy',
-    date: '2018 - 2020',
-    education: 'AP Graduate in Marketing Management'
-  },
-  {
-    id: 3,
-    school: 'Zealand Academy',
-    date: '2019 - 2019',
-    education: 'Exchange Program in Midwest, USA'
-  }
-]
+import { educationalData } from 'data/education'
 
 function EducationNew() {
   return (
@@ -29,7 +9,7 @@ function EducationNew() {
       <Container>
         <h2 className='text-h2'>education 🏛️</h2>
         <Separator orientation='horizontal' />
-        {educationData.map((data) => (
+        {educationalData.map((data) => (
           <div key={data.id} className='mb-6 last:mb-0'>
             <div className='flex flex-col justify-between'>
               <h3 className='text-caption flex-shrink-0'>{data.school}</h3>

@@ -9,8 +9,6 @@ import {
   CardTitle
 } from '../ui/card'
 import { Separator } from '../ui/separator'
-import { FaGithub } from 'react-icons/fa'
-import { FaExternalLinkAlt } from 'react-icons/fa'
 import { Button } from '../ui/button'
 import Image from 'next/image'
 import { BorderBeam } from '../ui/border-beam'

@@ -7,15 +7,19 @@ export function Navigation() {
     <Nav>
       <Container>
         <div className='flex items-center justify-between'>
-          <Link href='/' className='text-secondary hover:text-primary'>
+          <Link href='/' className='text-muted-foreground hover:text-primary'>
             gokm8.xyz
           </Link>
           <ul className='flex items-center gap-4'>
             <li>
-              <Link href='/'>Home</Link>
+              <Link href='/' className='hover:text-primary'>
+                Home
+              </Link>
             </li>
             <li>
-              <Link href='/blog'>Blog</Link>
+              <Link href='/blog' className='hover:text-primary'>
+                Projects
+              </Link>
             </li>
             <ModeToggle />
           </ul>

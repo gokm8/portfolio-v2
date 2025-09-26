@@ -50,7 +50,7 @@ function IntroductionNew() {
             </div>
 
             <CardDescription>
-              <p className='text-body'>
+              <p className='text-body font-semibold'>
                 I&apos;m a software engineer who loves to build things and make
                 a real world impact.
               </p>
@@ -60,7 +60,7 @@ function IntroductionNew() {
           {/* Contact info */}
           <CardContent>
             <div className='flex flex-col gap-2'>
-              <p className='text-caption'>
+              <p className='text-caption text-muted-foreground'>
                 Reach me at @{' '}
                 <Link
                   href='mailto:gozbayir@hotmail.com'
@@ -73,7 +73,7 @@ function IntroductionNew() {
               <div className='flex flex-row justify-start gap-2'>
                 {socialMediaLogos.map((logo) => (
                   <Link href={logo.href} key={logo.alt}>
-                    <logo.icon className='text-primary hover:text-primary/90 size-4' />
+                    <logo.icon className='text-muted-foreground hover:text-primary size-4' />
                   </Link>
                 ))}
               </div>

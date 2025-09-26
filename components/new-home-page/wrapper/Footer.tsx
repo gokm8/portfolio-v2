@@ -32,14 +32,14 @@ function Footer() {
             <div className='absolute left-0 flex flex-row gap-4'>
               {socialMediaLogos.map((logo) => (
                 <Link href={logo.href} key={logo.alt}>
-                  <logo.icon className='text-secondary hover:text-primary/90 size-4' />
+                  <logo.icon className='text-muted-foreground hover:text-primary size-4' />
                 </Link>
               ))}
             </div>
 
             {/* Dit navn i midten */}
-            <p className='text-caption text-secondary'>
-              © {new Date().getFullYear()} Gøkmen Øzbayir
+            <p className='text-caption text-muted-foreground'>
+              © {new Date().getFullYear()} gokm8.xyz
             </p>
           </div>
         </Container>

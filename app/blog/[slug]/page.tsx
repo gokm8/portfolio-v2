@@ -77,7 +77,9 @@ export default async function Blog({
       <Section>
         <Container>
           <Link href='/blog'>
-            <p className='text-caption'>⟵ Back to blog</p>
+            <p className='text-caption text-muted-foreground hover:text-primary'>
+              ⟵ Back to blog
+            </p>
           </Link>
         </Container>
       </Section>
@@ -126,7 +128,9 @@ export default async function Blog({
         </Container>
         <Container>
           <Link href='/blog'>
-            <p className='text-caption'>⟵ Back to blog</p>
+            <p className='text-caption text-muted-foreground hover:text-primary'>
+              ⟵ Back to blog
+            </p>
           </Link>
         </Container>
       </Section>

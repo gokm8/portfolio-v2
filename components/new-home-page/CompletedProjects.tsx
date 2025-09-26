@@ -18,7 +18,7 @@ function CompletedProjectsNew() {
   return (
     <Section className='bg-background'>
       <Container>
-        <h2 className='text-h2'>completed projects 🎓</h2>
+        <h2 className='text-h2'>Projects 💻</h2>
         <Separator orientation='horizontal' />
 
         {completedProjectsData.map((project) => (
@@ -29,8 +29,10 @@ function CompletedProjectsNew() {
                 <CardTitle>
                   <h3 className='text-h3'>{project.title}</h3>
                 </CardTitle>
-                <CardDescription className='text-caption'>
-                  {project.link}
+                <CardDescription>
+                  <p className='text-caption text-muted-foreground'>
+                    {project.link}
+                  </p>
                 </CardDescription>
               </CardHeader>
 
@@ -51,7 +53,7 @@ function CompletedProjectsNew() {
                   {project.techStack?.map((tech, index) => (
                     <span
                       key={index}
-                      className='bg-secondary text-secondary-foreground hover:bg-secondary/90 text-caption px-2 py-1'
+                      className='bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground text-caption px-2 py-1 transition-colors'
                     >
                       {tech}
                     </span>
@@ -69,7 +71,7 @@ function CompletedProjectsNew() {
                     href={project.link || ''}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex items-center gap-2'
+                    className='text-muted-foreground hover:text-primary flex items-center gap-2'
                   >
                     view live site ↗
                   </Link>
@@ -78,7 +80,7 @@ function CompletedProjectsNew() {
                     href={project.githubLink || ''}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex items-center gap-2'
+                    className='text-muted-foreground hover:text-primary flex items-center gap-2'
                   >
                     view on github ↗
                   </Link>

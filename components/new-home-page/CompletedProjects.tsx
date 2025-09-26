@@ -30,7 +30,7 @@ function CompletedProjectsNew() {
                   <h3 className='text-h3'>{project.title}</h3>
                 </CardTitle>
                 <CardDescription>
-                  <p className='text-caption text-muted-foreground'>
+                  <p className='text-body-sm text-muted-foreground'>
                     {project.link}
                   </p>
                 </CardDescription>
@@ -53,7 +53,7 @@ function CompletedProjectsNew() {
                   {project.techStack?.map((tech, index) => (
                     <span
                       key={index}
-                      className='bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground text-caption px-2 py-1 transition-colors'
+                      className='bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground text-body-sm px-2 py-1 transition-colors'
                     >
                       {tech}
                     </span>
@@ -66,7 +66,7 @@ function CompletedProjectsNew() {
               <CardFooter className='flex flex-col gap-1'>
                 <Button className='w-full'>Read more →</Button>
                 <Separator orientation='horizontal' />
-                <div className='text-caption flex h-5 w-full flex-row items-center gap-2'>
+                <div className='text-body-sm flex h-5 w-full flex-row items-center gap-2'>
                   <Link
                     href={project.link || ''}
                     target='_blank'

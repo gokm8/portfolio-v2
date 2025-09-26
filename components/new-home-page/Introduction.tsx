@@ -50,7 +50,7 @@ function IntroductionNew() {
             </div>
 
             <CardDescription>
-              <p className='text-body font-semibold'>
+              <p className='text-body-xl font-semibold'>
                 I&apos;m a software engineer who loves to build things and make
                 a real world impact.
               </p>

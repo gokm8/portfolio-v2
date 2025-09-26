@@ -5,6 +5,7 @@ import { Toaster } from 'components/ui/toaster'
 // find the font at https://fonts.google.com/specimen/Poppins
 import { Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
+import { ThemeProvider } from '@/components/theme-provider'
 
 // variable of the font
 const geistMono = Geist_Mono({
@@ -24,7 +25,14 @@ export default function RootLayout({
   return (
     <Layout className=''>
       <body className={`${geistMono.variable}`}>
-        {children}
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
         <Toaster />
         <Analytics />
       </body>

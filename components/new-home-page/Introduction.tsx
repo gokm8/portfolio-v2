@@ -13,6 +13,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa'
 import { BorderBeam } from '../ui/border-beam'
 import { HyperText } from '../ui/hyper-text'
+import { ModeToggle } from '../mode-toggle'
 
 const socialMediaLogos = [
   {
@@ -36,6 +37,9 @@ function IntroductionNew() {
   return (
     <Section className='bg-background'>
       <Container>
+        <div className='mb-4 flex flex-row justify-end'>
+          <ModeToggle />
+        </div>
         <Card className='relative overflow-hidden'>
           <CardHeader>
             {/* Avatar + Name */}

@@ -15,7 +15,11 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ slug: string }>
+}) {
   const { slug } = await params
   let post = getBlogPosts().find((post) => post.slug === slug)
   if (!post) {
@@ -56,7 +60,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
-export default async function Blog({ params }: { params: Promise<{ slug: string }> }) {
+export default async function Blog({
+  params
+}: {
+  params: Promise<{ slug: string }>
+}) {
   const { slug } = await params
   let post = getBlogPosts().find((post) => post.slug === slug)
 
@@ -112,6 +120,8 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
       </TracingBeam>
       <Section>
         <Container>
+          <p className='text-caption'>Thanks for reading! ✨</p>
+          <Separator orientation='horizontal' />
           <p className='text-caption'>1.203 people has seen this blog post</p>
         </Container>
         <Container>

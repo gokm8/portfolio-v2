@@ -1,4 +1,4 @@
-import { Container, Section } from '../ds'
+import { Container, Section } from '@/components/ds'
 
 function Footer() {
   return (

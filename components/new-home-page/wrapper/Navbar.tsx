@@ -1,5 +1,6 @@
 import { Container, Nav } from '@/components/ds'
 import { ModeToggle } from '@/components/mode-toggle'
+import Link from 'next/link'
 
 export function Navigation() {
   return (
@@ -9,10 +10,10 @@ export function Navigation() {
           <div>gokm8.xyz</div>
           <ul className='flex items-center gap-4'>
             <li>
-              <a href='/'>Home</a>
+              <Link href='/'>Home</Link>
             </li>
             <li>
-              <a href='/blog'>Blog</a>
+              <Link href='/blog'>Blog</Link>
             </li>
             <ModeToggle />
           </ul>

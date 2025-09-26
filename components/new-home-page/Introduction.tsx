@@ -4,16 +4,13 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
-  CardContent,
-  CardFooter,
-  CardAction
+  CardContent
 } from '../ui/card'
 import Link from 'next/link'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa'
 import { BorderBeam } from '../ui/border-beam'
 import { HyperText } from '../ui/hyper-text'
-import { ModeToggle } from '../mode-toggle'
 
 const socialMediaLogos = [
   {
@@ -54,8 +51,8 @@ function IntroductionNew() {
 
             <CardDescription>
               <p className='text-body'>
-                I'm a software engineer who loves to build things and make a
-                real world impact.
+                I&apos;m a software engineer who loves to build things and make
+                a real world impact.
               </p>
             </CardDescription>
           </CardHeader>

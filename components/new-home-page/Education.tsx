@@ -1,8 +1,6 @@
 import { Section } from '../ds'
 import { Container } from '../ds'
 import { Separator } from '../ui/separator'
-import { Card, CardHeader, CardTitle, CardDescription } from '../ui/card'
-import { CardContent } from '../ui/card'
 
 const educationData = [
   {

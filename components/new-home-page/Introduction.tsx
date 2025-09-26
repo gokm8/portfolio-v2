@@ -37,9 +37,6 @@ function IntroductionNew() {
   return (
     <Section className='bg-background'>
       <Container>
-        <div className='mb-4 flex flex-row justify-end'>
-          <ModeToggle />
-        </div>
         <Card className='relative overflow-hidden'>
           <CardHeader>
             {/* Avatar + Name */}

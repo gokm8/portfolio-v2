@@ -6,7 +6,8 @@ import { Toaster } from 'components/ui/toaster'
 import { Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { ThemeProvider } from '@/components/theme-provider'
-import Footer from '@/components/new-home-page/Footer'
+import Footer from '@/components/new-home-page/wrapper/Footer'
+import { Navigation } from '@/components/new-home-page/wrapper/Navbar'
 
 // variable of the font
 const geistMono = Geist_Mono({
@@ -32,6 +33,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Navigation />
           {children}
           <Footer />
         </ThemeProvider>

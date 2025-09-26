@@ -7,7 +7,9 @@ export function Navigation() {
     <Nav>
       <Container>
         <div className='flex items-center justify-between'>
-          <div>gokm8.xyz</div>
+          <Link href='/' className='text-secondary hover:text-primary'>
+            gokm8.xyz
+          </Link>
           <ul className='flex items-center gap-4'>
             <li>
               <Link href='/'>Home</Link>

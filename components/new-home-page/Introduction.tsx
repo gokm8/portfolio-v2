@@ -20,7 +20,7 @@ const socialMediaLogos = [
   },
   {
     alt: 'github',
-    href: 'https://www.linkedin.com/in/gokmenozbayir/',
+    href: 'https://github.com/gokm8',
     icon: FaGithub
   },
   {

@@ -4,16 +4,13 @@ import {
   backendTechnologies,
   databaseTechnologies,
   cloundAndDevOpsTechnologies,
-  frontendTechnologies,
-  technologiesData,
-  Technology
+  frontendTechnologies
 } from '@/data/technologies'
 import Image from 'next/image'
 import { Marquee } from '@/components/ui/marquee'
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { cn } from '@/lib/utils'
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
-import { memo } from 'react'
 
 function TechnologiesNew() {
   return (

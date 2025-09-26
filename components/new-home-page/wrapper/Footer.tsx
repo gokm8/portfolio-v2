@@ -1,11 +1,13 @@
 import { Container, Section } from '@/components/ds'
+import { Separator } from '@/components/ui/separator'
 
 function Footer() {
   return (
     <footer className='bg-background'>
       <Section>
         <Container>
-          <p className='text-caption'>
+          <Separator orientation='horizontal' />
+          <p className='text-caption text-center'>
             © {new Date().getFullYear()} Gøkmen Øzbayir
           </p>
         </Container>

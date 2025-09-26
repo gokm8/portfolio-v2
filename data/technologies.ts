@@ -128,7 +128,8 @@ export const frontendTechnologies: Technology[] = [
   },
   {
     technology: 'shadcn/ui',
-    img: '@programming-logos/shadcn-ui.svg'
+    img: '/programming-logos/shadcn-ui.svg',
+    className: 'dark:invert'
   }
 ]
 

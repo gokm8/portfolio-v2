@@ -5,13 +5,15 @@ import {
   databaseTechnologies,
   cloundAndDevOpsTechnologies,
   frontendTechnologies,
-  technologiesData
+  technologiesData,
+  Technology
 } from '@/data/technologies'
 import Image from 'next/image'
 import { Marquee } from '@/components/ui/marquee'
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { cn } from '@/lib/utils'
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
+import { memo } from 'react'
 
 function TechnologiesNew() {
   return (
@@ -23,10 +25,9 @@ function TechnologiesNew() {
 
         {/* Frontend */}
         <div className='z-10 mt-2 flex items-center justify-center'>
-          {/* Frontend */}
           <div
             className={cn(
-              'group flex w-full flex-row border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800'
+              'group border-border bg-muted text-foreground hover:bg-accent dark:hover:bg-accent flex w-full flex-row border text-base transition-all ease-in hover:cursor-pointer'
             )}
           >
             <AnimatedShinyText className='inline-flex shrink-0 items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400'>
@@ -54,10 +55,9 @@ function TechnologiesNew() {
         <div className='z-10 mt-2 flex items-center justify-center'>
           <div
             className={cn(
-              'group flex w-full flex-row border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800'
+              'group border-border bg-muted text-foreground hover:bg-accent dark:hover:bg-accent flex w-full flex-row border text-base transition-all ease-in hover:cursor-pointer'
             )}
           >
-            {/* Frontend Technologies */}
             <Marquee reverse={false}>
               {backendTechnologies.map((technology) => (
                 <Image
@@ -82,7 +82,7 @@ function TechnologiesNew() {
         <div className='z-10 mt-2 flex items-center justify-center'>
           <div
             className={cn(
-              'group flex w-full flex-row border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800'
+              'group border-border bg-muted text-foreground hover:bg-accent dark:hover:bg-accent flex w-full flex-row border text-base transition-all ease-in hover:cursor-pointer'
             )}
           >
             <AnimatedShinyText className='inline-flex shrink-0 items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400'>
@@ -90,7 +90,6 @@ function TechnologiesNew() {
               <ArrowRightIcon className='ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5' />
             </AnimatedShinyText>
 
-            {/* Frontend Technologies */}
             <Marquee reverse={true}>
               {databaseTechnologies.map((technology) => (
                 <Image
@@ -106,13 +105,13 @@ function TechnologiesNew() {
           </div>
         </div>
 
+        {/* Cloud & DevOps */}
         <div className='z-10 mt-2 flex items-center justify-center'>
           <div
             className={cn(
-              'group flex w-full flex-row border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800'
+              'group border-border bg-muted text-foreground hover:bg-accent dark:hover:bg-accent flex w-full flex-row border text-base transition-all ease-in hover:cursor-pointer'
             )}
           >
-            {/* Frontend Technologies */}
             <Marquee reverse={false}>
               {cloundAndDevOpsTechnologies.map((technology) => (
                 <Image

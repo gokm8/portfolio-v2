@@ -4,6 +4,7 @@ import { formatDate, getBlogPosts } from '@/app/blog/utils'
 import { baseUrl } from '@/app/sitemap'
 import { Container, Section } from '@/components/ds'
 import { TracingBeam } from '@/components/ui/tracing-beam'
+import Link from 'next/link'
 
 export async function generateStaticParams() {
   let posts = getBlogPosts()
@@ -62,6 +63,13 @@ export default function Blog({ params }: { params: { slug: string } }) {
 
   return (
     <Section>
+      <Section>
+        <Container>
+          <Link href='/blog'>
+            <p className='text-caption'>⟵ Back to blog</p>
+          </Link>
+        </Container>
+      </Section>
       <TracingBeam className='px-6'>
         <Container>
           <script
@@ -99,6 +107,13 @@ export default function Blog({ params }: { params: { slug: string } }) {
           </article>
         </Container>
       </TracingBeam>
+      <Section>
+        <Container>
+          <Link href='/blog'>
+            <p className='text-caption'>⟵ Back to blog</p>
+          </Link>
+        </Container>
+      </Section>
     </Section>
   )
 }

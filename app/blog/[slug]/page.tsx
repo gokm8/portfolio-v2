@@ -120,7 +120,7 @@ export default async function Blog({
       </TracingBeam>
       <Section>
         <Container>
-          <p className='text-caption'>Thanks for reading! ✨</p>
+          <p className='text-caption mb-12'>Thanks for reading! ✨</p>
           <Separator orientation='horizontal' />
           <p className='text-caption'>1.203 people has seen this blog post</p>
         </Container>

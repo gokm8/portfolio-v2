@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { CustomMDX } from '@/app/blog/__components/mdx'
 import { formatDate, getBlogPosts } from '@/app/blog/utils'
 import { baseUrl } from '@/app/sitemap'
-import { Container, Section } from '@/components/ds'
+import { Container, Section, Prose } from '@/components/ds'
 import { TracingBeam } from '@/components/ui/tracing-beam'
 import Link from 'next/link'
 import { Separator } from '@/components/ui/separator'
@@ -107,22 +107,25 @@ export default async function Blog({
               })
             }}
           />
-          <h1 className='title text-2xl font-semibold tracking-tighter'>
-            {post.metadata.title}
-          </h1>
-          <div className='mt-2 mb-8 flex items-center justify-between text-sm'>
-            <p className='text-sm text-neutral-600 dark:text-neutral-400'>
+          <Prose>
+            <h1 className='text-primary'>{post.metadata.title}</h1>
+          </Prose>
+          <div className='text-caption mt-2 mb-8 flex items-center justify-between'>
+            <Prose className='text-muted-foreground'>
               {formatDate(post.metadata.publishedAt)}
-            </p>
+            </Prose>
           </div>
-          <article className='prose'>
+          <Prose isArticle={true} isSpaced={true}>
             <CustomMDX source={post.content} />
-          </article>
+          </Prose>
         </Container>
       </TracingBeam>
       <Section>
         <Container>
-          <p className='text-caption mb-12'>Thanks for reading! ✨</p>
+          <Prose className='mb-6'>
+            <p>Thanks for reading! ✨</p>
+          </Prose>
+
           <Separator orientation='horizontal' />
           <p className='text-caption'>1.203 people has seen this blog post</p>
         </Container>

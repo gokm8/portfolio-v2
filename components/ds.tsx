@@ -164,7 +164,7 @@ export const Prose = ({
         'text-base leading-7 antialiased',
         // Heading styles
         '[&_h1]:text-4xl [&_h1]:font-medium [&_h1]:tracking-tight [&_h1]:text-balance sm:[&_h1]:text-5xl',
-        '[&_h2]:text-3xl [&_h2]:font-medium [&_h2]:tracking-tight [&_h2]:text-balance sm:[&_h2]:text-4xl',
+        '[&_h2]:text-primary/90 [&_h2]:text-3xl [&_h2]:font-medium [&_h2]:tracking-tight [&_h2]:text-balance sm:[&_h2]:text-4xl',
         '[&_h3]:text-2xl [&_h3]:font-medium [&_h3]:tracking-tight [&_h3]:text-balance sm:[&_h3]:text-3xl',
         '[&_h4]:text-xl [&_h4]:tracking-tight [&_h4]:text-balance sm:[&_h4]:text-2xl',
         '[&_h5]:text-lg [&_h5]:tracking-tight [&_h5]:text-balance sm:[&_h5]:text-xl',

@@ -165,7 +165,7 @@ export const Prose = ({
         // Heading styles
         '[&_h1]:text-4xl [&_h1]:font-medium [&_h1]:tracking-tight [&_h1]:text-balance sm:[&_h1]:text-5xl',
         '[&_h2]:text-primary/90 [&_h2]:text-3xl [&_h2]:font-medium [&_h2]:tracking-tight [&_h2]:text-balance sm:[&_h2]:text-4xl',
-        '[&_h3]:text-2xl [&_h3]:font-medium [&_h3]:tracking-tight [&_h3]:text-balance sm:[&_h3]:text-3xl',
+        '[&_h3]:text-primary/75 [&_h3]:text-2xl [&_h3]:font-medium [&_h3]:tracking-tight [&_h3]:text-balance sm:[&_h3]:text-3xl',
         '[&_h4]:text-xl [&_h4]:tracking-tight [&_h4]:text-balance sm:[&_h4]:text-2xl',
         '[&_h5]:text-lg [&_h5]:tracking-tight [&_h5]:text-balance sm:[&_h5]:text-xl',
         '[&_h6]:text-base [&_h6]:tracking-tight [&_h6]:text-balance sm:[&_h6]:text-lg',
@@ -222,7 +222,7 @@ export const Prose = ({
         '[&_th]:border-r [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:font-semibold',
         '[&_td]:border-r [&_td]:px-4 [&_td]:py-2',
         // Media
-        '[&_img]:my-4 [&_img]:h-auto [&_img]:max-w-full [&_img]:rounded-sm [&_img]:border',
+        '[&_img]:my-4 [&_img]:h-auto [&_img]:max-w-full',
         '[&_video]:my-4 [&_video]:h-auto [&_video]:max-w-full [&_video]:rounded-sm [&_video]:border',
         '[&_figure]:my-4',
         '[&_figcaption]:text-muted-foreground [&_figcaption]:mb-6! [&_figcaption]:text-sm',

@@ -26,9 +26,15 @@ export const TracingBeam = ({
   const [svgHeight, setSvgHeight] = useState(0)
 
   useEffect(() => {
-    if (contentRef.current) {
-      setSvgHeight(contentRef.current.offsetHeight)
+    const updateHeight = () => {
+      if (contentRef.current) {
+        setSvgHeight(contentRef.current.offsetHeight)
+      }
     }
+
+    updateHeight()
+    window.addEventListener('resize', updateHeight)
+    return () => window.removeEventListener('resize', updateHeight)
   }, [])
 
   const y1 = useSpring(
@@ -72,9 +78,9 @@ export const TracingBeam = ({
             }}
             animate={{
               backgroundColor:
-                scrollYProgress.get() > 0 ? 'white' : 'var(--secondary)',
+                scrollYProgress.get() > 0 ? 'white' : 'var(--primary)',
               borderColor:
-                scrollYProgress.get() > 0 ? 'white' : 'var(--secondary)'
+                scrollYProgress.get() > 0 ? 'white' : 'var(--primary)'
             }}
             className='h-2 w-2 rounded-full border border-neutral-300 bg-white'
           />

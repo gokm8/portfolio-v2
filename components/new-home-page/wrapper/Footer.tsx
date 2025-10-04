@@ -31,12 +31,12 @@ function Footer() {
             {/* Dit navn i midten */}
 
             <div className='flex flex-row gap-2'>
-              <p className='text-muted-foreground'>
+              <p className='text-muted-foreground text-base'>
                 © {new Date().getFullYear()}
               </p>
               <Link
                 href='/'
-                className='text-muted-foreground hover:text-primary'
+                className='text-muted-foreground hover:text-primary text-base underline'
               >
                 gokm8.xyz
               </Link>
@@ -46,7 +46,7 @@ function Footer() {
             <div className='flex flex-row gap-4'>
               {socialMediaLogos.map((logo) => (
                 <Link href={logo.href} key={logo.alt}>
-                  <logo.icon className='text-muted-foreground hover:text-primary size-4' />
+                  <logo.icon className='text-muted-foreground hover:text-primary size-5' />
                 </Link>
               ))}
             </div>

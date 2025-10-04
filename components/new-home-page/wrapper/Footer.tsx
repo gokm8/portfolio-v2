@@ -27,20 +27,29 @@ function Footer() {
       <Section>
         <Separator orientation='horizontal' />
         <Container>
-          <div className='relative flex items-center justify-center py-4'>
+          <div className='flex justify-between py-4'>
+            {/* Dit navn i midten */}
+
+            <div className='flex flex-row gap-2'>
+              <p className='text-muted-foreground'>
+                © {new Date().getFullYear()}
+              </p>
+              <Link
+                href='/'
+                className='text-muted-foreground hover:text-primary'
+              >
+                gokm8.xyz
+              </Link>
+            </div>
+
             {/* Social media icons til venstre */}
-            <div className='absolute left-0 flex flex-row gap-4'>
+            <div className='flex flex-row gap-4'>
               {socialMediaLogos.map((logo) => (
                 <Link href={logo.href} key={logo.alt}>
                   <logo.icon className='text-muted-foreground hover:text-primary size-4' />
                 </Link>
               ))}
             </div>
-
-            {/* Dit navn i midten */}
-            <p className='text-caption text-muted-foreground'>
-              © {new Date().getFullYear()} gokm8.xyz
-            </p>
           </div>
         </Container>
       </Section>

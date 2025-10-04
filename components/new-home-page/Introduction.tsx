@@ -43,14 +43,14 @@ function IntroductionNew() {
                 <AvatarFallback>GØ</AvatarFallback>
               </Avatar>
               <CardTitle>
-                <h1 className='text-h1'>
+                <h1 className='text-3xl'>
                   <HyperText>Gøkmen Øzbayir</HyperText>
                 </h1>
               </CardTitle>
             </div>
 
             <CardDescription>
-              <p className='text-body-xl font-semibold'>
+              <p className='text-base'>
                 I&apos;m a software engineer who loves to build things and make
                 a real world impact.
               </p>
@@ -60,7 +60,7 @@ function IntroductionNew() {
           {/* Contact info */}
           <CardContent>
             <div className='flex flex-col gap-2'>
-              <p className='text-caption text-muted-foreground'>
+              <p className='text-muted-foreground text-sm'>
                 Reach me at @{' '}
                 <Link
                   href='mailto:gozbayir@hotmail.com'

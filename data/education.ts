@@ -8,7 +8,7 @@ export interface Education {
 export const educationalData: Education[] = [
   {
     id: 1,
-    school: 'University of Southern Denmark',
+    school: 'Uni. of Southern Denmark',
     date: '2022 - 2026',
     education: 'B.Eng in Software Technology'
   },

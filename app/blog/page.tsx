@@ -10,7 +10,7 @@ export default function Page() {
   return (
     <Section>
       <Container>
-        <h1 className='text-h1 mb-8'>Projects 💻</h1>
+        <h1 className='mb-8 text-3xl font-semibold'>Projects 💻</h1>
         <BlogPosts />
       </Container>
     </Section>

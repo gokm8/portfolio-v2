@@ -77,7 +77,7 @@ export default async function Blog({
       <Section>
         <Container>
           <Link href='/blog'>
-            <p className='text-caption text-muted-foreground hover:text-primary'>
+            <p className='text-muted-foreground hover:text-primary text-base'>
               ⟵ Back to blog
             </p>
           </Link>
@@ -110,7 +110,7 @@ export default async function Blog({
           <Prose>
             <h1 className='text-primary'>{post.metadata.title}</h1>
           </Prose>
-          <div className='text-caption mt-2 mb-8 flex items-center justify-between'>
+          <div className='mt-2 mb-8 flex items-center justify-between'>
             <Prose className='text-muted-foreground'>
               {formatDate(post.metadata.publishedAt)}
             </Prose>
@@ -127,11 +127,11 @@ export default async function Blog({
           </Prose>
 
           <Separator orientation='horizontal' />
-          <p className='text-caption'>1.203 people has seen this blog post</p>
+          <p className='text-base'>1.203 people has seen this blog post</p>
         </Container>
         <Container>
           <Link href='/blog'>
-            <p className='text-caption text-muted-foreground hover:text-primary'>
+            <p className='text-muted-foreground hover:text-primary text-base'>
               ⟵ Back to blog
             </p>
           </Link>

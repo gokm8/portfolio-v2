@@ -16,9 +16,9 @@ function TechnologiesNew() {
   return (
     <Section className='bg-background'>
       <Container>
-        <h2 className='text-h2'>technologies 💡</h2>
+        <h2 className='text-2xl font-semibold'>technologies 💡</h2>
         <Separator orientation='horizontal' />
-        <p className='text-body'>Always learning. Always building.</p>
+        <p className='text-base'>Always learning. Always building.</p>
 
         {/* Frontend */}
         <div className='z-10 mt-2 flex items-center justify-center'>
@@ -28,7 +28,7 @@ function TechnologiesNew() {
             )}
           >
             <AnimatedShinyText className='inline-flex shrink-0 items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400'>
-              <span className='text-caption'>✨ Frontend</span>
+              <span className='text-sm'>✨ Frontend</span>
               <ArrowRightIcon className='ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5' />
             </AnimatedShinyText>
 
@@ -70,7 +70,7 @@ function TechnologiesNew() {
 
             <AnimatedShinyText className='inline-flex shrink-0 items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400'>
               <ArrowLeftIcon className='mr-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5' />
-              <span className='text-caption'>Backend 💻</span>
+              <span className='text-sm'>Backend 💻</span>
             </AnimatedShinyText>
           </div>
         </div>
@@ -83,7 +83,7 @@ function TechnologiesNew() {
             )}
           >
             <AnimatedShinyText className='inline-flex shrink-0 items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400'>
-              <span className='text-caption'>💾 Database</span>
+              <span className='text-sm'>💾 Database</span>
               <ArrowRightIcon className='ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5' />
             </AnimatedShinyText>
 
@@ -124,7 +124,7 @@ function TechnologiesNew() {
 
             <AnimatedShinyText className='inline-flex shrink-0 items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400'>
               <ArrowLeftIcon className='mr-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5' />
-              <span className='text-caption'>Cloud & DevOps 🌩️</span>
+              <span className='text-sm'>Cloud & DevOps 🌩️</span>
             </AnimatedShinyText>
           </div>
         </div>

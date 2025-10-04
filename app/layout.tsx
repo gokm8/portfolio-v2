@@ -26,7 +26,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <Layout className=''>
-      <body className={`${geistMono.variable}`}>
+      <body className={`${geistMono.variable} flex min-h-screen flex-col`}>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'

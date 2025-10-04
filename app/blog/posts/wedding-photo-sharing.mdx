@@ -13,7 +13,7 @@ result was [www.ayserenas.dk](https://www.ayserenas.dk) - a simple web app where
 guests could scan QR codes at their tables and instantly upload photos from
 their phones.
 
-![QR on tables](/blog/wedding-photo-sharing/QR-on-tables.jpg 'QR on table at the wedding')
+![QR code placed on wedding table for guests to scan and upload photos](/blog/wedding-photo-sharing/QR-on-tables.jpg 'QR code on wedding table')
 
 _Wedding tables with QR codes allowing guests to upload photos instantly_
 
@@ -82,7 +82,11 @@ The entire app runs on Vercel's serverless platform, which automatically scales
 to handle many uploads at once - perfect for when everyone's taking photos
 during the wedding.
 
-![Architecture of the application](/blog/wedding-photo-sharing/architecture.png 'Architecture of the application')
+### System Architecture
+
+Here's how all the pieces fit together:
+
+![System architecture diagram showing Next.js frontend, API routes, PostgreSQL database, and Supabase storage](/blog/wedding-photo-sharing/architecture.png 'System architecture diagram')
 
 ## Building the Upload System
 
@@ -101,18 +105,18 @@ everything happens simultaneously, making the experience feel instant.
 I kept the interface simple and clean. The home page greets guests with a
 welcoming photo and a clear call-to-action button.
 
-![Home page](/blog/wedding-photo-sharing/home-page.png 'Home page with a Call-to-Action button.')
+![Wedding photo sharing app home page with welcome message and upload button](/blog/wedding-photo-sharing/home-page.png 'Home page with call-to-action button')
 
 The upload page has just two things: a field for their name and a button to
 select photos. Behind the scenes, it checks that files are the right type and
 not too large.
 
-![Upload page](/blog/wedding-photo-sharing/upload-page.png 'Upload page with Zod validation')
+![Photo upload page showing name input field and file selection with validation](/blog/wedding-photo-sharing/upload-page.png 'Upload page with form validation')
 
 For the couple, there's a private gallery showing all uploaded photos in a grid
 layout, with each guest's name displayed alongside their contributions.
 
-![Gallery page](/blog/wedding-photo-sharing/gallery-page.png 'Gallery page with images')
+![Photo gallery displaying uploaded wedding photos in a responsive grid with guest names](/blog/wedding-photo-sharing/gallery-page.png 'Gallery page with uploaded photos')
 
 _The gallery displays all wedding photos with guest names in a clean, responsive
 grid_
@@ -123,7 +127,7 @@ Every time a guest uploads photos, the couple gets an email showing who
 uploaded, how many photos, and small preview thumbnails. This way, even during
 the busy wedding day, they can see the memories being captured in real-time.
 
-![Couple is getting email notification](/blog/wedding-photo-sharing/email-notification.gif 'Instant email notifications')
+![Email notification showing newly uploaded photos with guest name and thumbnails](/blog/wedding-photo-sharing/email-notification.gif 'Real-time email notification with photo previews')
 
 ## Wrapping Up
 

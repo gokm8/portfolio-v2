@@ -14,7 +14,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
 
 function TechnologiesNew() {
   return (
-    <Section className='bg-background'>
+    <Section>
       <Container>
         <h2 className='text-2xl font-semibold'>technologies 💡</h2>
         <Separator orientation='horizontal' />

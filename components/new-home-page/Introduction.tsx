@@ -1,3 +1,5 @@
+'use client'
+
 import { Container, Section } from '../ds'
 import {
   Card,
@@ -9,8 +11,8 @@ import {
 import Link from 'next/link'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa'
-import { BorderBeam } from '../ui/border-beam'
 import { HyperText } from '../ui/hyper-text'
+import { LightRays } from '../ui/light-rays'
 
 const socialMediaLogos = [
   {
@@ -32,7 +34,7 @@ const socialMediaLogos = [
 
 function IntroductionNew() {
   return (
-    <Section className='bg-background'>
+    <Section>
       <Container>
         <Card className='relative overflow-hidden'>
           <CardHeader>
@@ -79,7 +81,6 @@ function IntroductionNew() {
               </div>
             </div>
           </CardContent>
-          <BorderBeam duration={5} size={100} />
         </Card>
       </Container>
     </Section>

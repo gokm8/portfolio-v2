@@ -23,7 +23,7 @@ const socialMediaLogos = [
 
 function Footer() {
   return (
-    <footer className='bg-background mt-auto'>
+    <footer className='mt-auto'>
       <Section>
         <Separator orientation='horizontal' />
         <Container>

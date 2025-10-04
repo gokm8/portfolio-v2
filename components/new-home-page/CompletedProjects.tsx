@@ -11,12 +11,11 @@ import {
 import { Separator } from '../ui/separator'
 import { Button } from '../ui/button'
 import Image from 'next/image'
-import { BorderBeam } from '../ui/border-beam'
 import { completedProjectsData } from 'data/completed-projects'
 
 function CompletedProjectsNew() {
   return (
-    <Section className='bg-background'>
+    <Section>
       <Container>
         <h2 className='text-2xl font-bold'>Projects 💻</h2>
         <Separator orientation='horizontal' />
@@ -85,18 +84,6 @@ function CompletedProjectsNew() {
                   </Link>
                 </div>
               </CardFooter>
-              <BorderBeam
-                duration={6}
-                size={400}
-                className='from-transparent via-red-500 to-transparent'
-              />
-              <BorderBeam
-                duration={6}
-                delay={3}
-                size={400}
-                borderWidth={2}
-                className='from-transparent via-blue-500 to-transparent'
-              />
             </Card>
           </div>
         ))}

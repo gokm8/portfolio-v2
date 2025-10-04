@@ -5,7 +5,7 @@ import { educationalData } from 'data/education'
 
 function EducationNew() {
   return (
-    <Section className='bg-background'>
+    <Section>
       <Container>
         <h2 className='text-2xl font-bold'>education 🏛️</h2>
         <Separator orientation='horizontal' />

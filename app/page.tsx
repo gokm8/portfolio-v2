@@ -13,12 +13,6 @@ function Home() {
       <CompletedProjectsNew />
       <EducationNew />
       <TechnologiesNew />
-      {/* <Introduction /> */}
-      {/* <FeaturedProjects /> */}
-      {/* <Education /> */}
-      {/* <Technologies /> */}
-      {/* <CurrentProjects /> */}
-      {/* <CompletedProjects /> */}
     </Main>
   )
 }

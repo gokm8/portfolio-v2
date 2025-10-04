@@ -2,66 +2,137 @@
 title: 'Wedding photo sharing via QR code'
 publishedAt: '2024-09-09'
 summary:
-  'Discover why Vim, with its steep learning curve, remains a beloved tool among
-  developers for editing code efficiently and effectively.'
+  'How I built QR Wedding Snap, a modern web application that allows wedding
+  guests to easily upload and share photos by scanning a QR code.'
 ---
 
-In the world of software development, where the latest and greatest tools
-frequently capture the spotlight, Vim stands out as a timeless classic. Despite
-its age and initial complexity, Vim has managed to retain a devoted following of
-developers who swear by its efficiency, versatility, and power.
+When my good friend Renas Demir was planning his wedding, he asked if I knew of
+any service where guests could easily share their photos. Instead of pointing
+him to an existing solution, I offered to build something custom for them. The
+result was [www.ayserenas.dk](https://www.ayserenas.dk) - a simple web app where
+guests could scan QR codes at their tables and instantly upload photos from
+their phones.
 
-This article delves into the reasons behind Vim's enduring appeal and why it
-continues to be a great tool for coding in the modern era.
+![QR on tables](/blog/wedding-photo-sharing/QR-on-tables.jpg 'QR on table at the wedding')
 
-## Efficiency and Speed
+_Wedding tables with QR codes allowing guests to upload photos instantly_
 
-At the heart of Vim's philosophy is the idea of minimizing keystrokes to achieve
-maximum efficiency.
+## Results
 
-Unlike other text editors where the mouse is often relied upon for navigation
-and text manipulation, Vim's keyboard-centric design allows developers to
-perform virtually all coding tasks without leaving the home row. This not only
-speeds up coding but also reduces the risk of repetitive strain injuries.
+The wedding day was a complete success:
 
-## Highly Customizable
+- **212 guests** visited the website 📱
+- **91 lovely memories** collected 📸
+- **1 happy bridal couple** ❤️
 
-Vim can be extensively customized to suit any developer's preferences and
-workflow. With a vibrant ecosystem of plugins and a robust scripting language,
-users can tailor the editor to their specific needs, whether it's programming in
-Python, writing in Markdown, or managing projects.
+Zero downtime throughout the event. Guests aged 20-70 uploaded successfully
+without help.
 
-This level of customization ensures that Vim remains relevant and highly
-functional for a wide range of programming tasks and languages.
+## What It Needed To Do
 
-## Ubiquity and Portability
+Before diving into code, I mapped out what the app needed to accomplish:
 
-Vim is virtually everywhere. It's available on all major platforms, and because
-it's lightweight and terminal-based, it can be used on remote servers through
-SSH, making it an indispensable tool for sysadmins and developers working in a
-cloud-based environment.
+**Functional Requirements:**
 
-The ability to use the same editor across different systems without a graphical
-interface is a significant advantage for those who need to maintain a consistent
-workflow across multiple environments.
+| ID     | Description                                      |
+| ------ | ------------------------------------------------ |
+| `FR01` | Guests must be able to access via a QR code      |
+| `FR02` | Guests must input name before uploading photos   |
+| `FR03` | Guests must be able to upload multiple photos    |
+| `FR04` | The system must validate file types (JPEG, etc.) |
+| `FR05` | The system must enforce a 5MB max per photo      |
+| `FR06` | The system must store photos securely            |
+| `FR07` | The system must show name with each photo        |
+| `FR08` | The couple must have access to a gallery         |
+| `FR09` | The couple must receive email notifications      |
 
-## Vibrant Community
+Most importantly, it needed to be fast, reliable, and simple enough for anyone
+to use - whether they're 20 or 70 years old.
 
-Despite—or perhaps because of—its learning curve, Vim has cultivated a
-passionate and active community. Online forums, dedicated websites, and plugins
-abound, offering support, advice, and improvements.
+## How It Works
 
-This community not only helps newcomers climb the steep learning curve but also
-continually contributes to Vim's evolution, ensuring it remains adaptable and
-up-to-date with the latest programming trends and technologies.
+I built the app with Next.js 15, using React for the interface and Tailwind CSS
+for styling. For the backend, I used PostgreSQL to store photo information and
+Supabase Storage to host the actual images. This setup gave me fast loading
+times and the ability to handle multiple uploads at once.
 
-## Conclusion
+The tech stack included:
 
-Vim is not just a text editor; it's a way of approaching coding with efficiency
-and thoughtfulness. Its steep learning curve is a small price to pay for the
-speed, flexibility, and control it offers.
+- **Next.js 15** for the web framework
+- **React Hook Form & Zod** for handling uploads and validation
+- **PostgreSQL & Prisma** for storing and querying photo metadata
+- **Supabase Storage** for images
+- **Nodemailer** for sending instant email notifications
 
-For those willing to invest the time to master its commands, Vim proves to be an
-invaluable tool that enhances productivity and enjoyment in coding. In an age of
-ever-changing development tools, the continued popularity of Vim is a testament
-to its enduring value and utility.
+### The Upload Flow
+
+When a guest scans the QR code, here's what happens:
+
+1. Land on the home page
+2. Click to upload CTA
+3. Enter their name
+4. Select photos from phone
+5. App validates files
+6. Photos upload in parallel
+7. Data saves to database
+8. Couple gets instant email
+9. Photos appear in gallery
+
+The entire app runs on Vercel's serverless platform, which automatically scales
+to handle many uploads at once - perfect for when everyone's taking photos
+during the wedding.
+
+![Architecture of the application](/blog/wedding-photo-sharing/architecture.png 'Architecture of the application')
+
+## Building the Upload System
+
+The heart of the app is the upload endpoint. When photos come in, the system
+processes them efficiently by handling multiple uploads at the same time. Each
+photo gets a unique name, gets stored in Supabase, and its information is saved
+to the database. Once everything's uploaded, an email fires off to the couple
+with a preview of the new photos.
+
+This parallel processing approach means that when guests upload several photos
+at once, they don't have to wait for each one to finish before the next starts -
+everything happens simultaneously, making the experience feel instant.
+
+## The User Experience
+
+I kept the interface simple and clean. The home page greets guests with a
+welcoming photo and a clear call-to-action button.
+
+![Home page](/blog/wedding-photo-sharing/home-page.png 'Home page with a Call-to-Action button.')
+
+The upload page has just two things: a field for their name and a button to
+select photos. Behind the scenes, it checks that files are the right type and
+not too large.
+
+![Upload page](/blog/wedding-photo-sharing/upload-page.png 'Upload page with Zod validation')
+
+For the couple, there's a private gallery showing all uploaded photos in a grid
+layout, with each guest's name displayed alongside their contributions.
+
+![Gallery page](/blog/wedding-photo-sharing/gallery-page.png 'Gallery page with images')
+
+_The gallery displays all wedding photos with guest names in a clean, responsive
+grid_
+
+## Staying in the Loop
+
+Every time a guest uploads photos, the couple gets an email showing who
+uploaded, how many photos, and small preview thumbnails. This way, even during
+the busy wedding day, they can see the memories being captured in real-time.
+
+![Couple is getting email notification](/blog/wedding-photo-sharing/email-notification.gif 'Instant email notifications')
+
+## Wrapping Up
+
+Building this app taught me that sometimes the best solutions are the simplest
+ones. By focusing on making photo uploads effortless, the app just worked - no
+complicated instructions needed, no technical support required on the wedding
+day.
+
+The combination of Next.js, Prisma, and Supabase gave me everything I needed to
+build something reliable and fast. But the best part? Seeing friends celebrate
+their special day while your code quietly works in the background, capturing
+memories.

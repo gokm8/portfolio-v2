@@ -10,7 +10,6 @@ import {
 } from '../ui/card'
 import { Separator } from '../ui/separator'
 import { Button } from '../ui/button'
-import Image from 'next/image'
 import { completedProjectsData } from 'data/completed-projects'
 
 function CompletedProjectsNew() {

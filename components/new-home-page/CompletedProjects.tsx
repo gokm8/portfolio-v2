@@ -24,39 +24,18 @@ function CompletedProjectsNew() {
             <Card className='relative overflow-hidden'>
               {/* Project title and website link */}
               <CardHeader>
-                <CardTitle>
-                  <h3 className='text-xl'>{project.title}</h3>
-                </CardTitle>
                 <CardDescription>
                   <p className='text-muted-foreground text-sm'>
                     {project.link}
                   </p>
                 </CardDescription>
+                <CardTitle>
+                  <h3 className='text-xl'>{project.title}</h3>
+                </CardTitle>
               </CardHeader>
-
-              {/* Project image */}
-              <CardContent>
-                <Image
-                  src={project.image || ''}
-                  alt={project.alt}
-                  width={1000}
-                  height={1000}
-                  className='h-auto w-full rounded-lg'
-                />
-              </CardContent>
 
               {/* Project tech stack and description */}
               <CardContent>
-                <div className='mb-3 flex flex-wrap gap-2'>
-                  {project.techStack?.map((tech, index) => (
-                    <span
-                      key={index}
-                      className='bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground px-2 py-1 text-sm transition-colors'
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
                 <p className='text-base'>{project.description}</p>
               </CardContent>
 

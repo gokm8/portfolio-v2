@@ -15,8 +15,11 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Gøkmen Øzbayir | Software Engineer',
-  description: 'I build things with code.'
+  title: {
+    template: '%s | gokm8',
+    default: 'Gøkmen Øzbayir | gokm8'
+  }
+  
 }
 
 export default function RootLayout({

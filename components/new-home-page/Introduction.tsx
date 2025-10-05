@@ -39,21 +39,27 @@ function IntroductionNew() {
           <CardHeader>
             {/* Avatar + Name */}
             <div className='flex flex-row items-center'>
-              <Avatar className='mr-2'>
-                <AvatarImage src='/favicon.ico' alt='@gokmenozbayir' />
+              <Avatar className='mr-2 size-12'>
+                <AvatarImage
+                  src='https://avatars.githubusercontent.com/u/107099606?v=4'
+                  alt='@gokmenozbayir'
+                />
                 <AvatarFallback>GØ</AvatarFallback>
               </Avatar>
               <CardTitle>
                 <h1 className='text-3xl'>
                   <HyperText>Gøkmen Øzbayir</HyperText>
                 </h1>
+                <p className='text-muted-foreground text-sm'>
+                  Full Stack Software Engineer
+                </p>
               </CardTitle>
             </div>
 
             <CardDescription>
               <p className='text-base'>
-                I&apos;m a software engineer who loves to build things and make
-                a real world impact.
+                From API design to frontend optimization - I enjoy the full
+                spectrum of development
               </p>
             </CardDescription>
           </CardHeader>

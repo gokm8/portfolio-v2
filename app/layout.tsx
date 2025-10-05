@@ -9,11 +9,9 @@ import { ThemeProvider } from '@/components/theme-provider'
 import Footer from '@/components/new-home-page/wrapper/Footer'
 import { Navigation } from '@/components/new-home-page/wrapper/Navbar'
 
-// variable of the font
 const geistMono = Geist_Mono({
-  subsets: ['latin'],
   variable: '--font-geist-mono',
-  weight: ['400', '500', '600', '700']
+  subsets: ['latin']
 })
 
 export const metadata: Metadata = {
@@ -25,8 +23,8 @@ export default function RootLayout({
   children
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <Layout className=''>
-      <body className={`${geistMono.variable} flex min-h-screen flex-col`}>
+    <Layout className={`${geistMono.variable}`}>
+      <body className={`flex min-h-screen flex-col font-mono`}>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'

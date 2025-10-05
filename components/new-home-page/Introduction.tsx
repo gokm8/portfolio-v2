@@ -14,6 +14,7 @@ import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa'
 import { HyperText } from '../ui/hyper-text'
 import { BorderBeam } from '../ui/border-beam'
 import { SparklesCore } from '../ui/sparkles'
+import { TextLoop } from '../ui/text-loop'
 
 const socialMediaLogos = [
   {
@@ -61,9 +62,16 @@ function IntroductionNew() {
                 <h1 className='text-2xl'>
                   <HyperText>Gøkmen Øzbayir</HyperText>
                 </h1>
-                <p className='text-muted-foreground text-sm'>
-                  Full Stack Software Engineer
-                </p>
+                <div className='flex flex-row gap-2'>
+                  <p className='text-muted-foreground text-sm'>I am a</p>
+                  <TextLoop className='text-muted-foreground text-sm'>
+                    <p>Software Engineer</p>
+                    <p>Full Stack Developer</p>
+                    <p>Problem Solver</p>
+                    <p>Lifelong Learner</p>
+                    <p>Team Player</p>
+                  </TextLoop>
+                </div>
               </CardTitle>
             </div>
 

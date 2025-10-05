@@ -11,6 +11,7 @@ import {
 import { Separator } from '../ui/separator'
 import { Button } from '../ui/button'
 import { completedProjectsData } from 'data/completed-projects'
+import { ShineBorder } from '../ui/shine-border'
 
 function CompletedProjectsNew() {
   return (
@@ -21,6 +22,8 @@ function CompletedProjectsNew() {
         {completedProjectsData.map((project) => (
           <div key={project.id} className='mb-4'>
             <Card className='relative overflow-hidden'>
+              <ShineBorder shineColor={['#A855F7', '#FF5E9A', '#ff6900']} />
+
               {/* Project title and website link */}
               <CardHeader>
                 <CardDescription>

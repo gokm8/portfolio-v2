@@ -62,7 +62,9 @@ function CompletedProjectsNew() {
 
               {/* Button and Links */}
               <CardFooter className='flex flex-col gap-1'>
-                <Button className='w-full'>Read more →</Button>
+                <Button className='w-full' asChild>
+                  <Link href={project.readMoreLink || ''}>Read more →</Link>
+                </Button>
                 <Separator orientation='horizontal' />
                 <div className='flex h-5 w-full flex-row items-center gap-2 text-sm'>
                   <Link

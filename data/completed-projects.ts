@@ -9,6 +9,7 @@ export interface CompletedProject {
   width?: number
   height?: number
   techStack?: string[]
+  readMoreLink?: string
 }
 
 export const completedProjectsData: CompletedProject[] = [
@@ -16,7 +17,7 @@ export const completedProjectsData: CompletedProject[] = [
     id: 1,
     title: 'Wedding photo sharing',
     description:
-      'I built a custom site (ayserenas.dk) with QR codes on the tables - making it ...',
+      'When my good friend Renas Demir was planning his wedding, he asked if I knew of any service where guests ...',
     alt: 'QR Wedding Snap website preview image',
     image: '/completed_projects_section/project-ayserenas.dk.jpg',
     techStack: [
@@ -27,6 +28,7 @@ export const completedProjectsData: CompletedProject[] = [
       'Prisma',
       '...'
     ],
+    readMoreLink: 'https://www.gokm8.xyz/blog/wedding-photo-sharing',
     link: 'ayserenas.dk',
     githubLink: 'https://github.com/gokm8/qr-wedding-snap'
   },

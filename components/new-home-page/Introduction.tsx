@@ -47,7 +47,7 @@ function IntroductionNew() {
                 <AvatarFallback>GØ</AvatarFallback>
               </Avatar>
               <CardTitle>
-                <h1 className='text-3xl'>
+                <h1 className='text-2xl'>
                   <HyperText>Gøkmen Øzbayir</HyperText>
                 </h1>
                 <p className='text-muted-foreground text-sm'>

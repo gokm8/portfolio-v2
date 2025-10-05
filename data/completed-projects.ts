@@ -21,33 +21,33 @@ export const completedProjectsData: CompletedProject[] = [
     alt: 'QR Wedding Snap website preview image',
     image: '/completed_projects_section/project-ayserenas.dk.jpg',
     techStack: [
-      'Next.js',
-      'TypeScript',
-      'Vercel',
+      'Next.js 15',
+      'Zod',
       'PostgreSQL',
-      'Prisma',
+      'Supabase',
+      'Nodemailer',
       '...'
     ],
     readMoreLink: 'https://www.gokm8.xyz/blog/wedding-photo-sharing',
     link: 'ayserenas.dk',
     githubLink: 'https://github.com/gokm8/qr-wedding-snap'
-  },
-  {
-    id: 2,
-    title: 'Wedding photo sharing',
-    description:
-      'I built a custom site (ayserenas.dk) with QR codes on the tables - making it ...',
-    alt: 'QR Wedding Snap website preview image',
-    image: '/completed_projects_section/project-ayserenas.dk.jpg',
-    techStack: [
-      'Next.js',
-      'TypeScript',
-      'Vercel',
-      'PostgreSQL',
-      'Prisma',
-      '...'
-    ],
-    link: 'https://ayserenas.dk',
-    githubLink: 'https://github.com/gokm8/qr-wedding-snap'
   }
+  // {
+  //   id: 2,
+  //   title: 'Wedding photo sharing',
+  //   description:
+  //     'I built a custom site (ayserenas.dk) with QR codes on the tables - making it ...',
+  //   alt: 'QR Wedding Snap website preview image',
+  //   image: '/completed_projects_section/project-ayserenas.dk.jpg',
+  //   techStack: [
+  //     'Next.js',
+  //     'TypeScript',
+  //     'Vercel',
+  //     'PostgreSQL',
+  //     'Prisma',
+  //     '...'
+  //   ],
+  //   link: 'https://ayserenas.dk',
+  //   githubLink: 'https://github.com/gokm8/qr-wedding-snap'
+  // }
 ]

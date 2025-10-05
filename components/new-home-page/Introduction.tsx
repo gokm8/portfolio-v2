@@ -13,6 +13,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa'
 import { HyperText } from '../ui/hyper-text'
 import { BorderBeam } from '../ui/border-beam'
+import { SparklesCore } from '../ui/sparkles'
 
 const socialMediaLogos = [
   {
@@ -37,6 +38,15 @@ function IntroductionNew() {
     <Section>
       <Container>
         <Card className='relative overflow-hidden'>
+          <SparklesCore
+            id='sparkles-introduction'
+            background='transparent'
+            minSize={0.6}
+            maxSize={1.4}
+            particleDensity={30}
+            className='pointer-events-none absolute inset-0'
+            particleColor='#ff6900'
+          />
           <CardHeader>
             {/* Avatar + Name */}
             <div className='flex flex-row items-center'>

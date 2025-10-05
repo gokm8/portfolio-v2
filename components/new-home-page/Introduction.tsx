@@ -12,6 +12,7 @@ import Link from 'next/link'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa'
 import { HyperText } from '../ui/hyper-text'
+import { BorderBeam } from '../ui/border-beam'
 
 const socialMediaLogos = [
   {
@@ -86,6 +87,7 @@ function IntroductionNew() {
               </div>
             </div>
           </CardContent>
+          <BorderBeam duration={6} size={120} />
         </Card>
       </Container>
     </Section>

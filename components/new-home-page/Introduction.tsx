@@ -68,7 +68,7 @@ function IntroductionNew() {
           <CardContent>
             <div className='flex flex-col gap-2'>
               <p className='text-muted-foreground text-sm'>
-                Reach me at @{' '}
+                Reach me @{' '}
                 <Link
                   href='mailto:gozbayir@hotmail.com'
                   className='text-primary hover:text-primary/90 underline'

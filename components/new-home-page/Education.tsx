@@ -3,7 +3,7 @@ import { Container } from '../ds'
 import { Card, CardContent } from '../ui/card'
 import { Separator } from '../ui/separator'
 import { educationalData } from 'data/education'
-import { EvervaultCard, Icon } from '../ui/evervault-card'
+import { Icon } from '../ui/evervault-card'
 
 function EducationNew() {
   return (

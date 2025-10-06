@@ -16,7 +16,7 @@ function TechnologiesNew() {
   return (
     <Section>
       <Container>
-        <h2 className='text-2xl font-semibold'>technologies 💡</h2>
+        <h2 className='text-2xl font-semibold'>Technologies 💡</h2>
         <Separator orientation='horizontal' />
         <p className='text-base'>Always learning. Always building.</p>
 

@@ -7,7 +7,7 @@ function EducationNew() {
   return (
     <Section>
       <Container>
-        <h2 className='text-2xl font-bold'>education 🏛️</h2>
+        <h2 className='text-2xl font-bold'>Education 🏛️</h2>
         <Separator orientation='horizontal' />
         {educationalData.map((data) => (
           <div key={data.id} className='mb-6 last:mb-0'>

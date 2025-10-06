@@ -33,7 +33,7 @@ const socialMediaLogos = [
 ]
 
 function IntroductionNew() {
-  const [copy, isCopied] = useCopyToClipboard()
+  const [copy] = useCopyToClipboard()
 
   return (
     <Section>

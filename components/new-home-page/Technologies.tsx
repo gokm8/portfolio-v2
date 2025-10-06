@@ -3,14 +3,13 @@ import { Separator } from '../ui/separator'
 import {
   backendTechnologies,
   databaseTechnologies,
-  cloundAndDevOpsTechnologies,
   frontendTechnologies
 } from '@/data/technologies'
 import Image from 'next/image'
 import { Marquee } from '@/components/ui/marquee'
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 import { cn } from '@/lib/utils'
-import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
+import { ArrowRightIcon } from 'lucide-react'
 
 function TechnologiesNew() {
   const technologyCategories = [

@@ -38,7 +38,9 @@ function CompletedProjectsNew() {
 
               {/* Project tech stack and description */}
               <CardContent>
-                <p className='text-base'>{project.description}</p>
+                <p className='text-muted-foreground text-base'>
+                  {project.description}
+                </p>
               </CardContent>
 
               {/* Button and Links */}

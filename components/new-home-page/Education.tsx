@@ -39,7 +39,7 @@ function EducationNew() {
                   {data.date}
                 </p>
               </div>
-              <p className='text-base'>{data.education}</p>
+              <p className='text-base font-semibold'>{data.education}</p>
             </CardContent>
           </Card>
         ))}

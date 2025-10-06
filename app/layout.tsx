@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { Layout } from 'components/ds'
-import { Toaster } from 'components/ui/toaster'
+import { Toaster } from '@/components/ui/sonner'
 // find the font at https://fonts.google.com/specimen/Poppins
 import { Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   title: {
     template: '%s | gokm8',
     default: 'Gøkmen Øzbayir | gokm8'
-  }
-  
+  },
+  description: 'Portfolio of Gøkmen Øzbayir'
 }
 
 export default function RootLayout({
@@ -36,9 +36,9 @@ export default function RootLayout({
         >
           <Navigation />
           {children}
+          <Toaster />
           <Footer />
         </ThemeProvider>
-        <Toaster />
         <Analytics />
       </body>
     </Layout>

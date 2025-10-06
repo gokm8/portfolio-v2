@@ -15,6 +15,9 @@ import { HyperText } from '../ui/hyper-text'
 import { BorderBeam } from '../ui/border-beam'
 import { SparklesCore } from '../ui/sparkles'
 import { TextLoop } from '../ui/text-loop'
+import { Button } from '../ui/button'
+import { toast } from 'sonner'
+import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
 
 const socialMediaLogos = [
   {
@@ -26,15 +29,12 @@ const socialMediaLogos = [
     alt: 'github',
     href: 'https://github.com/gokm8',
     icon: FaGithub
-  },
-  {
-    alt: 'email',
-    href: 'mailto:gozbayir@hotmail.com',
-    icon: FaEnvelope
   }
 ]
 
 function IntroductionNew() {
+  const [copy, isCopied] = useCopyToClipboard()
+
   return (
     <Section>
       <Container>
@@ -64,7 +64,7 @@ function IntroductionNew() {
                 </h1>
                 <div className='flex flex-row gap-2'>
                   <p className='text-muted-foreground text-sm'>I am a</p>
-                  <TextLoop className='text-muted-foreground text-sm'>
+                  <TextLoop className='text-primary text-sm'>
                     <p>Software Engineer</p>
                     <p>Full Stack Developer</p>
                     <p>Problem Solver</p>
@@ -83,25 +83,28 @@ function IntroductionNew() {
             </CardDescription>
           </CardHeader>
 
-          {/* Contact info */}
+          {/* Contact info (Social media icons and email) */}
           <CardContent>
             <div className='flex flex-col gap-2'>
-              <p className='text-muted-foreground text-sm'>
-                Reach me @{' '}
-                <Link
-                  href='mailto:gozbayir@hotmail.com'
-                  className='text-primary hover:text-primary/90 underline'
-                >
-                  gozbayir@hotmail.com
-                </Link>
-              </p>
-
               <div className='flex flex-row justify-start gap-2'>
                 {socialMediaLogos.map((logo) => (
                   <Link href={logo.href} key={logo.alt}>
                     <logo.icon className='text-muted-foreground hover:text-primary size-4' />
                   </Link>
                 ))}
+                <Button
+                  variant='ghost'
+                  size='icon'
+                  onClick={() => {
+                    copy('gozbayir@hotmail.com')
+                    toast('Email has been copied to clipboard', {
+                      description: 'You can email me regarding any inquiries'
+                    })
+                  }}
+                  className='text-muted-foreground hover:text-primary size-4 cursor-pointer'
+                >
+                  <FaEnvelope className='text-muted-foreground hover:text-primary size-4' />
+                </Button>
               </div>
             </div>
           </CardContent>

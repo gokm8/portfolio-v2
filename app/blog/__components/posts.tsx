@@ -26,7 +26,7 @@ export function BlogPosts() {
                 {formatDate(post.metadata.publishedAt, false)}
               </p>
 
-              <p className='text-foreground hover:text-primary text-base tracking-tight underline'>
+              <p className='text-foreground hover:text-primary text-base tracking-tight'>
                 {post.metadata.title}
               </p>
             </div>

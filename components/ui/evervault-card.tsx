@@ -62,8 +62,8 @@ export const EvervaultCard = ({
 }
 
 interface CardPatternProps {
-  mouseX: any
-  mouseY: any
+  mouseX: ReturnType<typeof useMotionValue<number>>
+  mouseY: ReturnType<typeof useMotionValue<number>>
   randomString: string
 }
 
@@ -104,9 +104,8 @@ export const generateRandomString = (length: number) => {
   return result
 }
 
-interface IconProps {
+interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string
-  [key: string]: any
 }
 
 export const Icon = ({ className, ...rest }: IconProps) => {

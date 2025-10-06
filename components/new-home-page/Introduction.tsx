@@ -15,7 +15,6 @@ import { HyperText } from '../ui/hyper-text'
 import { BorderBeam } from '../ui/border-beam'
 import { SparklesCore } from '../ui/sparkles'
 import { TextLoop } from '../ui/text-loop'
-import { Button } from '../ui/button'
 import { toast } from 'sonner'
 import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
 
@@ -77,8 +76,8 @@ function IntroductionNew() {
 
             <CardDescription>
               <p className='text-base'>
-                From API design to frontend optimization - I enjoy the full
-                spectrum of development
+                I'm a full-stack developer passionate about building modern web
+                applications, UI/UX and AI solutions
               </p>
             </CardDescription>
           </CardHeader>
@@ -92,19 +91,17 @@ function IntroductionNew() {
                     <logo.icon className='text-muted-foreground hover:text-primary size-4' />
                   </Link>
                 ))}
-                <Button
-                  variant='ghost'
-                  size='icon'
+                <div
                   onClick={() => {
                     copy('gozbayir@hotmail.com')
                     toast('Email has been copied to clipboard', {
                       description: 'You can email me regarding any inquiries'
                     })
                   }}
-                  className='text-muted-foreground hover:text-primary size-4 cursor-pointer'
+                  className='text-muted-foreground hover:text-primary size-4 cursor-pointer transition-colors'
                 >
-                  <FaEnvelope className='text-muted-foreground hover:text-primary size-4' />
-                </Button>
+                  <FaEnvelope className='size-4' />
+                </div>
               </div>
             </div>
           </CardContent>

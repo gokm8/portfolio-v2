@@ -76,8 +76,8 @@ function IntroductionNew() {
 
             <CardDescription>
               <p className='text-base'>
-                I&apos;m a full-stack developer passionate about building modern
-                web applications, UI/UX and AI solutions
+                Responsible, disciplined, and goal-oriented with a strong
+                entrepreneurial mindset.
               </p>
             </CardDescription>
           </CardHeader>

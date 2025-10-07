@@ -1,9 +1,10 @@
 import { Section } from '../ds'
 import { Container } from '../ds'
-import { Card, CardContent } from '../ui/card'
+import { Card, CardContent, CardFooter } from '../ui/card'
 import { Separator } from '../ui/separator'
 import { educationalData } from 'data/education'
 import { Icon } from '../ui/evervault-card'
+import { Badge } from '../ui/badge'
 
 function EducationNew() {
   return (
@@ -12,7 +13,7 @@ function EducationNew() {
         <h2 className='text-2xl font-bold'>Education 🏛️</h2>
         <Separator orientation='horizontal' />
 
-{/* overflow-hidden on Card makes a differnt styling on the evervault */}
+        {/* overflow-hidden on Card makes a differnt styling on the evervault */}
         {educationalData.map((data) => (
           <Card
             key={data.id}
@@ -44,7 +45,17 @@ function EducationNew() {
                 </p>
               </div>
               <p className='text-base font-semibold'>{data.education}</p>
+              <p className='text-muted-foreground text-sm'>
+                {data.description}
+              </p>
             </CardContent>
+            <CardFooter className='flex flex-row flex-wrap gap-2'>
+              {data.badge.map((badge) => (
+                <Badge key={badge} variant='default'>
+                  {badge}
+                </Badge>
+              ))}
+            </CardFooter>
           </Card>
         ))}
       </Container>

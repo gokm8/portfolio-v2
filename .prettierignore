@@ -1,0 +1,2 @@
+# Ignore frontmatter in MDX files
+**/*.mdx

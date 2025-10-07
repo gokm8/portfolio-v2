@@ -10,17 +10,19 @@ import {
 } from '../ui/card'
 import { Separator } from '../ui/separator'
 import { Button } from '../ui/button'
-import { completedProjectsData } from 'data/completed-projects'
 import { ShineBorder } from '../ui/shine-border'
+import { getBlogPosts } from '@/app/blog/utils'
 
 function CompletedProjectsNew() {
+  const blogPosts = getBlogPosts()
+
   return (
     <Section>
       <Container>
         <h2 className='text-2xl font-bold'>Projects 💻</h2>
         <Separator orientation='horizontal' />
-        {completedProjectsData.map((project) => (
-          <div key={project.id} className='mb-4'>
+        {blogPosts.map((post) => (
+          <div key={post.slug} className='mb-4'>
             <Card className='relative overflow-hidden'>
               <ShineBorder shineColor={['#A855F7', '#FF5E9A', '#ff6900']} />
 
@@ -28,30 +30,32 @@ function CompletedProjectsNew() {
               <CardHeader>
                 <CardDescription>
                   <p className='text-muted-foreground text-sm'>
-                    {project.link}
+                    {post.metadata.link}
                   </p>
                 </CardDescription>
                 <CardTitle>
-                  <h3 className='text-xl'>{project.title}</h3>
+                  <h3 className='text-xl'>{post.metadata.title}</h3>
                 </CardTitle>
               </CardHeader>
 
               {/* Project tech stack and description */}
               <CardContent>
-                <p className='text-muted-foreground text-base'>
-                  {project.description}
+                <p className='text-muted-foreground line-clamp-2 text-base'>
+                  {post.metadata.summary || 'No summary available'}
                 </p>
               </CardContent>
 
               {/* Button and Links */}
               <CardFooter className='flex flex-col gap-1'>
                 <Button className='w-full' asChild>
-                  <Link href={project.readMoreLink || ''}>Read more →</Link>
+                  <Link href={`/blog/${post.slug}`}>Read more →</Link>
                 </Button>
                 <Separator orientation='horizontal' />
                 <div className='flex h-5 w-full flex-row items-center gap-2 text-sm'>
                   <Link
-                    href={project.link || ''}
+                    href={
+                      post.metadata.link ? `https://${post.metadata.link}` : ''
+                    }
                     target='_blank'
                     rel='noopener noreferrer'
                     className='text-muted-foreground hover:text-primary flex items-center gap-2'
@@ -60,7 +64,7 @@ function CompletedProjectsNew() {
                   </Link>
                   <Separator orientation='vertical' />
                   <Link
-                    href={project.githubLink || ''}
+                    href={post.metadata.githubRepoLink || ''}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='text-muted-foreground hover:text-primary flex items-center gap-2'

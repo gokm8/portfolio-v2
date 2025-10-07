@@ -57,6 +57,8 @@ export default function WorkExperienceNew() {
   return (
     <Section>
       <Container>
+        <h2 className='text-2xl font-bold'>Work Experience 💼</h2>
+        <Separator />
         <Timeline defaultValue={2}>
           {items.map((item) => (
             <TimelineItem key={item.id} step={item.id}>
@@ -67,9 +69,8 @@ export default function WorkExperienceNew() {
                 <TimelineTitle>{item.company}</TimelineTitle>
                 <TimelineIndicator />
               </TimelineHeader>
-              <Separator />
 
-              <TimelineContent className='mb-2'>
+              <TimelineContent className='mt-2 mb-2'>
                 {item.description}
               </TimelineContent>
               <TimelineContent className='pl-4'>

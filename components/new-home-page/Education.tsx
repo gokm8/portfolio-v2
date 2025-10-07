@@ -12,8 +12,12 @@ function EducationNew() {
         <h2 className='text-2xl font-bold'>Education 🏛️</h2>
         <Separator orientation='horizontal' />
 
+{/* overflow-hidden on Card makes a differnt styling on the evervault */}
         {educationalData.map((data) => (
-          <Card key={data.id} className='relative mt-4 mb-8 last:mb-0'>
+          <Card
+            key={data.id}
+            className='relative mt-4 mb-8 overflow-hidden last:mb-0'
+          >
             <Icon
               className='text-muted-foreground absolute -top-3 -left-3 h-6 w-6'
               opacity={0.75}

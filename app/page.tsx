@@ -5,11 +5,13 @@ import { Main } from 'components/ds'
 
 import React from 'react'
 import TechnologiesNew from '@/components/new-home-page/Technologies'
+import WorkExperienceNew from '@/components/new-home-page/WorkExperience'
 
 function Home() {
   return (
     <Main>
       <IntroductionNew />
+      <WorkExperienceNew />
       <CompletedProjectsNew />
       <EducationNew />
       <TechnologiesNew />

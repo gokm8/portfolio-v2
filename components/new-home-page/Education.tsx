@@ -1,6 +1,6 @@
 import { Section } from '../ds'
 import { Container } from '../ds'
-import { Card, CardContent, CardFooter } from '../ui/card'
+import { Card, CardContent, CardFooter, CardHeader } from '../ui/card'
 import { Separator } from '../ui/separator'
 import { educationalData } from 'data/education'
 import { Icon } from '../ui/evervault-card'
@@ -35,8 +35,8 @@ function EducationNew() {
               className='text-muted-foreground absolute -right-3 -bottom-3 h-6 w-6'
               opacity={0.75}
             />
-            <CardContent>
-              <div className='mb-1 flex flex-row justify-between'>
+            <CardHeader>
+              <div className='flex flex-row justify-between'>
                 <h3 className='text-medium text-muted-foreground flex-shrink-0 text-sm'>
                   {data.school}
                 </h3>
@@ -45,6 +45,8 @@ function EducationNew() {
                 </p>
               </div>
               <p className='text-base font-semibold'>{data.education}</p>
+            </CardHeader>
+            <CardContent>
               <p className='text-muted-foreground text-sm'>
                 {data.description}
               </p>

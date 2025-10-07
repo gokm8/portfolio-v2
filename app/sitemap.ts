@@ -1,8 +1,9 @@
 import { getBlogPosts } from 'app/blog/utils'
+import type { MetadataRoute } from 'next'
 
 export const baseUrl = 'https://www.gokm8.xyz'
 
-export default async function sitemap() {
+export default function sitemap(): MetadataRoute.Sitemap {
   const blogs = getBlogPosts().map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.metadata.publishedAt).toISOString(),

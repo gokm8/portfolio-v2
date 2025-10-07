@@ -58,7 +58,7 @@ function IntroductionNew() {
                 <AvatarFallback>GØ</AvatarFallback>
               </Avatar>
               <CardTitle>
-                <h1 className='text-2xl'>
+                <h1 className='text-2xl font-bold'>
                   <HyperText>Gøkmen Øzbayir</HyperText>
                 </h1>
                 <div className='flex flex-row gap-2'>
@@ -76,8 +76,8 @@ function IntroductionNew() {
 
             <CardDescription>
               <p className='text-base'>
-                I'm a full-stack developer passionate about building modern web
-                applications, UI/UX and AI solutions
+                I&apos;m a full-stack developer passionate about building modern
+                web applications, UI/UX and AI solutions
               </p>
             </CardDescription>
           </CardHeader>

@@ -62,15 +62,19 @@ function CompletedProjectsNew() {
                   >
                     view live site ↗
                   </Link>
-                  <Separator orientation='vertical' />
-                  <Link
-                    href={post.metadata.githubRepoLink || ''}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='text-muted-foreground hover:text-primary flex items-center gap-2'
-                  >
-                    view on github ↗
-                  </Link>
+                  {post.metadata.githubRepoLink && (
+                    <>
+                      <Separator orientation='vertical' />
+                      <Link
+                        href={post.metadata.githubRepoLink}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='text-muted-foreground hover:text-primary flex items-center gap-2'
+                      >
+                        view on github ↗
+                      </Link>
+                    </>
+                  )}
                 </div>
               </CardFooter>
             </Card>

@@ -165,7 +165,9 @@ export default function WorkExperienceNew() {
                       </div>
                     </div>
                     <p className='italic'>
-                      <Balancer>"{item.recommendation.description}"</Balancer>
+                      <Balancer>
+                        &quot;{item.recommendation.description}&quot;
+                      </Balancer>
                     </p>
                   </div>
                 </TimelineContent>

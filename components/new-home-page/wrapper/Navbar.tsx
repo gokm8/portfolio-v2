@@ -1,4 +1,4 @@
-import { Container, Nav } from '@/components/ds'
+import { Nav } from '@/components/ds'
 import { ModeToggle } from '@/components/mode-toggle'
 import Link from 'next/link'
 import { Separator } from '@/components/ui/separator'

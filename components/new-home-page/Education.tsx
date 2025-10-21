@@ -53,7 +53,7 @@ function EducationNew() {
             </CardContent>
             <CardFooter className='flex flex-row flex-wrap gap-2'>
               {data.badge.map((badge) => (
-                <Badge key={badge} variant='default'>
+                <Badge key={badge} variant='secondary'>
                   {badge}
                 </Badge>
               ))}

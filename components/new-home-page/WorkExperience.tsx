@@ -11,6 +11,7 @@ import {
 import { Container, Section } from '../ds'
 import { Separator } from '../ui/separator'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
+import { Balancer } from 'react-wrap-balancer'
 
 const items = [
   {
@@ -57,7 +58,7 @@ const items = [
       company: 'Verifone A/S',
       position: 'Team Leader ',
       description:
-        'Gøkmen quickly established himself as one of the most reliable and results-oriented members of the team. He combines a strong commercial mindset with genuine curiosity for technology, which allowed him to translate complex payment solutions into clear business value for clients. Gøkmen’s structured approach, calm professionalism, and ability to build long-term relationships made him stand out. I would gladly work with him again and can highly recommend him for any future role that demands both strategic thinking and hands-on execution.'
+        'Gøkmen quickly established himself as one of the most reliable and results-oriented members of the team. He combines a strong commercial mindset with genuine curiosity for technology, which allowed him to translate complex payment solutions into clear business value for clients. His structured approach, calm professionalism, and ability to build long-term relationships made him stand out. I would gladly work with him again and can highly recommend him for any future role that demands both strategic thinking and hands-on execution.'
     }
   },
   {
@@ -164,7 +165,7 @@ export default function WorkExperienceNew() {
                       </div>
                     </div>
                     <p className='italic'>
-                      "{item.recommendation.description}"
+                      <Balancer>"{item.recommendation.description}"</Balancer>
                     </p>
                   </div>
                 </TimelineContent>

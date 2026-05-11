@@ -21,7 +21,7 @@ function CompletedProjectsNew() {
       <Container>
         <h2 className='text-2xl font-bold'>Projects 💻</h2>
         <Separator orientation='horizontal' />
-        {blogPosts
+        {[...blogPosts]
           .sort((a, b) => {
             return new Date(a.metadata.publishedAt) >
               new Date(b.metadata.publishedAt)
@@ -57,34 +57,40 @@ function CompletedProjectsNew() {
                   <Button className='w-full' asChild>
                     <Link href={`/blog/${post.slug}`}>Read more →</Link>
                   </Button>
-                  <Separator orientation='horizontal' />
-                  <div className='flex h-5 w-full flex-row items-center gap-2 text-sm'>
-                    <Link
-                      href={
-                        post.metadata.link
-                          ? `https://${post.metadata.link}`
-                          : ''
-                      }
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='text-muted-foreground hover:text-primary flex items-center gap-2'
-                    >
-                      view live site ↗
-                    </Link>
-                    {post.metadata.githubRepoLink && (
-                      <>
-                        <Separator orientation='vertical' />
-                        <Link
-                          href={post.metadata.githubRepoLink}
-                          target='_blank'
-                          rel='noopener noreferrer'
-                          className='text-muted-foreground hover:text-primary flex items-center gap-2'
-                        >
-                          view on github ↗
-                        </Link>
-                      </>
-                    )}
-                  </div>
+                  {(post.metadata.link || post.metadata.githubRepoLink) && (
+                    <>
+                      <Separator orientation='horizontal' />
+                      <div className='flex h-5 w-full flex-row items-center gap-2 text-sm'>
+                        {post.metadata.link && (
+                          <Link
+                            href={
+                              post.metadata.link.startsWith('http')
+                                ? post.metadata.link
+                                : `https://${post.metadata.link}`
+                            }
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='text-muted-foreground hover:text-primary flex items-center gap-2'
+                          >
+                            view live site ↗
+                          </Link>
+                        )}
+                        {post.metadata.link && post.metadata.githubRepoLink && (
+                          <Separator orientation='vertical' />
+                        )}
+                        {post.metadata.githubRepoLink && (
+                          <Link
+                            href={post.metadata.githubRepoLink}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='text-muted-foreground hover:text-primary flex items-center gap-2'
+                          >
+                            view on github ↗
+                          </Link>
+                        )}
+                      </div>
+                    </>
+                  )}
                 </CardFooter>
               </Card>
             </div>

@@ -84,10 +84,6 @@ export const backendTechnologies: Technology[] = [
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg'
   },
   {
-    technology: 'Java',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg'
-  },
-  {
     technology: 'entity framework',
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/entityframeworkcore/entityframeworkcore-original.svg'
   }

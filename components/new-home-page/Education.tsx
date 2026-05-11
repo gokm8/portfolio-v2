@@ -1,5 +1,4 @@
-import { Section } from '../ds'
-import { Container } from '../ds'
+import { Section, Container } from '../ds'
 import { Card, CardContent, CardFooter, CardHeader } from '../ui/card'
 import { Separator } from '../ui/separator'
 import { educationalData } from 'data/education'
@@ -37,7 +36,7 @@ function EducationNew() {
             />
             <CardHeader>
               <div className='flex flex-row justify-between'>
-                <h3 className='text-medium text-muted-foreground flex-shrink-0 text-sm'>
+                <h3 className='text-muted-foreground flex-shrink-0 text-sm font-medium'>
                   {data.school}
                 </h3>
                 <p className='text-muted-foreground flex-shrink-0 text-sm'>
@@ -47,7 +46,7 @@ function EducationNew() {
               <p className='text-base font-semibold'>{data.education}</p>
             </CardHeader>
             <CardContent>
-              <p className='text-muted-foreground text-sm'>
+              <p className='text-muted-foreground text-base'>
                 {data.description}
               </p>
             </CardContent>

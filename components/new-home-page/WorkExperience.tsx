@@ -56,7 +56,7 @@ const items = [
       image: '/RalfMakneIcon.jpg',
       fallback: 'RM',
       company: 'Verifone A/S',
-      position: 'Team Leader ',
+      position: 'Team Leader',
       description:
         'Gøkmen quickly established himself as one of the most reliable and results-oriented members of the team. He combines a strong commercial mindset with genuine curiosity for technology, which allowed him to translate complex payment solutions into clear business value for clients. His structured approach, calm professionalism, and ability to build long-term relationships made him stand out. I would gladly work with him again and can highly recommend him for any future role that demands both strategic thinking and hands-on execution.'
     }

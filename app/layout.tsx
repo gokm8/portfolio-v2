@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Layout } from 'components/ds'
 import { Toaster } from '@/components/ui/sonner'
-// find the font at https://fonts.google.com/specimen/Poppins
 import { Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -27,11 +26,11 @@ export default function RootLayout({
   children
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <Layout className={`${geistMono.variable}`}>
+    <Layout className={`${geistMono.variable} `}>
       <body className={`flex min-h-screen flex-col font-mono`}>
         <ThemeProvider
           attribute='class'
-          defaultTheme='system'
+          defaultTheme='dark'
           enableSystem
           disableTransitionOnChange
         >

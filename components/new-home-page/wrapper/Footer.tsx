@@ -42,7 +42,7 @@ function Footer() {
               </Link>
             </div>
 
-            {/* Social media icons til venstre */}
+            {/* Social media icons til højre */}
             <div className='flex flex-row gap-4'>
               {socialMediaLogos.map((logo) => (
                 <Link href={logo.href} key={logo.alt}>

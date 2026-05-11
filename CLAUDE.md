@@ -4,63 +4,95 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Development Commands
 
-- **Development**: `npm run dev` (uses Turbo mode for faster builds)
+- **Development**: `npm run dev` (Next.js Turbopack mode)
 - **Build**: `npm run build`
 - **Start Production**: `npm start`
 - **Linting**: `npm run lint`
+- **Formatting**: `npx prettier --write .` (Prettier with `prettier-plugin-tailwindcss`)
+
+No test suite exists in this project.
 
 ## Architecture Overview
 
-This is a Next.js 14+ portfolio website built with TypeScript and Tailwind CSS using the App Router architecture.
+Next.js 15 portfolio site with React 19, TypeScript, and Tailwind CSS v4, deployed on Vercel.
 
 ### Key Technologies
-- **Framework**: Next.js 14+ with App Router
-- **Styling**: Tailwind CSS with custom design system (craft-ds)
-- **UI Components**: Radix UI primitives with shadcn/ui configuration
-- **Animations**: Framer Motion
-- **Typography**: Poppins font from Google Fonts
-- **Analytics**: Vercel Analytics integration
+- **Framework**: Next.js 15 with App Router
+- **Styling**: Tailwind CSS v4 with `prettier-plugin-tailwindcss` for class sorting
+- **UI Components**: Radix UI primitives, shadcn/ui, and Magic UI components (`components/ui/`)
+- **Animations**: Framer Motion + Motion
+- **Typography**: Geist Mono (`next/font/google`)
+- **Blog/Projects**: MDX via `next-mdx-remote` and `@next/mdx`
+- **Theme**: `next-themes` with system/light/dark toggle
+- **Analytics**: Vercel Analytics
 
-### Project Structure
-- **`app/`**: Next.js App Router pages and layouts
-- **`components/`**: Reusable React components
-  - `craft.tsx`: Custom design system (Layout, Main, Section, Container, Article, Box)
-  - `home-page/`: Page-specific components
-  - `ui/`: Shadcn/ui components (Avatar, Button, Toast, etc.)
-- **`data/`**: Static data files (projects, education, technologies)
-- **`hooks/`**: Custom React hooks
-- **`lib/`**: Utility functions
-- **`public/`**: Static assets
+### Design Systems — Two Files, One Active
 
-### Design System (Craft)
+There are two design system files. **Always import from `components/ds.tsx`** for new work:
 
-The project uses a custom design system called "craft-ds" located in `components/craft.tsx`. Key components:
+- **`components/ds.tsx`** (active): `Layout`, `Main`, `Section`, `Container`, `Nav`, `Prose`
+  - `Container`: `mx-auto max-w-3xl p-4 sm:p-6`
+  - `Section`: `py-2 sm:py-4`
+  - `Prose`: rich text styling component; accepts `isArticle` (adds `max-w-prose`) and `isSpaced` (adds heading/paragraph spacing) props
+- **`components/craft.tsx`** (legacy craft-ds v0.2.8): exports same-named components with different constraints (`max-w-2xl` container). Still used by nothing active — do not use for new components.
 
-- **Layout**: HTML wrapper with global styles
-- **Main**: Main content area with prose styling
-- **Section**: Page sections with consistent padding
-- **Container**: Content container with max-width and centering
-- **Article**: Article content with typography styles
-- **Box**: Flexible layout component (flex/grid with responsive props)
+### Path Aliases
 
-### Component Patterns
+`@/` maps to the **project root** (not `src/`). Example: `import { Container } from '@/components/ds'`.
 
-1. **Page Structure**: Use Layout → Main → Section → Container hierarchy
-2. **Responsive Design**: Box component supports responsive direction, gap, cols, and wrap props
-3. **Styling**: Uses `cn()` utility for class merging (clsx + tailwind-merge)
-4. **Typography**: Main and Article components include prose styling with Tailwind typography plugin
+### Page Structure Pattern
 
-### Configuration
+```tsx
+// Typical page pattern
+import { Section, Container, Prose } from '@/components/ds'
 
-- **TypeScript**: Standard Next.js config with path mapping (`@/*` → `./src/*` - note: currently unused)
-- **Tailwind**: Extended with custom fonts and shadcn/ui integration
-- **Shadcn/ui**: Configured for default style with neutral base color and CSS variables
+export default function Page() {
+  return (
+    <Section>
+      <Container>
+        <Prose isSpaced>...</Prose>
+      </Container>
+    </Section>
+  )
+}
+```
+
+The root layout (`app/layout.tsx`) wraps everything in `<Layout>` → `<ThemeProvider>` → `<AlertNew>` → `<Navigation>` → `{children}` → `<Footer>`.
+
+### Home Page Components
+
+All home page sections live in `components/new-home-page/` and are composed in `app/page.tsx`:
+- `Introduction.tsx` — hero card with sparkles animation, avatar, social links
+- `WorkExperience.tsx`, `CompletedProjects.tsx`, `Education.tsx`, `Technologies.tsx`
+- `wrapper/Navbar.tsx`, `wrapper/Footer.tsx`, `wrapper/Alert.tsx`
+
+### Blog / Projects Route
+
+`/blog` is repurposed as the **Projects** showcase. MDX files in `app/blog/posts/` are rendered as project write-ups.
+
+MDX frontmatter schema (`app/blog/utils.tsx`):
+```
+---
+title: string
+publishedAt: YYYY-MM-DD
+summary: string
+image?: string        # path or URL for OG image
+link?: string         # live project URL
+githubRepoLink?: string
+---
+```
+
+Slug is derived from the filename. `getBlogPosts()` reads all `.mdx` files at build time.
 
 ### Data Management
 
-Static data is managed through TypeScript files in the `data/` directory:
-- `projects.ts`: Portfolio projects
-- `education.ts`: Educational background
-- `technologies.ts`: Technical skills
+Static content in `data/`:
+- `projects.ts`, `education.ts`, `technologies.ts`
 
-When adding new content, follow the existing data structure and type definitions in these files.
+Follow existing TypeScript type definitions when adding entries.
+
+### Utilities
+
+- `cn()` from `@/lib/utils` — `clsx` + `tailwind-merge` for conditional class merging
+- `useCopyToClipboard` hook in `hooks/`
+- Toast notifications via `sonner`

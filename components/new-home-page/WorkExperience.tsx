@@ -16,6 +16,26 @@ import { Balancer } from 'react-wrap-balancer'
 const items = [
   {
     id: 1,
+    date: 'Sep. 2023 - Feb. 2026 (2 years, 6 months)',
+    title: 'Software Engineer (Student)',
+    city: 'Copenhagen, Denmark',
+    company: '@ a:gain [again]',
+    companyLogo: '/again.svg',
+    description:
+      'Software Engineer (Student) at a:gain [again], working on cloud-based solutions, API development, and automated ETL flows while collaborating cross-functionally with design, product owners, and other teams',
+    firstPoint: 'Troubleshooting, testing, and automation of data flows',
+    secondPoint:
+      'Participated in client meetings and discussions on solutions and requirements',
+    thirdPoint:
+      'Developed and maintained cloud-based solutions in Microsoft Azure',
+    fourthPoint:
+      'Built APIs in C#/.NET, React frontends, and automated ETL flows',
+    fifthPoint:
+      'Cross-functional collaboration across design, product owners, and other teams',
+    recommendation: undefined
+  },
+  {
+    id: 2,
     date: 'Feb. 2025 - Jun. 2025 (5 months)',
     title: 'Software Engineer Intern',
     city: 'Copenhagen, Denmark',
@@ -39,7 +59,7 @@ const items = [
     }
   },
   {
-    id: 2,
+    id: 3,
     date: 'Sep. 2021 - Sep. 2022 (1 year, 1 month)',
     title: 'Account Manager',
     city: 'Herlev, Denmark',
@@ -62,7 +82,7 @@ const items = [
     }
   },
   {
-    id: 3,
+    id: 4,
     date: 'Jan. 2021 - Aug. 2021 (8 months)',
     title: 'Account Manager',
     city: 'Copenhagen Ø, Denmark',
@@ -92,7 +112,7 @@ export default function WorkExperienceNew() {
       <Container>
         <h2 className='text-2xl font-bold'>Work Experience 💼</h2>
         <Separator />
-        <Timeline defaultValue={2}>
+        <Timeline defaultValue={3}>
           {items.map((item) => (
             <TimelineItem key={item.id} step={item.id}>
               <TimelineHeader>

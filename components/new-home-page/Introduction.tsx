@@ -64,11 +64,11 @@ function IntroductionNew() {
                 <div className='flex flex-row gap-2'>
                   <p className='text-muted-foreground text-sm'>I am a</p>
                   <TextLoop className='text-primary text-sm'>
-                    <p>Software Engineer</p>
-                    <p>Full Stack Developer</p>
+                    <p>Fullstack Software Engineer</p>
+                    <p>Software Architect</p>
                     <p>Problem Solver</p>
-                    <p>Lifelong Learner</p>
                     <p>Team Player</p>
+                    <p>Lifelong Learner</p>
                   </TextLoop>
                 </div>
               </CardTitle>
@@ -76,8 +76,11 @@ function IntroductionNew() {
 
             <CardDescription>
               <p className='text-base'>
-                Responsible, disciplined, and goal-oriented with a strong
-                entrepreneurial mindset.
+                Software Engineer with experience in fullstack software
+                development, software design and architecture. I work structured
+                and take ownership of both independent tasks and solutions
+                developed in collaboration with teams and cross-functional
+                stakeholders.
               </p>
             </CardDescription>
           </CardHeader>

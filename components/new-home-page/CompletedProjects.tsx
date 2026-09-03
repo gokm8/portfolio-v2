@@ -19,7 +19,7 @@ function CompletedProjectsNew() {
   return (
     <Section>
       <Container>
-        <h2 className='text-2xl font-bold'>Projects 💻</h2>
+        <h2 className='text-2xl font-bold'>Selected Projects 💻</h2>
         <Separator orientation='horizontal' />
         {[...blogPosts]
           .sort((a, b) => {

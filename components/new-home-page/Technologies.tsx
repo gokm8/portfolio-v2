@@ -2,6 +2,7 @@ import { Container, Section } from '../ds'
 import { Separator } from '../ui/separator'
 import {
   backendTechnologies,
+  cloundAndDevOpsTechnologies,
   databaseTechnologies,
   frontendTechnologies
 } from '@/data/technologies'
@@ -24,11 +25,11 @@ function TechnologiesNew() {
     {
       title: 'Database',
       technologies: databaseTechnologies
+    },
+    {
+      title: 'Cloud & DevOps',
+      technologies: cloundAndDevOpsTechnologies
     }
-    // {
-    //   title: 'Tools',
-    //   technologies: cloundAndDevOpsTechnologies
-    // }
   ]
 
   return (

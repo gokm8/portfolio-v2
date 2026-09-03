@@ -7,15 +7,6 @@ export interface Technology {
 
 export const frontendTechnologies: Technology[] = [
   {
-    technology: 'html5',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg'
-  },
-  {
-    technology: 'css3',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg',
-    alt: 'css3'
-  },
-  {
     technology: 'javascript',
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg',
     alt: 'javascript'
@@ -30,30 +21,9 @@ export const frontendTechnologies: Technology[] = [
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
     alt: 'react'
   },
-
   {
     technology: 'next.js',
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg'
-  },
-
-  {
-    technology: 'tailwindcss',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg'
-  },
-
-  {
-    technology: 'bootstrap',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg'
-  },
-
-  {
-    technology: 'mui',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg'
-  },
-  {
-    technology: 'shadcn/ui',
-    img: '/programming-logos/shadcn-ui.svg',
-    className: 'dark:invert'
   }
 ]
 
@@ -63,29 +33,22 @@ export const backendTechnologies: Technology[] = [
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg'
   },
   {
-    technology: 'express',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg',
-    className: 'dark:invert'
-  },
-  {
-    technology: 'nextjs',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg'
-  },
-  {
     technology: 'c#',
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg'
   },
   {
-    technology: '.NET Core',
+    technology: '.net',
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg'
   },
   {
-    technology: 'ASP.NET',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg'
+    technology: 'rest api',
+    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg',
+    alt: 'rest api'
   },
   {
-    technology: 'entity framework',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/entityframeworkcore/entityframeworkcore-original.svg'
+    technology: 'ef core',
+    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/entityframeworkcore/entityframeworkcore-original.svg',
+    alt: 'entity framework core'
   }
 ]
 
@@ -95,16 +58,13 @@ export const databaseTechnologies: Technology[] = [
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg'
   },
   {
-    technology: 'mysql',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg'
+    technology: 'sql server',
+    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg',
+    alt: 'sql server'
   },
   {
-    technology: 'azure sql',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg'
-  },
-  {
-    technology: 'mongodb',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg'
+    technology: 'redis',
+    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg'
   }
 ]
 
@@ -114,15 +74,21 @@ export const cloundAndDevOpsTechnologies: Technology[] = [
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg'
   },
   {
-    technology: 'git',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg'
+    technology: 'azure devops',
+    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuredevops/azuredevops-original.svg',
+    alt: 'azure devops'
+  },
+  {
+    technology: 'ci/cd',
+    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg',
+    alt: 'ci/cd'
   },
   {
     technology: 'docker',
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg'
   },
   {
-    technology: 'kubernetes',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg'
+    technology: 'git',
+    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg'
   }
 ]

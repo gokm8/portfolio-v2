@@ -19,7 +19,8 @@ export const metadata: Metadata = {
     template: '%s | gokm8',
     default: 'Gøkmen Øzbayir | gokm8'
   },
-  description: 'Portfolio of Gøkmen Øzbayir'
+  description:
+    'Fullstack Software Engineer with focus on development, design and architecture. Experienced with APIs, databases, modern technologies and engineering best practices.'
 }
 
 export default function RootLayout({

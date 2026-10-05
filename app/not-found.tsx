@@ -15,7 +15,7 @@ export default function NotFound() {
         <SectionHeading as='h1' aside='404'>
           Page not found
         </SectionHeading>
-        <p className='text-muted-foreground max-w-[62ch] text-body'>
+        <p className='text-muted-foreground text-body max-w-[62ch]'>
           The page you are looking for does not exist or has been moved. Head
           back to the front page or browse the projects instead.
         </p>

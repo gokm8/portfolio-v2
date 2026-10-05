@@ -1,9 +1,7 @@
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
 import { Container, Section } from '../ds'
 import { Card, CardContent, CardFooter, CardHeader } from '../ui/card'
 import { Badge } from '../ui/badge'
-import { Button } from '../ui/button'
 import {
   formatDate,
   getBlogPosts,
@@ -19,7 +17,9 @@ function ProjectCard({ post }: { post: BlogPost }) {
   const href = `/blog/${slug}`
 
   return (
-    <Card className='hover:border-primary/40 h-full transition-colors'>
+    // The title link stretches over the whole card, so the card is one click
+    // target; the external links sit above it (z-10).
+    <Card className='group hover:border-primary/40 has-[a:focus-visible]:ring-ring relative h-full transition-colors has-[a:focus-visible]:ring-2'>
       <CardHeader>
         <div className='text-muted-foreground flex flex-row flex-wrap items-baseline justify-between gap-x-4 gap-y-1 text-xs tracking-wide'>
           {metadata.context && <p>{metadata.context}</p>}
@@ -30,7 +30,7 @@ function ProjectCard({ post }: { post: BlogPost }) {
         <h3 className='text-base leading-snug font-semibold tracking-tight'>
           <Link
             href={href}
-            className='hover:text-primary focus-visible:ring-ring rounded-sm transition-colors focus-visible:ring-2 focus-visible:outline-hidden'
+            className='group-hover:text-primary transition-colors after:absolute after:inset-0 focus-visible:outline-hidden'
           >
             {metadata.title}
           </Link>
@@ -38,7 +38,7 @@ function ProjectCard({ post }: { post: BlogPost }) {
       </CardHeader>
 
       <CardContent className='flex flex-col gap-4'>
-        <p className='text-muted-foreground text-body max-w-[68ch]'>
+        <p className='text-muted-foreground text-body line-clamp-3 max-w-[68ch]'>
           {metadata.summary}
         </p>
         {metadata.techStack && (
@@ -52,18 +52,11 @@ function ProjectCard({ post }: { post: BlogPost }) {
         )}
       </CardContent>
 
-      <CardFooter className='flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between'>
-        <Button variant='outline' className='group w-full sm:w-auto' asChild>
-          <Link href={href}>
-            Read the write-up
-            <ArrowRight
-              aria-hidden='true'
-              className='transition-transform group-hover:translate-x-0.5'
-            />
-          </Link>
-        </Button>
-        <ProjectLinks metadata={metadata} />
-      </CardFooter>
+      {(metadata.link || metadata.githubRepoLink) && (
+        <CardFooter>
+          <ProjectLinks metadata={metadata} className='relative z-10' />
+        </CardFooter>
+      )}
     </Card>
   )
 }

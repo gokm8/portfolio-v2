@@ -4,7 +4,6 @@ export interface Education {
   date: string
   education: string
   description: string
-  badge: string[]
 }
 
 export const educationalData: Education[] = [
@@ -14,18 +13,7 @@ export const educationalData: Education[] = [
     date: 'Sep. 2022 - Jan. 2026',
     education: 'B.Eng. in Software Engineering',
     description:
-      'Focused on software development, system design, databases and cloud technologies, developing competencies in APIs, software architecture and modern web development. Bachelor’s project on AI architecture with LLM providers, focusing on flexibility and vendor independence.',
-    badge: [
-      'Software Development',
-      'Software Architecture',
-      'Databases',
-      'Web Development',
-      'Distributed Systems',
-      'DevOps',
-      'Object-Oriented Programming',
-      'Cybersecurity',
-      'Algorithms & Data Structures'
-    ]
+      'Focused on software development, system design, databases and cloud technologies, developing competencies in APIs, software architecture and modern web development. Bachelor’s project on AI architecture with LLM providers, focusing on flexibility and vendor independence.'
   },
   {
     id: 2,
@@ -33,15 +21,6 @@ export const educationalData: Education[] = [
     date: 'Feb. 2019 - Jan. 2021',
     education: 'AP Graduate in Marketing Management',
     description:
-      'Focused on business, sales, marketing, finance and organizational understanding, combining analysis, planning and execution of commercial initiatives. Worked with both B2B and B2C marketing, market communication and customer needs.',
-    badge: [
-      'Business Fundamentals',
-      'Sales',
-      'B2B/B2C',
-      'Marketing',
-      'Communication',
-      'Finance',
-      'Entrepreneurship'
-    ]
+      'Focused on business, sales, marketing, finance and organizational understanding, combining analysis, planning and execution of commercial initiatives. Worked with both B2B and B2C marketing, market communication and customer needs.'
   }
 ]

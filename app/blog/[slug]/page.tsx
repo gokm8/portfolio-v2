@@ -11,7 +11,6 @@ import {
 } from '@/app/blog/utils'
 import { baseUrl } from '@/app/sitemap'
 import { Container, Section, Prose } from '@/components/ds'
-import { TracingBeam } from '@/components/ui/tracing-beam'
 import { Separator } from '@/components/ui/separator'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
@@ -183,23 +182,21 @@ export default async function Blog({
         <Separator className='mt-8' />
       </Container>
 
-      <TracingBeam className='px-6'>
-        <Container>
-          <Prose
-            isArticle
-            isSpaced
-            className={cn(
-              // Write-ups are short; keep headings in proportion to the h1.
-              '[&_h2]:text-xl sm:[&_h2]:text-2xl',
-              '[&_h3]:text-lg sm:[&_h3]:text-xl',
-              '[&_img]:rounded-sm [&_img]:border',
-              '[&_p:has(>em:only-child)]:text-muted-foreground [&_p:has(>em:only-child)]:-mt-4 [&_p:has(>em:only-child)]:text-sm'
-            )}
-          >
-            <CustomMDX source={post.content} />
-          </Prose>
-        </Container>
-      </TracingBeam>
+      <Container>
+        <Prose
+          isArticle
+          isSpaced
+          className={cn(
+            // Write-ups are short; keep headings in proportion to the h1.
+            '[&_h2]:text-xl sm:[&_h2]:text-2xl',
+            '[&_h3]:text-lg sm:[&_h3]:text-xl',
+            '[&_img]:rounded-sm [&_img]:border',
+            '[&_p:has(>em:only-child)]:text-muted-foreground [&_p:has(>em:only-child)]:-mt-4 [&_p:has(>em:only-child)]:text-sm'
+          )}
+        >
+          <CustomMDX source={post.content} />
+        </Prose>
+      </Container>
 
       <Container>
         <Separator className='mb-8' />

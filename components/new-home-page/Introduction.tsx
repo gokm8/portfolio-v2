@@ -16,9 +16,6 @@ import {
   FaEnvelope,
   FaMapMarkerAlt
 } from 'react-icons/fa'
-import { HyperText } from '../ui/hyper-text'
-import { BorderBeam } from '../ui/border-beam'
-import { TextLoop } from '../ui/text-loop'
 import { toast } from 'sonner'
 import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
 
@@ -41,7 +38,7 @@ function IntroductionNew() {
   return (
     <Section>
       <Container>
-        <Card className='relative overflow-hidden'>
+        <Card>
           <CardHeader>
             {/* Avatar + Name */}
             <div className='flex flex-row items-center'>
@@ -53,17 +50,12 @@ function IntroductionNew() {
                 <AvatarFallback>GØ</AvatarFallback>
               </Avatar>
               <CardTitle>
-                <h1 className='text-2xl font-semibold tracking-tight sm:text-4xl'>
-                  <HyperText>Gøkmen Øzbayir</HyperText>
+                <h1 className='text-2xl font-semibold tracking-tight sm:text-3xl'>
+                  Gøkmen Øzbayir
                 </h1>
-                <div className='flex flex-row gap-2'>
-                  <p className='text-muted-foreground text-sm'>I am a</p>
-                  <TextLoop className='text-primary text-sm'>
-                    <p>Fullstack Software Engineer</p>
-                    <p>Software Architect</p>
-                    <p>Problem Solver</p>
-                  </TextLoop>
-                </div>
+                <p className='text-primary mt-1.5 text-sm font-normal'>
+                  Fullstack Software Engineer
+                </p>
               </CardTitle>
             </div>
 
@@ -114,7 +106,6 @@ function IntroductionNew() {
               </p>
             </div>
           </CardContent>
-          <BorderBeam duration={6} size={120} />
         </Card>
       </Container>
     </Section>

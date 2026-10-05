@@ -6,11 +6,11 @@ export interface Experience {
   location: string
   description: string
   points: string[]
-  /** Technologies and domains — rendered as filled badges */
+  /** Technologies and domains — rendered as badges */
   badge: string[]
-  /** Soft skills and competencies — rendered as quiet outline badges */
-  competencies?: string[]
   link?: string
+  /** Marks unpaid roles, shown as a small label in the combined list */
+  volunteer?: boolean
 }
 
 export const workExperienceData: Experience[] = [
@@ -28,7 +28,6 @@ export const workExperienceData: Experience[] = [
       'Responsible for the software architecture of a SaaS platform, with a focus on scalability and modularity'
     ],
     badge: ['React', 'Next.js', 'TypeScript', 'SaaS', 'Software Architecture'],
-    competencies: ['Entrepreneurship'],
     link: 'https://teorionline.dk'
   },
   {
@@ -52,8 +51,7 @@ export const workExperienceData: Experience[] = [
       'ETL',
       'Integrations',
       'Automation'
-    ],
-    competencies: ['Cross-functional Collaboration']
+    ]
   },
   {
     id: 3,
@@ -68,13 +66,12 @@ export const workExperienceData: Experience[] = [
       'Converted leads into new B2B customers through consultative sales and structured follow-up',
       'Negotiated contract terms with a focus on customer needs, business value, and long-term partnerships'
     ],
-    badge: ['B2B Sales'],
-    competencies: [
-      'Customer Needs',
-      'Customer Relations',
-      'Upselling',
-      'Communication',
-      'Relationship Building'
+    badge: [
+      'B2B Sales',
+      'Account Management',
+      'Consultative Sales',
+      'Contract Negotiation',
+      'Upselling'
     ]
   }
 ]

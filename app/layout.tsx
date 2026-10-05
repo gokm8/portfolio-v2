@@ -7,7 +7,6 @@ import { Analytics } from '@vercel/analytics/react'
 import { ThemeProvider } from '@/components/theme-provider'
 import Footer from '@/components/new-home-page/wrapper/Footer'
 import { Navigation } from '@/components/new-home-page/wrapper/Navbar'
-import AlertNew from '@/components/new-home-page/wrapper/Alert'
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
@@ -35,7 +34,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <AlertNew />
           <Navigation />
           {children}
           <Toaster />

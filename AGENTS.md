@@ -1,6 +1,7 @@
 # AGENTS.md
 
-This file provides guidance to Codex (Codex.ai/code) when working with code in this repository.
+This file provides guidance to Codex (Codex.ai/code) when working with code in
+this repository.
 
 ## Development Commands
 
@@ -8,19 +9,23 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 - **Build**: `npm run build`
 - **Start Production**: `npm start`
 - **Linting**: `npm run lint` (ESLint 9 CLI, flat config in `eslint.config.mjs`)
-- **Formatting**: `npx prettier --write .` (Prettier with `prettier-plugin-tailwindcss`)
+- **Formatting**: `npx prettier --write .` (Prettier with
+  `prettier-plugin-tailwindcss`)
 
 No test suite exists in this project.
 
 ## Architecture Overview
 
-Next.js 15 portfolio site with React 19, TypeScript, and Tailwind CSS v4, deployed on Vercel.
+Next.js 15 portfolio site with React 19, TypeScript, and Tailwind CSS v4,
+deployed on Vercel.
 
 ### Key Technologies
+
 - **Framework**: Next.js 15 with App Router
-- **Styling**: Tailwind CSS v4 with `prettier-plugin-tailwindcss` for class sorting
-- **UI Components**: shadcn/ui and Magic UI components (`components/ui/`); only components in use are kept, add new ones with the shadcn CLI
-- **Animations**: Motion (`motion/react`)
+- **Styling**: Tailwind CSS v4 with `prettier-plugin-tailwindcss` for class
+  sorting
+- **UI Components**: shadcn/ui and Magic UI components (`components/ui/`); only
+  components in use are kept, add new ones with the shadcn CLI
 - **Typography**: Geist Mono (`next/font/google`)
 - **Blog/Projects**: MDX via `next-mdx-remote`
 - **Theme**: `next-themes` with system/light/dark toggle
@@ -28,14 +33,18 @@ Next.js 15 portfolio site with React 19, TypeScript, and Tailwind CSS v4, deploy
 
 ### Design System
 
-Layout primitives live in **`components/ds.tsx`**: `Layout`, `Main`, `Section`, `Container`, `Nav`, `Prose`
-  - `Container`: `mx-auto max-w-3xl p-4 sm:p-6`
-  - `Section`: `py-2 sm:py-4`
-  - `Prose`: rich text styling component; accepts `isArticle` (adds `max-w-prose`) and `isSpaced` (adds heading/paragraph spacing) props
+Layout primitives live in **`components/ds.tsx`**: `Layout`, `Main`, `Section`,
+`Container`, `Nav`, `Prose`
+
+- `Container`: `mx-auto max-w-3xl p-4 sm:p-6`
+- `Section`: `py-2 sm:py-4`
+- `Prose`: rich text styling component; accepts `isArticle` (adds `max-w-prose`)
+  and `isSpaced` (adds heading/paragraph spacing) props
 
 ### Path Aliases
 
-`@/` maps to the **project root** (not `src/`). Example: `import { Container } from '@/components/ds'`.
+`@/` maps to the **project root** (not `src/`). Example:
+`import { Container } from '@/components/ds'`.
 
 ### Page Structure Pattern
 
@@ -54,23 +63,33 @@ export default function Page() {
 }
 ```
 
-The root layout (`app/layout.tsx`) wraps everything in `<Layout>` → `<ThemeProvider>` → `<AlertNew>` → `<Navigation>` → `{children}` → `<Footer>`.
+The root layout (`app/layout.tsx`) wraps everything in `<Layout>` →
+`<ThemeProvider>` → `<Navigation>` → `{children}` → `<Footer>`.
 
 ### Home Page Components
 
-All home page sections live in `components/new-home-page/` and are composed in `app/page.tsx`:
-- `Introduction.tsx` — hero card with avatar, scrambling name, rotating titles, social links
-- `SectionHeading.tsx` — shared heading (accent square + title + rule) used by every section
-- `ExperienceTimeline.tsx` — shared two-column experience list (dates left, role right); `WorkExperience.tsx` and `VolunteerExperience.tsx` are thin wrappers over it
-- `CompletedProjects.tsx` — project cards from the MDX posts; `ShowMore.tsx` collapses them to the first three
-- `Education.tsx`, `Technologies.tsx`
-- `wrapper/Navbar.tsx`, `wrapper/Footer.tsx`, `wrapper/Alert.tsx`
+All home page sections live in `components/new-home-page/` and are composed in
+`app/page.tsx`:
+
+- `Introduction.tsx` — hero card with avatar, name, title, bio and social links
+  (no animation by design)
+- `SectionHeading.tsx` — shared heading (accent square + title + rule) used by
+  every section
+- `ExperienceTimeline.tsx` — shared two-column list (dates left, entry right)
+  for every dated section; `WorkExperience.tsx` (work + volunteer, as
+  "Experience") and `Education.tsx` map their data onto it
+- `CompletedProjects.tsx` — project cards from the MDX posts (the title link
+  covers the whole card); `ShowMore.tsx` collapses them to the first three
+- `Technologies.tsx`
+- `wrapper/Navbar.tsx`, `wrapper/Footer.tsx`
 
 ### Blog / Projects Route
 
-`/blog` is repurposed as the **Projects** showcase. MDX files in `app/blog/posts/` are rendered as project write-ups.
+`/blog` is repurposed as the **Projects** showcase. MDX files in
+`app/blog/posts/` are rendered as project write-ups.
 
 MDX frontmatter schema (`app/blog/utils.tsx`):
+
 ```
 ---
 title: string
@@ -84,33 +103,46 @@ techStack?: string    # comma-separated, split in the card component
 ---
 ```
 
-Slug is derived from the filename. `getBlogPosts()` reads all `.mdx` files at build time and returns them newest first. Link/date helpers (`formatDate`, `displayHost`, `isVideoLink`, `splitTechStack`) live in `app/blog/utils.tsx`.
+Slug is derived from the filename. `getBlogPosts()` reads all `.mdx` files at
+build time and returns them newest first. Link/date helpers (`formatDate`,
+`displayHost`, `isVideoLink`, `splitTechStack`) live in `app/blog/utils.tsx`.
 
 ### Data Management
 
 Static content in `data/`:
-- `work-experience.ts` — roles plus the shared `Experience` type; `badge[]` renders filled, `competencies[]` renders as quiet outline badges
-- `volunteer-experience.ts` — reuses the `Experience` type
+
+- `work-experience.ts` — roles plus the shared `Experience` type; `badge[]`
+  renders as badges (technologies and domains only, no soft skills)
+- `volunteer-experience.ts` — reuses the `Experience` type with
+  `volunteer: true`; rendered at the end of Experience
 - `education.ts`, `technologies.ts`
 
-`technologies.ts` is logo-only by design: every entry has a devicon mark. Capabilities
-without a logo (REST API, ETL, SQL) belong on the roles and projects that evidence them.
+`technologies.ts` is logo-only by design: every entry has a devicon mark.
+Capabilities without a logo (REST API, ETL, SQL) belong on the roles and
+projects that evidence them.
 
 Follow existing TypeScript type definitions when adding entries.
 
 ### Type Scale
 
-Everything is Geist Mono; hierarchy comes from size, weight and colour (defined in `app/globals.css`):
-- `text-xs tracking-wide` — meta (dates, locations, labels); left-column labels use `text-primary`
+Everything is Geist Mono; hierarchy comes from size, weight and colour (defined
+in `app/globals.css`):
+
+- `text-xs tracking-wide` — meta (dates, locations, labels); left-column labels
+  use `text-primary`
 - `text-sm` — UI (nav, buttons, links, chips)
 - `text-body` (15px token) — descriptive copy, `text-muted-foreground`
 - `text-base font-semibold tracking-tight` — item titles
 - `text-lg font-medium` — section headings (`SectionHeading`)
 
-Use theme tokens (`primary`, `muted-foreground`, `border`…) rather than raw colours. Date ranges go through `splitDate()` in `lib/utils.ts`.
+Use theme tokens (`primary`, `muted-foreground`, `border`…) rather than raw
+colours. Orange (`primary`) is an accent only: links, markers and left-column
+labels, never headings or body text. Keep the site calm: no decorative
+animation. Date ranges go through `splitDate()` in `lib/utils.ts`.
 
 ### Utilities
 
-- `cn()` from `@/lib/utils` — `clsx` + `tailwind-merge` for conditional class merging
+- `cn()` from `@/lib/utils` — `clsx` + `tailwind-merge` for conditional class
+  merging
 - `useCopyToClipboard` hook in `hooks/`
 - Toast notifications via `sonner`

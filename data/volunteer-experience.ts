@@ -15,6 +15,7 @@ export const volunteerExperienceData: Experience[] = [
       'Translating business needs into features, with responsibility for UI/UX, integrations, and implementation'
     ],
     badge: ['Full Stack', 'Stripe', 'Integrations', 'UI/UX', 'Deployment'],
-    link: 'https://www.undersammesol.dk'
+    link: 'https://www.undersammesol.dk',
+    volunteer: true
   }
 ]

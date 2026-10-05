@@ -27,6 +27,15 @@ function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
   )
 }
 
+/** Markdown tables scroll on their own instead of widening the page. */
+function ScrollTable(props: React.ComponentProps<'table'>) {
+  return (
+    <div className='overflow-x-auto'>
+      <table {...props} />
+    </div>
+  )
+}
+
 function CustomLink(props: { href: string; children: React.ReactNode }) {
   const href = props.href
 
@@ -97,6 +106,7 @@ const components = {
   Image: RoundedImage,
   a: CustomLink,
   code: Code,
+  table: ScrollTable,
   Table
 }
 

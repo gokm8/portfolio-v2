@@ -76,7 +76,10 @@
 
 :root {
   --radius: 0.65rem;
-  --background: oklch(1 0 0);
+  /* Slightly tinted page ground so white cards lift off it, the way they do
+     in dark mode. Previously both were oklch(1 0 0), leaving cards with no
+     surface contrast in light mode. */
+  --background: oklch(0.985 0.002 286.32);
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);
@@ -149,5 +152,18 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Honour the OS "reduce motion" setting. Covers the CSS-driven effects:
+   marquee, border beam and shine, plus all transitions. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

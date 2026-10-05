@@ -1,74 +1,50 @@
-import { Container, Section } from '../ds'
-import { Separator } from '../ui/separator'
-import {
-  backendTechnologies,
-  cloundAndDevOpsTechnologies,
-  databaseTechnologies,
-  frontendTechnologies
-} from '@/data/technologies'
-import Image from 'next/image'
-import { Marquee } from '@/components/ui/marquee'
-import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
+import { technologyGroups } from '@/data/technologies'
 import { cn } from '@/lib/utils'
-import { ArrowRightIcon } from 'lucide-react'
+import Image from 'next/image'
+import { Container, Section } from '../ds'
+import SectionHeading from './SectionHeading'
 
 function TechnologiesNew() {
-  const technologyCategories = [
-    {
-      title: 'Frontend',
-      technologies: frontendTechnologies
-    },
-    {
-      title: 'Backend',
-      technologies: backendTechnologies
-    },
-    {
-      title: 'Database',
-      technologies: databaseTechnologies
-    },
-    {
-      title: 'Cloud & DevOps',
-      technologies: cloundAndDevOpsTechnologies
-    }
-  ]
-
   return (
     <Section>
       <Container>
-        <h2 className='text-2xl font-bold'>Technologies 💡</h2>
-        <Separator orientation='horizontal' />
-        <p className='text-base'>Always learning. Always building.</p>
+        <SectionHeading>Technologies</SectionHeading>
+        <p className='text-muted-foreground mb-6 text-[0.9375rem]'>
+          Always learning. Always building.
+        </p>
 
-        {technologyCategories.map((category) => (
-          <div
-            key={category.title}
-            className='z-10 mt-2 flex items-center justify-center'
-          >
+        <dl className='flex flex-col gap-5'>
+          {technologyGroups.map((group) => (
             <div
-              className={cn(
-                'group border-border bg-muted text-foreground hover:bg-accent dark:hover:bg-accent hover:cursor-pointer-none flex w-full flex-row border text-base transition-all ease-in'
-              )}
+              key={group.id}
+              className='grid gap-2 sm:grid-cols-[10rem_1fr] sm:gap-4'
             >
-              <AnimatedShinyText className='inline-flex w-30 shrink-0 items-center justify-between px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400'>
-                <span className='text-sm'>{category.title}</span>
-                <ArrowRightIcon className='size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5' />
-              </AnimatedShinyText>
-
-              <Marquee reverse={true}>
-                {category.technologies.map((technology) => (
-                  <Image
-                    key={technology.technology}
-                    src={technology.img}
-                    alt={technology.technology}
-                    width={100}
-                    height={100}
-                    className={cn('h-10 w-10', technology.className)}
-                  />
-                ))}
-              </Marquee>
+              <dt className='text-primary pt-1 text-xs tracking-wide'>
+                {group.category}
+              </dt>
+              <dd>
+                <ul className='flex flex-row flex-wrap gap-x-5 gap-y-2.5'>
+                  {group.technologies.map((technology) => (
+                    <li
+                      key={technology.name}
+                      className='flex flex-row items-center gap-2 text-sm'
+                    >
+                      <Image
+                        src={technology.img}
+                        alt=''
+                        aria-hidden='true'
+                        width={40}
+                        height={40}
+                        className={cn('size-5 shrink-0', technology.className)}
+                      />
+                      {technology.name}
+                    </li>
+                  ))}
+                </ul>
+              </dd>
             </div>
-          </div>
-        ))}
+          ))}
+        </dl>
       </Container>
     </Section>
   )

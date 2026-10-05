@@ -4,7 +4,6 @@ import EducationNew from '@/components/new-home-page/Education'
 import { Main } from 'components/ds'
 
 import React from 'react'
-import SkillsNew from '@/components/new-home-page/Skills'
 import TechnologiesNew from '@/components/new-home-page/Technologies'
 import VolunteerExperienceNew from '@/components/new-home-page/VolunteerExperience'
 import WorkExperienceNew from '@/components/new-home-page/WorkExperience'
@@ -17,7 +16,6 @@ function Home() {
       <VolunteerExperienceNew />
       <CompletedProjectsNew />
       <EducationNew />
-      {/* <SkillsNew /> */}
       <TechnologiesNew />
     </Main>
   )

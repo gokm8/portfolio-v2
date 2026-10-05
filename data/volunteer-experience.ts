@@ -14,14 +14,7 @@ export const volunteerExperienceData: Experience[] = [
       "Developing and maintaining the organization's digital platform across frontend and backend",
       'Translating business needs into features, with responsibility for UI/UX, integrations, and implementation'
     ],
-    badge: [
-      'Full Stack',
-      'Stripe',
-      'Integrations',
-      'UI/UX',
-      'Feature Development',
-      'Deployment'
-    ],
+    badge: ['Full Stack', 'Stripe', 'Integrations', 'UI/UX', 'Deployment'],
     link: 'https://www.undersammesol.dk'
   }
 ]

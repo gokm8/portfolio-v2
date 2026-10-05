@@ -78,7 +78,7 @@ export default async function Blog({
         <Container>
           <Link href='/blog'>
             <p className='text-muted-foreground hover:text-primary text-base'>
-              ⟵ Back to blog
+              Back to projects
             </p>
           </Link>
         </Container>
@@ -127,12 +127,11 @@ export default async function Blog({
           </Prose>
 
           <Separator orientation='horizontal' />
-          <p className='text-base'>1.203 people has seen this blog post</p>
         </Container>
         <Container>
           <Link href='/blog'>
             <p className='text-muted-foreground hover:text-primary text-base'>
-              ⟵ Back to blog
+              Back to projects
             </p>
           </Link>
         </Container>

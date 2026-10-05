@@ -1,94 +1,89 @@
+const devicon = (path: string) =>
+  `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${path}`
+
 export interface Technology {
-  technology: string
+  name: string
   img: string
   className?: string
-  alt?: string
 }
 
-export const frontendTechnologies: Technology[] = [
-  {
-    technology: 'javascript',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg',
-    alt: 'javascript'
-  },
-  {
-    technology: 'typescript',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
-    alt: 'typescript'
-  },
-  {
-    technology: 'react',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
-    alt: 'react'
-  },
-  {
-    technology: 'next.js',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg'
-  }
-]
+export interface TechnologyGroup {
+  id: number
+  category: string
+  technologies: Technology[]
+}
 
-export const backendTechnologies: Technology[] = [
+/**
+ * Logo-only by design: every item here has a recognisable mark. Capabilities
+ * without one (REST API, ETL, SQL) are evidenced in the experience timeline
+ * and project cards instead of being given a stand-in icon.
+ */
+export const technologyGroups: TechnologyGroup[] = [
   {
-    technology: 'node.js',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg'
+    id: 1,
+    category: 'Languages',
+    technologies: [
+      {
+        name: 'TypeScript',
+        img: devicon('typescript/typescript-original.svg')
+      },
+      {
+        name: 'JavaScript',
+        img: devicon('javascript/javascript-original.svg')
+      },
+      { name: 'C#', img: devicon('csharp/csharp-original.svg') },
+      { name: '.NET', img: devicon('dotnetcore/dotnetcore-original.svg') }
+    ]
   },
   {
-    technology: 'c#',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg'
+    id: 2,
+    category: 'Frontend',
+    technologies: [
+      { name: 'React', img: devicon('react/react-original.svg') },
+      {
+        name: 'Next.js',
+        img: devicon('nextjs/nextjs-original.svg'),
+        className: 'dark:invert'
+      }
+    ]
   },
   {
-    technology: '.net',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg'
+    id: 3,
+    category: 'Backend',
+    technologies: [
+      { name: 'Node.js', img: devicon('nodejs/nodejs-original.svg') },
+      {
+        name: 'EF Core',
+        img: devicon('entityframeworkcore/entityframeworkcore-original.svg')
+      }
+    ]
   },
   {
-    technology: 'rest api',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg',
-    alt: 'rest api'
+    id: 4,
+    category: 'Data',
+    technologies: [
+      {
+        name: 'PostgreSQL',
+        img: devicon('postgresql/postgresql-original.svg')
+      },
+      {
+        name: 'SQL Server',
+        img: devicon('microsoftsqlserver/microsoftsqlserver-original.svg')
+      },
+      { name: 'Redis', img: devicon('redis/redis-original.svg') }
+    ]
   },
   {
-    technology: 'ef core',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/entityframeworkcore/entityframeworkcore-original.svg',
-    alt: 'entity framework core'
-  }
-]
-
-export const databaseTechnologies: Technology[] = [
-  {
-    technology: 'postgresql',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg'
-  },
-  {
-    technology: 'sql server',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg',
-    alt: 'sql server'
-  },
-  {
-    technology: 'redis',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg'
-  }
-]
-
-export const cloundAndDevOpsTechnologies: Technology[] = [
-  {
-    technology: 'azure',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg'
-  },
-  {
-    technology: 'azure devops',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuredevops/azuredevops-original.svg',
-    alt: 'azure devops'
-  },
-  {
-    technology: 'ci/cd',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg',
-    alt: 'ci/cd'
-  },
-  {
-    technology: 'docker',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg'
-  },
-  {
-    technology: 'git',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg'
+    id: 5,
+    category: 'Cloud & DevOps',
+    technologies: [
+      { name: 'Azure', img: devicon('azure/azure-original.svg') },
+      {
+        name: 'Azure DevOps',
+        img: devicon('azuredevops/azuredevops-original.svg')
+      },
+      { name: 'Docker', img: devicon('docker/docker-original.svg') },
+      { name: 'Git', img: devicon('git/git-original.svg') }
+    ]
   }
 ]

@@ -8,11 +8,20 @@ import {
   CardHeader,
   CardTitle
 } from '../ui/card'
-import { Separator } from '../ui/separator'
 import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
-import { ShineBorder } from '../ui/shine-border'
 import { getBlogPosts } from '@/app/blog/utils'
+import SectionHeading from './SectionHeading'
+
+/** Strip protocol and www so the displayed host reads consistently. */
+function displayHost(url: string) {
+  return url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')
+}
+
+/** Frontmatter stores bare hosts as well as full URLs. */
+function toHref(url: string) {
+  return url.startsWith('http') ? url : `https://${url}`
+}
 
 function CompletedProjectsNew() {
   const blogPosts = getBlogPosts()
@@ -20,8 +29,7 @@ function CompletedProjectsNew() {
   return (
     <Section>
       <Container>
-        <h2 className='text-2xl font-bold'>Selected Projects 💻</h2>
-        <Separator orientation='horizontal' />
+        <SectionHeading>Selected Projects</SectionHeading>
         {[...blogPosts]
           .sort((a, b) => {
             return new Date(a.metadata.publishedAt) >
@@ -30,34 +38,36 @@ function CompletedProjectsNew() {
               : 1
           })
           .map((post) => (
-            <div key={post.slug} className='mb-4'>
-              <Card className='relative overflow-hidden'>
-                <ShineBorder shineColor={['#A855F7', '#FF5E9A', '#ff6900']} />
-
+            <div key={post.slug} className='mb-4 last:mb-0'>
+              <Card className='hover:border-primary/40 transition-colors'>
                 {/* Project title and website link */}
                 <CardHeader>
-                  <CardDescription>
-                    <p className='text-muted-foreground text-sm'>
-                      {post.metadata.link}
-                    </p>
-                  </CardDescription>
+                  {post.metadata.link && (
+                    <CardDescription>
+                      <p className='text-muted-foreground text-xs tracking-wide'>
+                        {displayHost(post.metadata.link)}
+                      </p>
+                    </CardDescription>
+                  )}
                   <CardTitle>
-                    <h3 className='text-xl'>{post.metadata.title}</h3>
+                    <h3 className='text-lg font-semibold tracking-tight'>
+                      {post.metadata.title}
+                    </h3>
                   </CardTitle>
                   {post.metadata.context && (
-                    <p className='text-muted-foreground text-xs'>
+                    <p className='text-muted-foreground text-xs tracking-wide'>
                       {post.metadata.context}
                     </p>
                   )}
                 </CardHeader>
 
-                {/* Project tech stack and description */}
+                {/* Project description and tech stack */}
                 <CardContent className='flex flex-col gap-4'>
-                  <p className='text-muted-foreground line-clamp-2 text-base'>
+                  <p className='text-muted-foreground max-w-[68ch] text-[0.9375rem] leading-relaxed'>
                     {post.metadata.summary || 'No summary available'}
                   </p>
                   {post.metadata.techStack && (
-                    <div className='flex flex-row flex-wrap gap-2'>
+                    <div className='flex flex-row flex-wrap gap-1.5'>
                       {post.metadata.techStack
                         .split(',')
                         .map((tech) => tech.trim())
@@ -71,44 +81,38 @@ function CompletedProjectsNew() {
                   )}
                 </CardContent>
 
-                {/* Button and Links */}
-                <CardFooter className='flex flex-col gap-1'>
-                  <Button className='w-full' asChild>
-                    <Link href={`/blog/${post.slug}`}>Read more →</Link>
+                {/* Actions */}
+                <CardFooter className='flex flex-col items-start gap-3'>
+                  <Button
+                    variant='outline'
+                    className='w-full sm:w-auto'
+                    asChild
+                  >
+                    <Link href={`/blog/${post.slug}`}>Read the write-up</Link>
                   </Button>
                   {(post.metadata.link || post.metadata.githubRepoLink) && (
-                    <>
-                      <Separator orientation='horizontal' />
-                      <div className='flex h-5 w-full flex-row items-center gap-2 text-sm'>
-                        {post.metadata.link && (
-                          <Link
-                            href={
-                              post.metadata.link.startsWith('http')
-                                ? post.metadata.link
-                                : `https://${post.metadata.link}`
-                            }
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='text-muted-foreground hover:text-primary flex items-center gap-2'
-                          >
-                            view live site ↗
-                          </Link>
-                        )}
-                        {post.metadata.link && post.metadata.githubRepoLink && (
-                          <Separator orientation='vertical' />
-                        )}
-                        {post.metadata.githubRepoLink && (
-                          <Link
-                            href={post.metadata.githubRepoLink}
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='text-muted-foreground hover:text-primary flex items-center gap-2'
-                          >
-                            view on github ↗
-                          </Link>
-                        )}
-                      </div>
-                    </>
+                    <div className='flex flex-row flex-wrap items-center gap-x-5 gap-y-1 text-xs tracking-wide'>
+                      {post.metadata.link && (
+                        <Link
+                          href={toHref(post.metadata.link)}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='text-muted-foreground hover:text-primary focus-visible:ring-ring rounded-sm underline decoration-dotted underline-offset-4 transition-colors focus-visible:ring-2 focus-visible:outline-hidden'
+                        >
+                          Live site
+                        </Link>
+                      )}
+                      {post.metadata.githubRepoLink && (
+                        <Link
+                          href={post.metadata.githubRepoLink}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='text-muted-foreground hover:text-primary focus-visible:ring-ring rounded-sm underline decoration-dotted underline-offset-4 transition-colors focus-visible:ring-2 focus-visible:outline-hidden'
+                        >
+                          Source
+                        </Link>
+                      )}
+                    </div>
                   )}
                 </CardFooter>
               </Card>

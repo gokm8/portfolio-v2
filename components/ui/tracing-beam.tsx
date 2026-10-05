@@ -63,7 +63,7 @@ export const TracingBeam = ({
                 ? 'none'
                 : 'rgba(0, 0, 0, 0.24) 0px 3px 8px'
           }}
-          className='border-netural-200 ml-[27px] flex h-4 w-4 items-center justify-center rounded-full border shadow-sm'
+          className='border-border bg-background ml-[27px] flex h-4 w-4 items-center justify-center rounded-full border shadow-sm'
         >
           <motion.div
             transition={{
@@ -72,9 +72,10 @@ export const TracingBeam = ({
             }}
             animate={{
               backgroundColor:
-                scrollYProgress.get() > 0 ? 'white' : 'var(--primary)',
-              borderColor:
-                scrollYProgress.get() > 0 ? 'white' : 'var(--primary)'
+                scrollYProgress.get() > 0
+                  ? 'var(--background)'
+                  : 'var(--primary)',
+              borderColor: 'var(--primary)'
             }}
             className='bg-primary border-primary/50 h-2 w-2 rounded-full border'
           />
@@ -89,8 +90,7 @@ export const TracingBeam = ({
           <motion.path
             d={`M 1 0V -36 l 18 24 V ${svgHeight * 0.8} l -18 24V ${svgHeight}`}
             fill='none'
-            stroke='oklch(0.705 0.213 47.604 / 0.16)'
-            strokeOpacity='0.16'
+            className='stroke-primary/15'
             transition={{
               duration: 10
             }}
@@ -114,17 +114,14 @@ export const TracingBeam = ({
               y1={y1} // set y1 for gradient
               y2={y2} // set y2 for gradient
             >
-              <stop
-                stopColor='oklch(0.705 0.213 47.604)'
-                stopOpacity='0'
-              ></stop>
-              <stop stopColor='oklch(0.705 0.213 47.604)'></stop>
-              <stop offset='0.325' stopColor='oklch(0.646 0.222 41.116)'></stop>
+              {/* var() only resolves in style, not in SVG attributes */}
+              <stop style={{ stopColor: 'var(--primary)', stopOpacity: 0 }} />
+              <stop style={{ stopColor: 'var(--primary)' }} />
+              <stop offset='0.325' style={{ stopColor: 'var(--primary)' }} />
               <stop
                 offset='1'
-                stopColor='oklch(0.828 0.189 84.429)'
-                stopOpacity='0'
-              ></stop>
+                style={{ stopColor: 'var(--primary)', stopOpacity: 0 }}
+              />
             </motion.linearGradient>
           </defs>
         </svg>

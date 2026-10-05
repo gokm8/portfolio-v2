@@ -1,25 +1,202 @@
 {/* prettier-ignore-start */}
 ---
-title: 'AI Integration Architecture'
-publishedAt: '2025-08-01'
-summary: 'Chat assistant with streaming responses via Vercel AI SDK, source web search with Exa against official Danish traffic sources, and multi-LLM support via Vercel AI Gateway.'
+title: 'AI Integration Architecture (TrafikGPT)'
+publishedAt: '2026-01-01'
+summary: 'Vendor-independent architecture for an AI driving instructor on TeoriOnline.dk. The AI provider is swapped through configuration via Vercel AI Gateway, and streaming answers are grounded in Exa web search of official Danish traffic sources.'
 context: "Bachelor's Project, University of Southern Denmark"
-techStack: 'AI Architecture, LLM, Vercel AI SDK, API Integration'
+techStack: 'Software Architecture, Next.js, Vercel AI SDK, Vercel AI Gateway, Exa, LLM'
 link: 'https://trafik-gpt.vercel.app/'
 githubRepoLink: 'https://github.com/gokm8/trafik-gpt'
 ---
 {/* prettier-ignore-end */}
 
-## Overview
+TrafikGPT is the prototype from my bachelor's project in Software Engineering at
+the University of Southern Denmark: an AI driving instructor for
+[TeoriOnline.dk](https://teorionline.dk) that answers questions about the Danish
+driving theory test. The chatbot itself is the visible part. The real subject of
+the project was the architecture behind it, and one question in particular: how
+do you build on AI models without being locked to the vendor that provides them?
 
-TrafikGPT is a chat assistant for Danish traffic information with streaming responses, source-backed web search, and configurable model selection across multiple LLM providers.
+## The problem
 
-## Key contributions
+Two competitors, Teoriklar.dk and Teoriundervisning.dk, had already launched
+AI-based features. For a new entrant like TeoriOnline.dk, an AI assistant was
+becoming table stakes rather than a differentiator.
 
-- Developed a chat assistant with streaming responses via Vercel AI SDK
-- Implemented source web search with Exa against official Danish traffic sources
-- Integrated multiple LLM providers via Vercel AI Gateway with configurable model selection
+At the same time, the AI market moves fast. Models improve every few months,
+prices change, and APIs get deprecated. Hard-wiring the platform to one provider
+would mean a rewrite every time a better or cheaper model came along. For a
+one-person company with limited development hours, that is not an option.
 
-## Tech stack
+The problem formulation became:
 
-Next.js, React, Tailwind, Vercel AI SDK, Vercel AI Gateway, Exa
+> How can a software architecture be designed to support different AI models
+> that act as a virtual driving instructor that provides personalized guidance
+> for driving theory test preparation for TeoriOnline.dk?
+
+## Approach
+
+The project follows **Attribute-Driven Design (ADD)**, where architecture is
+driven by quality attributes rather than features. The work moved from analysis
+(system description, stakeholders, user stories, use cases) to design (quality
+attribute scenarios, architectural tactics, views), then implementation and
+evaluation. Quality attributes are defined as in _Software Architecture in
+Practice_ by Bass et al.
+
+The analysis produced a clear prioritisation:
+
+| Quality attribute | Priority | Why                                                     |
+| ----------------- | -------- | ------------------------------------------------------- |
+| Modifiability     | High     | Add new AI models without architectural redesign        |
+| Integrability     | High     | Integrate many providers through one unified interface  |
+| Availability      | High     | Keep the service running during deploys and failures    |
+| Performance       | Low      | Matters for UX, but less than flexibility in version one |
+
+These were turned into measurable scenarios. A developer must be able to
+**add a new AI provider** in under one hour, **replace the active provider** in
+under one hour, and do both **without touching application logic**. A new
+version must also deploy **without interrupting ongoing conversations**.
+
+## Constraints
+
+- Built with Next.js, the same framework as TeoriOnline.dk
+- AI integration through the Vercel AI SDK
+- All providers accessed through a unified interface
+- Application logic must not depend on provider-specific APIs
+- Replacing a model must not require code changes
+- The system must be able to retrieve up-to-date information, since traffic
+  regulations change
+
+## Architecture
+
+Every request flows the same way: the chat UI calls a Next.js API route, the
+route asks a configuration module which model is active, and the request is
+sent through an AI Gateway that hides everything provider-specific. The UI and
+the route never know whether they are talking to Anthropic, OpenAI or Google.
+
+The design is realised through a small set of architectural tactics:
+
+| Tactic                     | How it shows up                                          |
+| -------------------------- | -------------------------------------------------------- |
+| Use an Intermediary        | The API route is the only thing that talks to AI         |
+| Encapsulate                | Provider details live behind the AI Gateway              |
+| Configuration-Time Binding | The active provider is chosen in `.env`, not in code     |
+| Polymorphism               | Every provider is called through the same interface      |
+| Orchestrate                | The route coordinates model, system prompt and web search |
+| Exception Handling         | Errors are caught, logged and returned in a controlled way |
+
+## Implementation
+
+The prototype is built with Next.js 16, the Vercel AI SDK and its
+`createGateway` function, `@ai-sdk/react` for the chat UI, the Exa AI SDK for
+web search, and Tailwind CSS for a layout that works on both mobile and desktop.
+
+### One mapping decides the model
+
+The configuration module maps providers to model strings. Selecting a provider
+is a lookup, and an invalid value falls back to a default instead of crashing:
+
+```ts
+export const AI_MODELS = {
+  anthropic: 'anthropic/claude-sonnet-4.5',
+  openai: 'openai/gpt-4o',
+  google: 'google/gemini-2.5-flash-lite',
+  perplexity: 'perplexity/sonar'
+} as const
+
+export function getProvider(): AIProvider {
+  const envProvider = process.env.AI_PROVIDER || 'anthropic'
+  if (envProvider in AI_MODELS) {
+    return envProvider as AIProvider
+  }
+  console.warn(`[AI] Invalid provider, falling back to "anthropic"`)
+  return 'anthropic'
+}
+```
+
+### One route talks to every provider
+
+The API route never imports a provider SDK. It asks for the current model
+string and hands it to the gateway, together with the system prompt and the
+web search tool:
+
+```ts
+const gateway = createGateway({
+  apiKey: process.env.AI_GATEWAY_API_KEY
+})
+
+export async function POST(req: Request) {
+  try {
+    const { messages } = await req.json()
+    const modelString = getModelString()
+
+    const result = streamText({
+      model: gateway(modelString),
+      system: SYSTEM_PROMPT,
+      messages: convertToModelMessages(messages),
+      tools: { webSearch: webSearch({ ... }) }
+    })
+
+    return result.toUIMessageStreamResponse()
+  } catch (error) {
+    console.error('[AI] Error:', error)
+    return new Response('Internal Server Error', { status: 500 })
+  }
+}
+```
+
+Answers stream to the browser as they are generated, so students see the
+response build up instead of waiting for the full text.
+
+### Swapping provider is a one-line change
+
+```bash
+# .env
+AI_PROVIDER=anthropic   # before
+AI_PROVIDER=openai      # after
+```
+
+Change the variable, redeploy, and the platform runs on a different model. The
+UI and the API route are untouched. Adding a brand new provider means one extra
+line in `AI_MODELS`.
+
+### Grounded in official sources
+
+A language model's training data goes stale, and driving regulations do not
+stand still. The system prompt restricts the assistant to Danish driving theory,
+and an Exa web search tool lets it look things up on official and relevant
+sources: faerdselsstyrelsen.dk, borger.dk, retsinformation.dk and
+teorionline.dk.
+
+## Evaluation
+
+| Scenario                          | Result                                                          |
+| --------------------------------- | --------------------------------------------------------------- |
+| Add a new AI provider in 1 hour   | Achieved. One line in `AI_MODELS`, estimated well under 30 min  |
+| Replace the active provider       | Achieved. Change `AI_PROVIDER` and redeploy, under 30 min       |
+| Deploy without user disruption    | Partially. Zero-downtime deploys depend on the hosting platform |
+
+Modifiability and integrability were fully achieved. Availability was only
+partially achieved: errors are handled and an invalid provider falls back to a
+default, but there is no automatic failover to another provider if the active
+one goes down at runtime. Performance was deliberately deprioritised and has
+not been formally benchmarked.
+
+## Limitations and next steps
+
+- Questions and answers are not logged yet, only provider selection and errors
+- Chat history is not persisted, so previous conversations cannot be revisited
+- Switching provider still requires a redeploy rather than a runtime setting
+- Automatic runtime failover between providers is the obvious next step for
+  availability
+
+## Takeaway
+
+The most valuable part of the project was not the chatbot but the boundary
+around it. By treating the AI provider as a replaceable detail behind a single
+interface, TeoriOnline.dk can follow the AI market instead of being tied to it:
+switch to a cheaper model, try a newer one, or move away from a provider whose
+prices or terms change, all through configuration.
+
+Try the prototype at
+[trafik-gpt.vercel.app](https://trafik-gpt.vercel.app/).

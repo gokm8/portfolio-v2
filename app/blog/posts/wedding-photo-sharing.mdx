@@ -2,9 +2,9 @@
 ---
 title: 'Wedding Photo Sharing'
 publishedAt: '2025-06-07'
-summary: 'This project is a custom-built wedding photo sharing app, created for a friend’s wedding. Guests scanned QR codes at their tables to instantly upload photos, resulting in 91 memories from 212 visitors with zero downtime.'
+summary: 'Custom photo sharing app built for a friend’s wedding. Guests scanned QR codes at their tables to upload photos instantly, resulting in 91 memories from 212 visitors with zero downtime.'
 context: 'Personal Project, Event Photo Sharing'
-techStack: 'Next.js 15, Zod, PostgreSQL, Supabase, Nodemailer'
+techStack: 'Next.js 15, Zod, PostgreSQL, Prisma, Supabase, Nodemailer'
 link: 'ayserenas.dk'
 githubRepoLink: 'https://github.com/gokm8/qr-wedding-snap'
 ---
@@ -13,7 +13,7 @@ githubRepoLink: 'https://github.com/gokm8/qr-wedding-snap'
 When my good friend Renas Demir was planning his wedding, he asked if I knew of
 any service where guests could easily share their photos. Instead of pointing
 him to an existing solution, I offered to build something custom for them. The
-result was [www.ayserenas.dk](https://www.ayserenas.dk) - a simple web app where
+result was [ayserenas.dk](https://www.ayserenas.dk), a simple web app where
 guests could scan QR codes at their tables and instantly upload photos from
 their phones.
 
@@ -25,18 +25,18 @@ _Wedding tables with QR codes allowing guests to upload photos instantly_
 
 The wedding day was a complete success:
 
-- **212 guests** visited the website 📱
-- **91 lovely memories** collected 📸
-- **1 happy bridal couple** ❤️
+- **212 guests** visited the website
+- **91 memories** collected
+- **1 happy bridal couple**
 
-Zero downtime throughout the event. Guests aged 20-70 uploaded successfully
-without help.
+Zero downtime throughout the event, and guests aged 20 to 70 uploaded
+successfully without help.
 
-## What It Needed To Do
+## Requirements
 
 Before diving into code, I mapped out what the app needed to accomplish:
 
-**Functional Requirements:**
+**Functional requirements:**
 
 | ID     | Description                                      |
 | ------ | ------------------------------------------------ |
@@ -50,17 +50,17 @@ Before diving into code, I mapped out what the app needed to accomplish:
 | `FR08` | The couple must have access to a gallery         |
 | `FR09` | The couple must receive email notifications      |
 
-Most importantly, it needed to be fast, reliable, and simple enough for anyone
-to use - whether they're 20 or 70 years old.
+Most importantly, it needed to be fast, reliable and simple enough for anyone
+to use, whether they are 20 or 70 years old.
 
-## How It Works
+## How it works
 
 I built the app with Next.js 15, using React for the interface and Tailwind CSS
 for styling. For the backend, I used PostgreSQL to store photo information and
 Supabase Storage to host the actual images. This setup gave me fast loading
 times and the ability to handle multiple uploads at once.
 
-The tech stack included:
+The stack:
 
 - **Next.js 15** for the web framework
 - **React Hook Form & Zod** for handling uploads and validation
@@ -68,31 +68,31 @@ The tech stack included:
 - **Supabase Storage** for images
 - **Nodemailer** for sending instant email notifications
 
-### The Upload Flow
+### The upload flow
 
 When a guest scans the QR code, here's what happens:
 
 1. Land on the home page
-2. Click to upload CTA
+2. Tap the upload button
 3. Enter their name
 4. Select photos from phone
-5. App validates files
+5. The app validates the files
 6. Photos upload in parallel
-7. Data saves to database
-8. Couple gets instant email
-9. Photos appear in gallery
+7. Metadata is saved to the database
+8. The couple gets an instant email
+9. Photos appear in the gallery
 
 The entire app runs on Vercel's serverless platform, which automatically scales
-to handle many uploads at once - perfect for when everyone's taking photos
+to handle many uploads at once, which suited when everyone's taking photos
 during the wedding.
 
-### System Architecture
+### System architecture
 
 Here's how all the pieces fit together:
 
 ![System architecture diagram showing Next.js frontend, API routes, PostgreSQL database, and Supabase storage](/blog/wedding-photo-sharing/architecture.png 'System architecture diagram')
 
-## Building the Upload System
+## Building the upload system
 
 The heart of the app is the upload endpoint. When photos come in, the system
 processes them efficiently by handling multiple uploads at the same time. Each
@@ -101,10 +101,11 @@ to the database. Once everything's uploaded, an email fires off to the couple
 with a preview of the new photos.
 
 This parallel processing approach means that when guests upload several photos
-at once, they don't have to wait for each one to finish before the next starts -
-everything happens simultaneously, making the experience feel instant.
+at once, they do not have to wait for each one to finish before the next
+starts. Everything happens simultaneously, which makes the experience feel
+instant.
 
-## The User Experience
+## The user experience
 
 I kept the interface simple and clean. The home page greets guests with a
 welcoming photo and a clear call-to-action button.
@@ -120,10 +121,11 @@ not too large.
 For the couple, there's a private gallery showing all uploaded photos in a grid
 layout, with each guest's name displayed alongside their contributions.
 
-_The gallery displays all wedding photos with guest names in a clean, responsive
-grid_
+![Private gallery showing uploaded wedding photos in a grid with guest names](/blog/wedding-photo-sharing/gallery-page.png 'Gallery page')
 
-## Staying in the Loop
+_The gallery displays all wedding photos with guest names in a responsive grid_
+
+## Staying in the loop
 
 Every time a guest uploads photos, the couple gets an email showing who
 uploaded, how many photos, and small preview thumbnails. This way, even during
@@ -131,7 +133,7 @@ the busy wedding day, they can see the memories being captured in real-time.
 
 ![Email notification showing newly uploaded photos with guest name and thumbnails](/blog/wedding-photo-sharing/email-notification.gif 'Real-time email notification with photo previews')
 
-## Wrapping Up
+## Wrapping up
 
 Building this app taught me that sometimes the best solutions are the simplest
 ones. By focusing on making photo uploads effortless, the app just worked - no
@@ -140,5 +142,5 @@ day.
 
 The combination of Next.js, Prisma, and Supabase gave me everything I needed to
 build something reliable and fast. But the best part? Seeing friends celebrate
-their special day while your code quietly works in the background, capturing
-memories.
+their special day while my code quietly worked in the background, capturing
+their memories.

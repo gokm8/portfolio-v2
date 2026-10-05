@@ -55,42 +55,46 @@ function getMDXData(dir: string) {
   })
 }
 
+/** All posts, newest first. */
 export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
+  return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts')).sort(
+    (a, b) =>
+      new Date(b.metadata.publishedAt).getTime() -
+      new Date(a.metadata.publishedAt).getTime()
+  )
 }
 
-export function formatDate(date: string, includeRelative = false) {
-  const currentDate = new Date()
+export type BlogPost = ReturnType<typeof getBlogPosts>[number]
+
+/** Project dates are month-precise, so "Aug 2025" rather than a fake day. */
+export function formatDate(date: string) {
   if (!date.includes('T')) {
     date = `${date}T00:00:00`
   }
-  const targetDate = new Date(date)
-
-  const yearsAgo = currentDate.getFullYear() - targetDate.getFullYear()
-  const monthsAgo = currentDate.getMonth() - targetDate.getMonth()
-  const daysAgo = currentDate.getDate() - targetDate.getDate()
-
-  let formattedDate = ''
-
-  if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`
-  } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`
-  } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`
-  } else {
-    formattedDate = 'Today'
-  }
-
-  const fullDate = targetDate.toLocaleString('en-us', {
-    month: 'long',
-    day: 'numeric',
+  return new Date(date).toLocaleString('en-us', {
+    month: 'short',
     year: 'numeric'
   })
+}
 
-  if (!includeRelative) {
-    return fullDate
-  }
+/** Frontmatter stores bare hosts as well as full URLs. */
+export function toHref(url: string) {
+  return url.startsWith('http') ? url : `https://${url}`
+}
 
-  return `${fullDate} (${formattedDate})`
+/** Hostname without www, e.g. "teorionline.dk". */
+export function displayHost(url: string) {
+  return new URL(toHref(url)).hostname.replace(/^www\./, '')
+}
+
+/** A YouTube link is a demo recording, not a live site. */
+export function isVideoLink(url: string) {
+  return /(^|\.)(youtube\.com|youtu\.be)$/.test(displayHost(url))
+}
+
+export function splitTechStack(techStack?: string) {
+  return (techStack ?? '')
+    .split(',')
+    .map((tech) => tech.trim())
+    .filter(Boolean)
 }

@@ -13,7 +13,8 @@ function AlertNew() {
             <Link
               href='https://teorionline.dk'
               target='_blank'
-              className='text-primary underline'
+              rel='noopener noreferrer'
+              className='text-primary underline underline-offset-4'
             >
               teorionline.dk
             </Link>

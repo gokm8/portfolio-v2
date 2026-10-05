@@ -42,6 +42,16 @@
 
   /* font-family */
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Type scale. Everything is Geist Mono; hierarchy comes from size, weight
+     and colour only:
+       text-xs   meta (dates, locations, labels), tracking-wide
+       text-sm   UI (nav, buttons, links, chips)
+       text-body descriptive copy, muted, leading-relaxed
+       text-base item titles, font-semibold tracking-tight
+       text-lg   section headings, font-medium */
+  --text-body: 0.9375rem;
+  --text-body--line-height: 1.625;
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   @keyframes marquee {

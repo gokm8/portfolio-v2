@@ -3,6 +3,7 @@ import { Section, Container } from '../ds'
 import { Badge } from '../ui/badge'
 import { Card, CardContent, CardFooter, CardHeader } from '../ui/card'
 import SectionHeading from './SectionHeading'
+import { splitDate } from '@/lib/utils'
 
 function EducationNew() {
   return (
@@ -14,17 +15,19 @@ function EducationNew() {
           <Card key={data.id} className='mb-4 last:mb-0'>
             <CardHeader>
               <div className='flex flex-row flex-wrap items-baseline justify-between gap-x-4 gap-y-1'>
-                <h3 className='text-muted-foreground text-xs tracking-wide'>
+                <p className='text-muted-foreground text-xs tracking-wide'>
                   {data.school}
-                </h3>
+                </p>
                 <p className='text-muted-foreground shrink-0 text-xs tracking-wide'>
-                  {data.date}
+                  {splitDate(data.date).period}
                 </p>
               </div>
-              <p className='text-base font-semibold'>{data.education}</p>
+              <h3 className='text-base leading-snug font-semibold tracking-tight'>
+                {data.education}
+              </h3>
             </CardHeader>
             <CardContent>
-              <p className='text-muted-foreground max-w-[68ch] text-[0.9375rem] leading-relaxed'>
+              <p className='text-muted-foreground text-body max-w-[68ch]'>
                 {data.description}
               </p>
             </CardContent>

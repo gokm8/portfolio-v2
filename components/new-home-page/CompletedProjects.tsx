@@ -1,123 +1,96 @@
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 import { Container, Section } from '../ds'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle
-} from '../ui/card'
+import { Card, CardContent, CardFooter, CardHeader } from '../ui/card'
 import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
-import { getBlogPosts } from '@/app/blog/utils'
+import {
+  formatDate,
+  getBlogPosts,
+  splitTechStack,
+  type BlogPost
+} from '@/app/blog/utils'
+import ProjectLinks from '@/app/blog/__components/project-links'
 import SectionHeading from './SectionHeading'
+import ShowMore from './ShowMore'
 
-/** Strip protocol and www so the displayed host reads consistently. */
-function displayHost(url: string) {
-  return url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')
-}
+function ProjectCard({ post }: { post: BlogPost }) {
+  const { metadata, slug } = post
+  const href = `/blog/${slug}`
 
-/** Frontmatter stores bare hosts as well as full URLs. */
-function toHref(url: string) {
-  return url.startsWith('http') ? url : `https://${url}`
+  return (
+    <Card className='hover:border-primary/40 h-full transition-colors'>
+      <CardHeader>
+        <div className='text-muted-foreground flex flex-row flex-wrap items-baseline justify-between gap-x-4 gap-y-1 text-xs tracking-wide'>
+          {metadata.context && <p>{metadata.context}</p>}
+          <time dateTime={metadata.publishedAt} className='shrink-0'>
+            {formatDate(metadata.publishedAt)}
+          </time>
+        </div>
+        <h3 className='text-base leading-snug font-semibold tracking-tight'>
+          <Link
+            href={href}
+            className='hover:text-primary focus-visible:ring-ring rounded-sm transition-colors focus-visible:ring-2 focus-visible:outline-hidden'
+          >
+            {metadata.title}
+          </Link>
+        </h3>
+      </CardHeader>
+
+      <CardContent className='flex flex-col gap-4'>
+        <p className='text-muted-foreground text-body max-w-[68ch]'>
+          {metadata.summary}
+        </p>
+        {metadata.techStack && (
+          <div className='flex flex-row flex-wrap gap-1.5'>
+            {splitTechStack(metadata.techStack).map((tech) => (
+              <Badge key={tech} variant='secondary'>
+                {tech}
+              </Badge>
+            ))}
+          </div>
+        )}
+      </CardContent>
+
+      <CardFooter className='flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between'>
+        <Button variant='outline' className='group w-full sm:w-auto' asChild>
+          <Link href={href}>
+            Read the write-up
+            <ArrowRight
+              aria-hidden='true'
+              className='transition-transform group-hover:translate-x-0.5'
+            />
+          </Link>
+        </Button>
+        <ProjectLinks metadata={metadata} />
+      </CardFooter>
+    </Card>
+  )
 }
 
 function CompletedProjectsNew() {
-  const blogPosts = getBlogPosts()
+  const posts = getBlogPosts()
 
   return (
-    <Section>
+    <Section id='projects'>
       <Container>
-        <SectionHeading>Selected Projects</SectionHeading>
-        {[...blogPosts]
-          .sort((a, b) => {
-            return new Date(a.metadata.publishedAt) >
-              new Date(b.metadata.publishedAt)
-              ? -1
-              : 1
-          })
-          .map((post) => (
-            <div key={post.slug} className='mb-4 last:mb-0'>
-              <Card className='hover:border-primary/40 transition-colors'>
-                {/* Project title and website link */}
-                <CardHeader>
-                  {post.metadata.link && (
-                    <CardDescription>
-                      <p className='text-muted-foreground text-xs tracking-wide'>
-                        {displayHost(post.metadata.link)}
-                      </p>
-                    </CardDescription>
-                  )}
-                  <CardTitle>
-                    <h3 className='text-lg font-semibold tracking-tight'>
-                      {post.metadata.title}
-                    </h3>
-                  </CardTitle>
-                  {post.metadata.context && (
-                    <p className='text-muted-foreground text-xs tracking-wide'>
-                      {post.metadata.context}
-                    </p>
-                  )}
-                </CardHeader>
-
-                {/* Project description and tech stack */}
-                <CardContent className='flex flex-col gap-4'>
-                  <p className='text-muted-foreground max-w-[68ch] text-[0.9375rem] leading-relaxed'>
-                    {post.metadata.summary || 'No summary available'}
-                  </p>
-                  {post.metadata.techStack && (
-                    <div className='flex flex-row flex-wrap gap-1.5'>
-                      {post.metadata.techStack
-                        .split(',')
-                        .map((tech) => tech.trim())
-                        .filter(Boolean)
-                        .map((tech) => (
-                          <Badge key={tech} variant='secondary'>
-                            {tech}
-                          </Badge>
-                        ))}
-                    </div>
-                  )}
-                </CardContent>
-
-                {/* Actions */}
-                <CardFooter className='flex flex-col items-start gap-3'>
-                  <Button
-                    variant='outline'
-                    className='w-full sm:w-auto'
-                    asChild
-                  >
-                    <Link href={`/blog/${post.slug}`}>Read the write-up</Link>
-                  </Button>
-                  {(post.metadata.link || post.metadata.githubRepoLink) && (
-                    <div className='flex flex-row flex-wrap items-center gap-x-5 gap-y-1 text-xs tracking-wide'>
-                      {post.metadata.link && (
-                        <Link
-                          href={toHref(post.metadata.link)}
-                          target='_blank'
-                          rel='noopener noreferrer'
-                          className='text-muted-foreground hover:text-primary focus-visible:ring-ring rounded-sm underline decoration-dotted underline-offset-4 transition-colors focus-visible:ring-2 focus-visible:outline-hidden'
-                        >
-                          Live site
-                        </Link>
-                      )}
-                      {post.metadata.githubRepoLink && (
-                        <Link
-                          href={post.metadata.githubRepoLink}
-                          target='_blank'
-                          rel='noopener noreferrer'
-                          className='text-muted-foreground hover:text-primary focus-visible:ring-ring rounded-sm underline decoration-dotted underline-offset-4 transition-colors focus-visible:ring-2 focus-visible:outline-hidden'
-                        >
-                          Source
-                        </Link>
-                      )}
-                    </div>
-                  )}
-                </CardFooter>
-              </Card>
-            </div>
+        <SectionHeading
+          aside={
+            <Link
+              href='/blog'
+              className='hover:text-primary focus-visible:ring-ring rounded-sm underline decoration-dotted underline-offset-4 transition-colors focus-visible:ring-2 focus-visible:outline-hidden'
+            >
+              All projects
+            </Link>
+          }
+        >
+          Selected Projects
+        </SectionHeading>
+        <ShowMore initialCount={3} noun='projects'>
+          {posts.map((post) => (
+            <ProjectCard key={post.slug} post={post} />
           ))}
+        </ShowMore>
       </Container>
     </Section>
   )

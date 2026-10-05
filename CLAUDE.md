@@ -64,8 +64,9 @@ The root layout (`app/layout.tsx`) wraps everything in `<Layout>` → `<ThemePro
 All home page sections live in `components/new-home-page/` and are composed in `app/page.tsx`:
 - `Introduction.tsx` — hero card with avatar, scrambling name, rotating titles, social links
 - `SectionHeading.tsx` — shared heading (accent square + title + rule) used by every section
-- `ExperienceTimeline.tsx` — shared timeline rendering; `WorkExperience.tsx` and `VolunteerExperience.tsx` are thin wrappers over it
-- `CompletedProjects.tsx`, `Education.tsx`, `Technologies.tsx`
+- `ExperienceTimeline.tsx` — shared two-column experience list (dates left, role right); `WorkExperience.tsx` and `VolunteerExperience.tsx` are thin wrappers over it
+- `CompletedProjects.tsx` — project cards from the MDX posts; `ShowMore.tsx` collapses them to the first three
+- `Education.tsx`, `Technologies.tsx`
 - `wrapper/Navbar.tsx`, `wrapper/Footer.tsx`, `wrapper/Alert.tsx`
 
 ### Blog / Projects Route
@@ -86,7 +87,7 @@ techStack?: string    # comma-separated, split in the card component
 ---
 ```
 
-Slug is derived from the filename. `getBlogPosts()` reads all `.mdx` files at build time.
+Slug is derived from the filename. `getBlogPosts()` reads all `.mdx` files at build time and returns them newest first. Link/date helpers (`formatDate`, `displayHost`, `isVideoLink`, `splitTechStack`) live in `app/blog/utils.tsx`.
 
 ### Data Management
 
@@ -99,6 +100,17 @@ Static content in `data/`:
 without a logo (REST API, ETL, SQL) belong on the roles and projects that evidence them.
 
 Follow existing TypeScript type definitions when adding entries.
+
+### Type Scale
+
+Everything is Geist Mono; hierarchy comes from size, weight and colour (defined in `app/globals.css`):
+- `text-xs tracking-wide` — meta (dates, locations, labels); left-column labels use `text-primary`
+- `text-sm` — UI (nav, buttons, links, chips)
+- `text-body` (15px token) — descriptive copy, `text-muted-foreground`
+- `text-base font-semibold tracking-tight` — item titles
+- `text-lg font-medium` — section headings (`SectionHeading`)
+
+Use theme tokens (`primary`, `muted-foreground`, `border`…) rather than raw colours. Date ranges go through `splitDate()` in `lib/utils.ts`.
 
 ### Utilities
 

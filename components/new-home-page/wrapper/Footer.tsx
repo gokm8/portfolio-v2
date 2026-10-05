@@ -27,28 +27,35 @@ function Footer() {
       <Section>
         <Separator orientation='horizontal' />
         <Container>
-          <div className='flex justify-between py-4'>
-            {/* Dit navn i midten */}
-
-            <div className='flex flex-row gap-2'>
-              <p className='text-muted-foreground text-base'>
-                © {new Date().getFullYear()}
-              </p>
+          <div className='flex items-center justify-between py-4'>
+            <p className='text-muted-foreground text-sm'>
+              © {new Date().getFullYear()}{' '}
               <Link
                 href='/'
-                className='text-muted-foreground hover:text-primary text-base underline'
+                className='hover:text-primary underline decoration-dotted underline-offset-4 transition-colors'
               >
                 gokm8.xyz
               </Link>
-            </div>
+            </p>
 
-            {/* Social media icons til højre */}
             <div className='flex flex-row gap-4'>
-              {socialMediaLogos.map((logo) => (
-                <Link href={logo.href} key={logo.alt}>
-                  <logo.icon className='text-muted-foreground hover:text-primary size-5' />
-                </Link>
-              ))}
+              {socialMediaLogos.map((logo) => {
+                const isExternal = logo.href.startsWith('http')
+                return (
+                  <Link
+                    href={logo.href}
+                    key={logo.alt}
+                    aria-label={logo.alt}
+                    {...(isExternal && {
+                      target: '_blank',
+                      rel: 'noopener noreferrer'
+                    })}
+                    className='text-muted-foreground hover:text-primary focus-visible:ring-ring rounded-sm transition-colors focus-visible:ring-2 focus-visible:outline-hidden'
+                  >
+                    <logo.icon className='size-4' />
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </Container>

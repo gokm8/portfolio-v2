@@ -18,10 +18,13 @@ export function Navigation() {
   return (
     <Nav containerClassName='max-w-3xl'>
       <div className='flex items-center justify-between'>
-        <Link href='/' className='text-muted-foreground hover:text-primary'>
+        <Link
+          href='/'
+          className='text-muted-foreground hover:text-primary text-sm transition-colors'
+        >
           gokm8.xyz
         </Link>
-        <ul className='flex items-center gap-4'>
+        <ul className='flex items-center gap-4 text-sm'>
           {navLinks.map((link) => {
             const isActive =
               link.href === '/'

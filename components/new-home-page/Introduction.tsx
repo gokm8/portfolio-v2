@@ -53,7 +53,7 @@ function IntroductionNew() {
                 <AvatarFallback>GØ</AvatarFallback>
               </Avatar>
               <CardTitle>
-                <h1 className='text-2xl tracking-tight sm:text-4xl'>
+                <h1 className='text-2xl font-semibold tracking-tight sm:text-4xl'>
                   <HyperText>Gøkmen Øzbayir</HyperText>
                 </h1>
                 <div className='flex flex-row gap-2'>
@@ -68,7 +68,7 @@ function IntroductionNew() {
             </div>
 
             <CardDescription className='mt-2'>
-              <p className='max-w-[62ch] text-[0.9375rem] leading-relaxed'>
+              <p className='text-body max-w-[62ch]'>
                 Software Engineer with experience in fullstack software
                 development, software design and architecture. I work structured
                 and take ownership of both independent tasks and solutions

@@ -8,6 +8,10 @@ type Metadata = {
   image?: string
   link?: string
   githubRepoLink?: string
+  /** Short context line, e.g. "Bachelor's Project, University of Southern Denmark" */
+  context?: string
+  /** Comma-separated tech stack, e.g. "React, Node.js, MySQL" */
+  techStack?: string
 }
 
 function parseFrontmatter(fileContent: string) {

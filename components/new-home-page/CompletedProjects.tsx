@@ -9,6 +9,7 @@ import {
   CardTitle
 } from '../ui/card'
 import { Separator } from '../ui/separator'
+import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
 import { ShineBorder } from '../ui/shine-border'
 import { getBlogPosts } from '@/app/blog/utils'
@@ -43,13 +44,31 @@ function CompletedProjectsNew() {
                   <CardTitle>
                     <h3 className='text-xl'>{post.metadata.title}</h3>
                   </CardTitle>
+                  {post.metadata.context && (
+                    <p className='text-muted-foreground text-xs'>
+                      {post.metadata.context}
+                    </p>
+                  )}
                 </CardHeader>
 
                 {/* Project tech stack and description */}
-                <CardContent>
+                <CardContent className='flex flex-col gap-4'>
                   <p className='text-muted-foreground line-clamp-2 text-base'>
                     {post.metadata.summary || 'No summary available'}
                   </p>
+                  {post.metadata.techStack && (
+                    <div className='flex flex-row flex-wrap gap-2'>
+                      {post.metadata.techStack
+                        .split(',')
+                        .map((tech) => tech.trim())
+                        .filter(Boolean)
+                        .map((tech) => (
+                          <Badge key={tech} variant='secondary'>
+                            {tech}
+                          </Badge>
+                        ))}
+                    </div>
+                  )}
                 </CardContent>
 
                 {/* Button and Links */}

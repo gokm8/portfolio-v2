@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Development**: `npm run dev` (Next.js Turbopack mode)
 - **Build**: `npm run build`
 - **Start Production**: `npm start`
-- **Linting**: `npm run lint`
+- **Linting**: `npm run lint` (ESLint 9 CLI, flat config in `eslint.config.mjs`)
 - **Formatting**: `npx prettier --write .` (Prettier with `prettier-plugin-tailwindcss`)
 
 No test suite exists in this project.
@@ -19,22 +19,19 @@ Next.js 15 portfolio site with React 19, TypeScript, and Tailwind CSS v4, deploy
 ### Key Technologies
 - **Framework**: Next.js 15 with App Router
 - **Styling**: Tailwind CSS v4 with `prettier-plugin-tailwindcss` for class sorting
-- **UI Components**: Radix UI primitives, shadcn/ui, and Magic UI components (`components/ui/`)
-- **Animations**: Framer Motion + Motion
+- **UI Components**: shadcn/ui and Magic UI components (`components/ui/`); only components in use are kept, add new ones with the shadcn CLI
+- **Animations**: Motion (`motion/react`)
 - **Typography**: Geist Mono (`next/font/google`)
-- **Blog/Projects**: MDX via `next-mdx-remote` and `@next/mdx`
+- **Blog/Projects**: MDX via `next-mdx-remote`
 - **Theme**: `next-themes` with system/light/dark toggle
 - **Analytics**: Vercel Analytics
 
-### Design Systems — Two Files, One Active
+### Design System
 
-There are two design system files. **Always import from `components/ds.tsx`** for new work:
-
-- **`components/ds.tsx`** (active): `Layout`, `Main`, `Section`, `Container`, `Nav`, `Prose`
+Layout primitives live in **`components/ds.tsx`**: `Layout`, `Main`, `Section`, `Container`, `Nav`, `Prose`
   - `Container`: `mx-auto max-w-3xl p-4 sm:p-6`
   - `Section`: `py-2 sm:py-4`
   - `Prose`: rich text styling component; accepts `isArticle` (adds `max-w-prose`) and `isSpaced` (adds heading/paragraph spacing) props
-- **`components/craft.tsx`** (legacy craft-ds v0.2.8): exports same-named components with different constraints (`max-w-2xl` container). Still used by nothing active — do not use for new components.
 
 ### Path Aliases
 

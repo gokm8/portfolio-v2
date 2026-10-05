@@ -10,7 +10,12 @@ import {
 } from '../ui/card'
 import Link from 'next/link'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
-import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa'
+import {
+  FaLinkedin,
+  FaGithub,
+  FaEnvelope,
+  FaMapMarkerAlt
+} from 'react-icons/fa'
 import { HyperText } from '../ui/hyper-text'
 import { BorderBeam } from '../ui/border-beam'
 import { SparklesCore } from '../ui/sparkles'
@@ -87,7 +92,7 @@ function IntroductionNew() {
 
           {/* Contact info (Social media icons and email) */}
           <CardContent>
-            <div className='flex flex-col gap-2'>
+            <div className='flex flex-row items-center justify-between gap-2'>
               <div className='flex flex-row justify-start gap-2'>
                 {socialMediaLogos.map((logo) => (
                   <Link href={logo.href} key={logo.alt}>
@@ -106,6 +111,10 @@ function IntroductionNew() {
                   <FaEnvelope className='size-4' />
                 </div>
               </div>
+              <p className='text-muted-foreground flex flex-row items-center gap-1 text-xs'>
+                <FaMapMarkerAlt className='size-3' />
+                Copenhagen, Denmark
+              </p>
             </div>
           </CardContent>
           <BorderBeam duration={6} size={120} />

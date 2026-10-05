@@ -12,17 +12,19 @@ export const educationalData: Education[] = [
     id: 1,
     school: 'University of Southern Denmark, SDU',
     date: 'Sep. 2022 - Jan. 2026',
-    education: 'BEng in Software Technology',
+    education: 'B.Eng. in Software Engineering',
     description:
-      'Bachelor of Engineering in Software Technology with a focus on OOP, software development, software architecture, design, databases, DevOps and agile methodologies.',
+      'Focused on software development, system design, databases and cloud technologies, developing competencies in APIs, software architecture and modern web development. Bachelor’s project on AI architecture with LLM providers, focusing on flexibility and vendor independence.',
     badge: [
-      'OOP',
       'Software Development',
       'Software Architecture',
-      'Design',
       'Databases',
+      'Web Development',
+      'Distributed Systems',
       'DevOps',
-      'Agile Methodologies'
+      'Object-Oriented Programming',
+      'Cybersecurity',
+      'Algorithms & Data Structures'
     ]
   },
   {
@@ -31,13 +33,15 @@ export const educationalData: Education[] = [
     date: 'Feb. 2019 - Jan. 2021',
     education: 'AP Graduate in Marketing Management',
     description:
-      'Developed a strong understanding of business, sales and B2B relationships, which I apply to understand and translate business and customer needs into solutions.',
+      'Focused on business, sales, marketing, finance and organizational understanding, combining analysis, planning and execution of commercial initiatives. Worked with both B2B and B2C marketing, market communication and customer needs.',
     badge: [
-      'Marketing Management',
-      'Business',
+      'Business Fundamentals',
       'Sales',
-      'B2B Relationships',
-      'Customer Needs'
+      'B2B/B2C',
+      'Marketing',
+      'Communication',
+      'Finance',
+      'Entrepreneurship'
     ]
   }
 ]

@@ -17,7 +17,7 @@ function Home() {
       <VolunteerExperienceNew />
       <CompletedProjectsNew />
       <EducationNew />
-      <SkillsNew />
+      {/* <SkillsNew /> */}
       <TechnologiesNew />
     </Main>
   )

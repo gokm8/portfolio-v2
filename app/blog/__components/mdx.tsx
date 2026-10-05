@@ -41,8 +41,12 @@ function CustomLink(props: { href: string; children: React.ReactNode }) {
   return <a target='_blank' rel='noopener noreferrer' {...props} />
 }
 
-function RoundedImage(props: React.ComponentProps<typeof Image>) {
-  return <Image {...props} />
+function RoundedImage({
+  alt = '',
+  ...props
+}: React.ComponentProps<typeof Image>) {
+  // MDX supplies alt from ![alt](src); default to empty for decorative images.
+  return <Image alt={alt} {...props} />
 }
 
 function Code({ children, ...props }: { children: React.ReactNode }) {

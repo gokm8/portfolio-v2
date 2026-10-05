@@ -62,8 +62,6 @@ function IntroductionNew() {
                     <p>Fullstack Software Engineer</p>
                     <p>Software Architect</p>
                     <p>Problem Solver</p>
-                    <p>Team Player</p>
-                    <p>Lifelong Learner</p>
                   </TextLoop>
                 </div>
               </CardTitle>

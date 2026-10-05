@@ -62,8 +62,10 @@ The root layout (`app/layout.tsx`) wraps everything in `<Layout>` → `<ThemePro
 ### Home Page Components
 
 All home page sections live in `components/new-home-page/` and are composed in `app/page.tsx`:
-- `Introduction.tsx` — hero card with sparkles animation, avatar, social links
-- `WorkExperience.tsx`, `CompletedProjects.tsx`, `Education.tsx`, `Technologies.tsx`
+- `Introduction.tsx` — hero card with avatar, scrambling name, rotating titles, social links
+- `SectionHeading.tsx` — shared heading (accent square + title + rule) used by every section
+- `ExperienceTimeline.tsx` — shared timeline rendering; `WorkExperience.tsx` and `VolunteerExperience.tsx` are thin wrappers over it
+- `CompletedProjects.tsx`, `Education.tsx`, `Technologies.tsx`
 - `wrapper/Navbar.tsx`, `wrapper/Footer.tsx`, `wrapper/Alert.tsx`
 
 ### Blog / Projects Route
@@ -79,6 +81,8 @@ summary: string
 image?: string        # path or URL for OG image
 link?: string         # live project URL
 githubRepoLink?: string
+context?: string      # e.g. "Bachelor's Project, University of Southern Denmark"
+techStack?: string    # comma-separated, split in the card component
 ---
 ```
 
@@ -87,7 +91,12 @@ Slug is derived from the filename. `getBlogPosts()` reads all `.mdx` files at bu
 ### Data Management
 
 Static content in `data/`:
-- `projects.ts`, `education.ts`, `technologies.ts`
+- `work-experience.ts` — roles plus the shared `Experience` type; `badge[]` renders filled, `competencies[]` renders as quiet outline badges
+- `volunteer-experience.ts` — reuses the `Experience` type
+- `education.ts`, `technologies.ts`
+
+`technologies.ts` is logo-only by design: every entry has a devicon mark. Capabilities
+without a logo (REST API, ETL, SQL) belong on the roles and projects that evidence them.
 
 Follow existing TypeScript type definitions when adding entries.
 

@@ -7,9 +7,9 @@ function AlertNew() {
     <Section>
       <Container>
         <Alert className='w-full'>
-          <AlertTitle>Have you seen my latest project?</AlertTitle>
-          <AlertDescription className='flex flex-row gap-2'>
-            Check it out now at
+          <AlertTitle>Currently building TeoriOnline</AlertTitle>
+          <AlertDescription className='flex flex-row flex-wrap gap-x-2'>
+            A digital learning platform for the Danish driving theory test
             <Link
               href='https://teorionline.dk'
               target='_blank'

@@ -123,7 +123,7 @@ export default async function Blog({
       <Section>
         <Container>
           <Prose className='mb-6'>
-            <p>Thanks for reading! ✨</p>
+            <p>Thanks for reading.</p>
           </Prose>
 
           <Separator orientation='horizontal' />
